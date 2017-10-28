@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/28 19:11:37 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2017/10/28 20:59:54 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 size_t		ft_strlen(const char *str);
 
+int			atoi(const char *str);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
