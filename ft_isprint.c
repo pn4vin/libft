@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/26 11:49:37 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/10/28 17:33:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/10/28 17:50:54 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+/*
+** @brief      Test whether an argument is a printable character
+**
+** @param      c     unsigned char value to be checked
+**
+** @note       argument is of type int to be capable of holding EOF value, which
+**             must be outside of the unsigned char region (x < 0 || x > 255)
+**
+** @return     1 if c is printable else 0
+*/
 
-# include <stdlib.h>
-# include <string.h>
-# include <stdio.h> // Remove when submitting
-
-size_t		ft_strlen(const char *str);
-
-int			ft_isprint(int c);
-int			ft_toupper(int c);
-int			ft_tolower(int c);
-
-#endif
+int		ft_isprint(int c)
+{
+	return (c >= 32 && c <= 126 ? 1 : 0);
+}
