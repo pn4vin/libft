@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   tolower.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/26 11:49:37 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/10/28 14:20:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/10/28 15:20:10 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+/*
+** @brief      convert an upper-case letter to the corresponding lower-case
+**             letter
+**
+** @param      c     unsigned char value or EOF
+**
+** @return     if the argument is upper-case, returns the corresponding
+**             lower-case letter; otherwise, the argument is returned unchanged
+*/
 
-# include <stdlib.h>
-# include <string.h>
-# include <stdio.h> // Remove when submitting
-
-size_t		ft_strlen(const char *str);
-int			ft_tolower(int c);
-
-#endif
+int		ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	else
+		return (c);
+}

@@ -2,13 +2,13 @@ NAME = libft.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -c
 
-SOURCES = ft_strlen.c
+SOURCES = ${wildcard ft_*.c}
 OBJECTS = ${SOURCES:.c=.o} 
 
 all: ${NAME}
 
 ${NAME}: ${OBJECTS}
-	ar -rcs ${NAME} ${OBJECTS}
+	ar -rcs ${NAME} $?
 
 ft_strlen.o:
 	${CC} ${FLAGS} ft_strlen.c -I .
