@@ -17,6 +17,6 @@
 # include <string.h>
 # include <stdio.h> // Remove when submitting
 
-int		ft_strlen(char *str);
+size_t		ft_strlen(const char *str);
 
 #endif
