@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   itoa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/28 19:17:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/28 19:24:28 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/10/29 21:45:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/10/29 21:45:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** @brief      Test character for being a digit
-**
-** @param      c     char to check
-**
-** @return     1 if char in range [0-9], else 0
-*/
+#include <stdlib.h>
 
-int		ft_isdigit(int c)
+char		*ft_itoa(int n, int base)
 {
-	return (c >= 48 && c <= 57);
+	char *res;
+	char *str = "0123456789abcdefghijklmnopqrstuvwxyz";
+
+	int n_tmp = n;
+	int new_len = 0;
+	int i = 0;
+	while (n_tmp >= base)
+	{
+		new_len++;
+		n_tmp /= base;
+	}
+	new_len += n_tmp % base > 0 ? 1 : 0;
+	res = (char *)malloc(sizeof(char) * (new_len + 1));
+	i = 0;
+	while (i < new_len)
+		res[new_len - 1 - i++] = str[n % base];
+	return (res);
 }
