@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 /*
-** @brief      Convert ASCII string to integer
+** @brief      Convert the initial portion of the byte string to integer
+**             representation
 **
-**             1) Pass blanks at the beginning
-**             2) Store sign
-**             3) Read digits left-to-right
+**             Equivalent to (and implemented in libc as) strtol
 **
 ** @param      str   The string
 **
@@ -24,14 +25,5 @@
 
 int		ft_atoi(const char *str)
 {
-	int res;
-	int sign;
-
-	while (*str == ' ' || (*str >= 9 && *str <= 13) || (res = 0) > 0)
-		str++;
-	sign = *str == '-' ? -1 : 1;
-	*str == '+' || *str == '-' ? str++ : 0;
-	while (*str >= 48 && *str <= 57)
-		res = res * 10 + *str++ - '0';
-	return (sign * res);
+	return ((int)ft_strtol(str, (char **)NULL, 10));
 }

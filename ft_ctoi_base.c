@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 /*
 ** @brief      Convert character to it's integer (base 10) representation, given
 **             arbitrary base.

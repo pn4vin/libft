@@ -16,7 +16,7 @@
 **             White-space character set comprises:
 **
 **             ASCII  |  Name
-**             
+**
 **             32     |  space
 **             09     |  horizontal tab
 **             10     |  line feed

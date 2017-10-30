@@ -10,32 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+/*
+** @brief      convert ASCII string to long integer
+**
+**             equivalent to (and implemented in libc as): strtol(str, (char
+**             **)NULL, 10)
+**
+** @param      str   The string
+**
+** @return     long integer representation of the number written in the string
+*/
+
 long int	ft_atol(const char *str)
 {
-	long int res;
-	long int sign;
-	long long min;
-	long long max;
-
-	max = 922337203685477580;
-
-	while (*str == ' ' || (*str >= 9 && *str <= 13) || (res = 0) > 0)
-		str++;
-	sign = *str == '-' ? -1 : 1;
-	*str == '+' || *str == '-' ? str++ : 0;
-	while (*str >= 48 && *str <= 57)
-	{
-		if (res >= max && sign == 1)
-			return (-1);
-		else if (res >= max && sign == -1)
-			return (0);
-		res = res * 10 + *str++ - '0';
-	}
-
-	return (sign * res);
-}
-
-int 	ft_atoi_fixed(const char *str)
-{
-	return ((int)ft_atol(str));
+	return (ft_strtol(str, (char **)NULL, 10));
 }
