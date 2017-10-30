@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa.c                                             :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/29 21:45:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/29 21:45:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/10/30 16:39:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/10/30 16:39:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-** @brief      Convert integet to it's byte string representation.
+** @brief      Convert integer to it's absolute value
 **
-** Equivalent to ft_itoa_base(n, 10)
+** @note       No check is performed, thus ft_abs(INT_MIN) will overflow. Be
+**             heedful.
 **
-** @param      n     The number to be converted
-** @param      base  The base or radix
+** @param      n     { parameter_description }
 **
-** @return     String storing the result of convertion
+** @return     { description_of_the_return_value }
 */
 
-char		*ft_itoa(int n)
+int		ft_abs(int n)
 {
-	return (ft_itoa_base(n, 10));
+	return (n < 0 ? -n : n);
 }
