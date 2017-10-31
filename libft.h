@@ -20,7 +20,8 @@
 int			ft_abs(int n);
 size_t		ft_strlen(const char *str);
 
-int		ft_strcmp(const char *s1, const char *s2);
+int			ft_strcmp(const char *s1, const char *s2);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int			ft_atoi(const char *str);
 long int	ft_atol(const char *str);
