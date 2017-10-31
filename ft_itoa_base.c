@@ -22,7 +22,7 @@
 ** @return     The length
 */
 
-const int	get_len(int value, int base)
+static int		get_len(int value, int base)
 {
 	int		len;
 
@@ -36,7 +36,7 @@ const int	get_len(int value, int base)
 	return (len);
 }
 
-const char	get_digit(int value, int base)
+static char		get_digit(int value, int base)
 {
 	char	*base_str;
 
