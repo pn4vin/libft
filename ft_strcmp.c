@@ -25,19 +25,15 @@
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	unsigned char		c1;
-	unsigned char		c2;
 	const unsigned char	*p1;
 	const unsigned char	*p2;
 
 	p1 = (const unsigned char *)s1;
 	p2 = (const unsigned char *)s2;
-	c1 = *p1++;
-	c2 = *p2++;
-	while (c1 == c2 && !(c1 == '\0' || c2 == '\0'))
+	while (*p1 == *p2 && !(*p1 == '\0' || *p2 == '\0'))
 	{
-		c1 = *p1++;
-		c2 = *p2++;
+		p1++;
+		p2++;
 	}
-	return (c1 - c2);
+	return (*p1 - *p2);
 }

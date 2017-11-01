@@ -6,22 +6,23 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 18:35:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/31 22:17:33 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2017/11/01 07:58:13 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-/**
+/*
 ** @brief      Compare two null-terminated strings, not more than n characters.
 **
 ** @param      s1    String 1
 ** @param      s2    String 2
-** @param      n     { parameter_description }
+** @param      n     Upper limit on the number of comparisons
 **
-** @return     { description_of_the_return_value }
+** @return     Difference between the first pair of nonequivalent characters
 */
+
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	int					i;
@@ -33,8 +34,10 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	while (i++ < n && !(*p1 == 0 || *p2 == 0))
 	{
-		if (*p1++ != *p2++)
-			return (*--p1 - *--p2);
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		p1++;
+		p2++;
 	}
-	return (*p1 - *p2);
+	return (n == 0 ? 0 : *p1 - *p2);
 }

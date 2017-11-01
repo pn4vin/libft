@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:11:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/30 14:11:00 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2017/11/01 15:22:15 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char		get_digit(int value, int base)
 ** @return     null-terminated string representation of the value provided
 */
 
-char		*ft_itoa_base(int value, int base)
+char			*ft_itoa_base(int value, int base)
 {
 	int		i;
 	int		len;
