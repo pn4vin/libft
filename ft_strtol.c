@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/29 14:16:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/29 17:33:25 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2017/11/02 15:43:08 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,23 @@ static int	get_digit(char c, int base)
 	}
 	return (-1);
 }
+
+/*
+** @brief      Control for overflow/underflow. If it occures, shrink number to
+**             corresponding LONG_MIN or LONG_MAX. Both long int and long long
+**             have sizeof() == 8, which is somehow unexpected.
+**
+**             Magic numbers:
+**
+**             922337203685477580 - LONG_MAX_BASE (without the last digit)
+**             9223372036854775807 - LONG_MAX
+** @param      res    The resource
+** @param      sign   The sign
+** @param      digit  The digit
+** @param      base   The base
+**
+** @return     True if overflow, False otherwise.
+*/
 
 static long	is_overflow(unsigned long res, int sign, int digit, int base)
 {
@@ -57,8 +74,6 @@ static long	is_overflow(unsigned long res, int sign, int digit, int base)
 **             the string is converted to a long, stopping at the first charated
 **             that is not valid int the given base.
 **
-**             A zero base is taken as 10 unless the next char is '0' (octal) or
-**             '0x' (hex).
 **
 **             If endpty is not NULL, strtol() stores the address of the first
 **             invalid characted in *endptr. If there was no digits at all,
@@ -76,10 +91,7 @@ static long	is_overflow(unsigned long res, int sign, int digit, int base)
 **	LONG_MIN     -2147483648    |  -9223372036854775808
 **	LONG_MAX      2147483647    |   9223372036854775807
 **
-**             Magic numbers:
 **
-**             922337203685477580 - LONG_MAX_BASE
-**             9223372036854775807 - LONG_MAX
 **
 ** @param      str     The string
 ** @param      endptr  The endptr
@@ -99,7 +111,7 @@ long		ft_strtol(const char *str, char **endptr, int base)
 	if (endptr != NULL)
 		*endptr = (char *)str;
 	res = 0;
-	if (base < 0 || base == 1 || base > 36)
+	if (base < 2 || base > 36)
 		return (0);
 	while (ft_isspace(*str))
 		str++;
