@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 20:26:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/04 20:26:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 11:49:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/06 11:49:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Concatenate two strings
+** @brief      Free memory pointed by ap and set pointer to NULL
 **
-** @param      s1    String 1
-** @param      s2    String 2
-**
-** @return     Concatenated first string
+** @param      ap    pointer to a memory needed to be freed
 */
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_memdel(void **ap)
 {
-	size_t		s1_len;
-	size_t		s2_len;
-
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	s1[s1_len + s2_len] = '\0';
-	while (s2_len--)
-		s1[s1_len + s2_len] = s2[s2_len];
-	return (s1);
+	if (ap != NULL)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

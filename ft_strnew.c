@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 20:26:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/04 20:26:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 12:21:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/06 12:21:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Concatenate two strings
+** @brief      Allocate and initialize a string
 **
-** @param      s1    String 1
-** @param      s2    String 2
+** @param      size  The size
 **
-** @return     Concatenated first string
+** @return     The string allocated and initialized to 0
 */
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strnew(size_t size)
 {
-	size_t		s1_len;
-	size_t		s2_len;
+	char *str;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	s1[s1_len + s2_len] = '\0';
-	while (s2_len--)
-		s1[s1_len + s2_len] = s2[s2_len];
-	return (s1);
+	str = (char *)ft_memalloc(size + 1);
+	if (str != NULL)
+		str[size] = '\0';
+	return (str);
 }

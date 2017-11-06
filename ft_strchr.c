@@ -24,16 +24,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	size_t	slen;
-
-	slen = ft_strlen(s) + 1;
-	i = 0;
-	while (i < slen)
+	while (*s)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	return (NULL);
+	return (*s == (char)c ? (char *)s : NULL);
 }

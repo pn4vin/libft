@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 20:26:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/04 20:26:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 16:35:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/06 16:35:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Concatenate two strings
+** @brief      Apply function f to each character of a string s
 **
-** @param      s1    String 1
-** @param      s2    String 2
-**
-** @return     Concatenated first string
+** @param      s     String to be processed
+** @param      f     Function to be applied, first argument is an index and
+**                   second is an index passed as a first argument.
 */
 
-char	*ft_strcat(char *s1, const char *s2)
+void		ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t		s1_len;
-	size_t		s2_len;
+	unsigned int		i;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	s1[s1_len + s2_len] = '\0';
-	while (s2_len--)
-		s1[s1_len + s2_len] = s2[s2_len];
-	return (s1);
+	i = 0;
+	if (s != NULL && f != NULL)
+	{
+		while (s[i])
+		{
+			f(i, &s[i]);
+			i++;
+		}
+	}
 }
+

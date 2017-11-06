@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 20:26:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/04 20:26:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 14:56:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/06 14:56:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Concatenate two strings
+** @brief      Set every character of the string to the value '\0'
 **
-** @param      s1    String 1
-** @param      s2    String 2
-**
-** @return     Concatenated first string
+** @param      s     The string that needs to be cleared
 */
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_strclr(char *s)
 {
-	size_t		s1_len;
-	size_t		s2_len;
-
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	s1[s1_len + s2_len] = '\0';
-	while (s2_len--)
-		s1[s1_len + s2_len] = s2[s2_len];
-	return (s1);
+	if (s != NULL)
+	{
+		while (*s)
+			*s++ = '\0';
+	}
 }
