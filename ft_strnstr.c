@@ -26,8 +26,8 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
-	int			i;
-	int			j;
+	size_t			i;
+	size_t			j;
 	const char	*substr_start;
 
 	substr_start = big;

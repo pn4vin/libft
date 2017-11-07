@@ -29,7 +29,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*s1p;
 	unsigned char	*s2p;
-	int				i;
+	size_t			i;
 
 	s1p = (unsigned char *)s1;
 	s2p = (unsigned char *)s2;

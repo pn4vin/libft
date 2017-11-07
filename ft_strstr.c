@@ -25,18 +25,25 @@ char	*ft_strstr(const char *big, const char *little)
 {
 	int			i;
 	int			j;
-	const char	*substr_start;
+	int			next;
 
-	substr_start = NULL;
+	if (!(*big) && !(*little))
+		return ((char *)big);
 	i = 0;
 	j = 0;
-	while (big[i] && little[j])
+	next = 0;
+	while (big[i] != '\0')
 	{
-		if (big[i] == little[j])
-			substr_start = j == 0 ? &big[i] : substr_start;
-		else
-			substr_start = NULL;
-		j = big[i++] == little[j] ? j + 1 : 0;
+		next = i;
+		j = 0;
+		while (big[i] && little[j] && (big[i] == little[j]))
+		{
+			i++;
+			j++;
+		}
+		if (little[j] == '\0')
+			return (&((char *)big)[next]);
+		i = next + 1;
 	}
-	return (ft_strlen(little) == 0 ? (char *)big : (char *)substr_start);
+	return (NULL);
 }

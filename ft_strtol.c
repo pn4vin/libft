@@ -50,7 +50,7 @@ static int	get_digit(char c, int base)
 
 static long	is_overflow(unsigned long res, int sign, int digit, int base)
 {
-	long	long_max_base;
+	unsigned long	long_max_base;
 	long	long_max;
 
 	long_max_base = 922337203685477580;
