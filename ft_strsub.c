@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 17:07:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/06 17:07:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 20:33:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/06 20:33:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Map function to the *fresh* string
+** @brief      Create a substring
 **
-** @param      s     String template
-** @param      f     Function to be applied
+** @note       if start or len are not valid, the behavior is undefined.
 **
-** @return     New string, each char of which is a result of f function call
+** @param      s      Source string
+** @param      start  Starting index of a new substring
+** @param      len    The length
+**
+** @return     New, independent substring if everything OK, NULL if KO
 */
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
 {
-	size_t	srclen;
 	char	*res;
 
-	if (s != NULL && f != NULL)
-	{
-		srclen = ft_strlen(s);
-		res = ft_strnew(srclen);
-		while (*s)
-			*res++ = f(*s++);
-		return (res - srclen);
-	}
+	res = ft_strnew(len);
+	if (res != NULL && s != NULL)
+		return (ft_strncpy(res, s + start, len));
 	else
 		return (NULL);
 }

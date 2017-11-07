@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 16:35:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/06 16:35:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 19:37:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/06 19:37:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Apply function f to each character of a string s
+** @brief      Create a new string by applying indexed function to a template
+**             string
 **
-** @param      s     String to be processed
-** @param      f     Function to be applied, first argument is an index and
-**                   second is an index passed as a first argument.
+** @param      s     String template
+** @param      f     Function to be applied
+**
+** @return     New string where each character is the result of f function call
 */
 
-void		ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int		i;
+	unsigned int	i;
+	size_t			srclen;
+	char			*res;
 
 	i = 0;
 	if (s != NULL && f != NULL)
 	{
+		srclen = ft_strlen(s);
+		res = ft_strnew(srclen);
 		while (s[i])
 		{
-			f(i, &s[i]);
+			res[i] = f(i, s[i]);
 			i++;
 		}
+		return (res);
 	}
+	else
+		return (NULL);
 }

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 16:35:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/06 16:35:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 13:31:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/07 13:33:47 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Apply function f to each character of a string s
+** @brief      Output the integer n to the provided file descriptor
 **
-** @param      s     String to be processed
-** @param      f     Function to be applied, first argument is an index and
-**                   second is an index passed as a first argument.
+** @param      n     Number
+** @param      fd    File Descriptor
 */
 
-void		ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int		i;
-
-	i = 0;
-	if (s != NULL && f != NULL)
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	if (n >= 10 || n <= -10)
 	{
-		while (s[i])
-		{
-			f(i, &s[i]);
-			i++;
-		}
+		ft_putnbr_fd(ft_abs(n / 10), fd);
 	}
+	ft_putchar_fd((char)(ft_abs(n % 10) + 48), fd);
 }

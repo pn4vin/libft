@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 16:35:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/06 16:35:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 21:11:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/06 21:11:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Apply function f to each character of a string s
+** @brief      Join two strings together
 **
-** @param      s     String to be processed
-** @param      f     Function to be applied, first argument is an index and
-**                   second is an index passed as a first argument.
+** @param      s1    String 1
+** @param      s2    String 2
+**
+** @return     New, independent string, which is the result of concatenation of
+**             s1 ans s2
 */
 
-void		ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	unsigned int		i;
+	char	*res;
 
-	i = 0;
-	if (s != NULL && f != NULL)
+	res = NULL;
+	if (s1 != NULL && s2 != NULL)
 	{
-		while (s[i])
+		res = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+		if (res != NULL)
 		{
-			f(i, &s[i]);
-			i++;
+			ft_strcpy(res, s1);
+			ft_strcat(res, s2);
 		}
 	}
+	return (res);
 }
