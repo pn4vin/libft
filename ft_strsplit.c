@@ -91,7 +91,7 @@ char	**ft_strsplit(const char *s, char c)
 				s = s + wlen;
 			}
 		}
-		tab[i] = ft_strnew(0);
+		tab[i] = NULL;
 	}
 	return (s != NULL ? tab : NULL);
 }

@@ -23,10 +23,10 @@ void	ft_lstadd(t_list **alst, t_list *new)
 {
 	t_list *head;
 
-	if (alst != NULL && *alst != NULL && new != NULL)
+	if (alst != NULL && new != NULL)
 	{
 		head = *alst;
 		*alst = new;
-		new->next= head;
+		new->next = head;
 	}
 }

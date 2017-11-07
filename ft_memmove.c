@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <printf.h>
 #include "libft.h"
 
 /*
@@ -29,14 +30,18 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*src_cpy;
 	int				i;
 
-	i = 0;
 	dest_ptr = (unsigned char *)dst;
-	src_cpy = (unsigned char *)malloc(sizeof(char) * len);
-	while (i < len)
-		src_cpy[i++] = *(unsigned char *)src++;
-	i = 0;
-	while (i < len)
-		*dest_ptr++ = src_cpy[i++];
-	free(src_cpy);
+	src_cpy = (unsigned char *)src;
+	if (src < dst)
+		ft_memcpy(dst, src, len);
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			dest_ptr[i] = src_cpy[i];
+			i++;
+		}
+	}
 	return (dst);
 }

@@ -29,7 +29,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	if (s != NULL && f != NULL)
 	{
 		srclen = ft_strlen(s);
-		res = ft_strnew(srclen);
+		if ((res = ft_strnew(srclen)) == NULL)
+			return (NULL);
 		while (*s)
 			*res++ = f(*s++);
 		return (res - srclen);

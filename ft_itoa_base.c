@@ -70,7 +70,8 @@ char			*ft_itoa_base(int value, int base)
 	if (base < 2 || base > 36)
 		return (NULL);
 	len = get_len(value, base);
-	str = (char *)malloc(sizeof(char) * (len));
+	if ((str = (char *)malloc(sizeof(char) * (len))) == NULL)
+		return (NULL);
 	len -= (str[len - 1] = '\0') == '\0' ? 1 : 0;
 	i = 0;
 	str[i++] = (char)(value < 0 ? '-' : i--);

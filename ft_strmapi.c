@@ -32,7 +32,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s != NULL && f != NULL)
 	{
 		srclen = ft_strlen(s);
-		res = ft_strnew(srclen);
+		if ((res = ft_strnew(srclen)) == NULL)
+			return (NULL);
 		while (s[i])
 		{
 			res[i] = f(i, s[i]);

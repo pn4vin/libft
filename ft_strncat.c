@@ -29,9 +29,13 @@
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	size_t len_s1;
+	size_t len_s2;
+	size_t min;
 
 	len_s1 = ft_strlen(s1);
-	ft_strncpy(&s1[len_s1], s2, n);
-	s1[len_s1 + n] = '\0';
+	len_s2 = ft_strlen(s2);
+	min = len_s2 > n ? n : len_s2;
+	ft_strncpy(&s1[len_s1], s2, min);
+	s1[len_s1 + min] = '\0';
 	return (s1);
 }
