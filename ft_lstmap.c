@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 /*
 ** @brief      Create a new list where each element is the result of function f
@@ -24,16 +25,14 @@
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list *new_lst;
+	t_list	*new_lst;
 
 	new_lst = NULL;
 	if (lst != NULL && f != NULL)
 	{
-		new_lst = f(lst);
-		lst = lst->next;
-		while (lst != NULL)
+		while (lst)
 		{
-			ft_lstadd(&new_lst, f(lst));
+			ft_lstappend(&new_lst, f(lst));
 			lst = lst->next;
 		}
 	}

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_torot13.c                                       :+:      :+:    :+:   */
+/*   ft_putlst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 15:45:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/09 16:51:50 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/08 07:57:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/08 08:28:59 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Connvert letter to it's ROT13 representation by adress.
+** @brief      Put list to standard output
 **
-** @note       ROT13 is a reciprocal substitution cipher that gained a large
-**             popularity on the Web.
+** @note       Node's content is expected to be of type (char *)
 **
-** @param      ac    Address of the character
+** @param      lst   List to be printed
 */
 
-void	ft_torot13(char *ac)
+void	ft_putlst(t_list *lst)
 {
-	char	c;
-
-	if (ac != NULL)
+	while (lst != NULL)
 	{
-		c = *ac;
-		if (c >= 65 && c <= 90)
-			*ac = (char)((c - 65 + 13) % 26 + 65);
-		else if (c >= 97 && c <= 122)
-			*ac = (char)((c - 97 + 13) % 26 + 97);
+		ft_putstr((char *)lst->content);
+		ft_putstr(" -> ");
+		lst = lst->next;
 	}
+	ft_putstr("NULL\n");
 }

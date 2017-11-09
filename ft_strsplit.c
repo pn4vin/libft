@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 22:02:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/06 22:02:00 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2017/11/09 10:59:34 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @return     Number of words.
 */
 
-size_t	count_words(const char *s, char c)
+static size_t	count_words(const char *s, char c)
 {
 	size_t	count;
 	size_t	state;
@@ -48,7 +48,7 @@ size_t	count_words(const char *s, char c)
 ** @return     Length of the word
 */
 
-size_t	wordlen(const char *s, char c)
+static size_t	wordlen(const char *s, char c)
 {
 	size_t size;
 
@@ -56,6 +56,23 @@ size_t	wordlen(const char *s, char c)
 	while (*s && *s++ != c)
 		size++;
 	return (size);
+}
+
+/*
+** @brief      Free the memory allocated prior to malloc failure
+**
+** @param      atab  The address of tab - array of words
+** @param      i     Index of element in which the allocation failed
+**
+** @return     NULL in appropriate format
+*/
+
+static char		**unleak(char ***atab, int i)
+{
+	while (--i > 0)
+		free((*atab)[i]);
+	free(*atab);
+	return (NULL);
 }
 
 /*
@@ -68,7 +85,7 @@ size_t	wordlen(const char *s, char c)
 ** @return     Array of "words", or NULL if any of the memory allocations fails
 */
 
-char	**ft_strsplit(const char *s, char c)
+char			**ft_strsplit(const char *s, char c)
 {
 	int		i;
 	char	**tab;
@@ -78,20 +95,21 @@ char	**ft_strsplit(const char *s, char c)
 	if (s != NULL)
 	{
 		i = 0;
-		tab = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
+		if (!(tab = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1))))
+			return (NULL);
 		while (*s)
 		{
 			while (*s == c)
 				s++;
-			wlen = wordlen(s, c);
-			if (wlen > 0)
+			if ((wlen = wordlen(s, c)) > 0)
 			{
-				tab[i] = ft_strnew(wlen);
+				if (!(tab[i] = ft_strnew(wlen)))
+					return (unleak(&tab, i));
 				ft_strncpy(tab[i++], s, wlen);
 				s = s + wlen;
 			}
 		}
 		tab[i] = NULL;
 	}
-	return (s != NULL ? tab : NULL);
+	return (tab);
 }

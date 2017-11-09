@@ -15,33 +15,40 @@
 /*
 ** @brief      Find substring in a string, up to n characters
 **
-** @param      big     Container string
-** @param      little  Substring to search
-** @param      n       upper limit on the number of character pairs to be
+** @param      haystack     Container string
+** @param      needle       Substring to search
+** @param      len       upper limit on the number of character pairs to be
 **                     checked
 **
 ** @return     Pointer to the first character of the first occurrence of a
 **             substring. If little is NULL, return whole container string.
 */
 
-char	*ft_strnstr(const char *big, const char *little, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t			i;
-	size_t			j;
-	const char		*substr_start;
+	size_t			save_i;
+	const char		*hay_p;
+	const char		*needle_p;
 
-	substr_start = big;
+	if (*needle == '\0')
+		return ((char*)haystack);
+	needle_p = needle;
 	i = 0;
-	j = 0;
-	if (little && *little == '\0')
-		return ((char*)substr_start);
-	while (i < n && big[i] && little[j])
+	while (i < len && *haystack)
 	{
-		if (big[i] == little[j])
-			substr_start = j == 0 ? &big[i] : substr_start;
-		else
-			substr_start = NULL;
-		j = big[i++] == little[j] ? j + 1 : 0;
+		hay_p = haystack;
+		save_i = i;
+		while (*haystack && *needle_p && *haystack == *needle_p && i++ < len)
+		{
+			haystack++;
+			needle_p++;
+		}
+		if (!*needle_p && i <= len)
+			return ((char *)hay_p);
+		haystack = hay_p + 1;
+		needle_p = needle;
+		i = save_i + 1;
 	}
-	return (j < ft_strlen(little) || j == 0 ? NULL : (char *)substr_start);
+	return (NULL);
 }

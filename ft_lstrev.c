@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_torot13.c                                       :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 15:45:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/09 16:51:50 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/08 18:25:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/08 22:37:49 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Connvert letter to it's ROT13 representation by adress.
+** @brief      Reverse list by switching pointers to opposite side
 **
-** @note       ROT13 is a reciprocal substitution cipher that gained a large
-**             popularity on the Web.
+** @param      alst  The address of list to be reversed
 **
-** @param      ac    Address of the character
+** @return     { description_of_the_return_value }
 */
 
-void	ft_torot13(char *ac)
+t_list		*ft_lstrev(t_list **alst)
 {
-	char	c;
+	t_list	*prev;
+	t_list	*next;
 
-	if (ac != NULL)
+	if (!alst || !*alst)
+		return (NULL);
+	prev = NULL;
+	while (*alst)
 	{
-		c = *ac;
-		if (c >= 65 && c <= 90)
-			*ac = (char)((c - 65 + 13) % 26 + 65);
-		else if (c >= 97 && c <= 122)
-			*ac = (char)((c - 97 + 13) % 26 + 97);
+		next = (*alst)->next;
+		(*alst)->next = prev;
+		prev = *alst;
+		*alst = next;
 	}
+	return (prev);
 }

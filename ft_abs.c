@@ -16,9 +16,9 @@
 ** @note       No check is performed, thus ft_abs(INT_MIN) will overflow. Be
 **             heedful.
 **
-** @param      n     { parameter_description }
+** @param      n     Integer
 **
-** @return     { description_of_the_return_value }
+** @return     The absolute value of an argument
 */
 
 int		ft_abs(int n)

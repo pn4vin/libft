@@ -15,34 +15,32 @@
 /*
 ** @brief      Locate the first occurence of the little string in a big string
 **
-** @param      big     String to be searched
-** @param      little  Substring to be located
+** @param      haystack     String to be searched
+** @param      needle     Substring to be located
 **
 ** @return     pointer to the substring matched.
 */
 
-char	*ft_strstr(const char *big, const char *little)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int			i;
 	int			j;
 	int			next;
 
-	if (!(*big) && !(*little))
-		return ((char *)big);
+	if (!(*haystack) && !(*needle))
+		return ((char *)haystack);
 	i = 0;
-	j = 0;
-	next = 0;
-	while (big[i] != '\0')
+	while (haystack[i] != '\0')
 	{
 		next = i;
 		j = 0;
-		while (big[i] && little[j] && (big[i] == little[j]))
+		while (haystack[i] && needle[j] && (haystack[i] == needle[j]))
 		{
 			i++;
 			j++;
 		}
-		if (little[j] == '\0')
-			return (&((char *)big)[next]);
+		if (needle[j] == '\0')
+			return (&((char *)haystack)[next]);
 		i = next + 1;
 	}
 	return (NULL);

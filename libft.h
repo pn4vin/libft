@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/10/28 20:59:54 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:54:07 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdio.h>
 
 typedef struct		s_list
 {
@@ -61,9 +62,10 @@ char				*ft_strsub(const char *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s);
 char				**ft_strsplit(const char *s, char c);
+char				*ft_strtok(char *str, char *sep);
 
-char				*ft_strstr(const char *big, const char *little);
-char				*ft_strnstr(const char *big, const char *little,
+char				*ft_strstr(const char *haystack, const char *needle);
+char				*ft_strnstr(const char *haystack, const char *needle,
 								size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -82,7 +84,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-void				ft_torot13(char *s);
+void				ft_torot13(char *ac);
 
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
@@ -96,13 +98,20 @@ void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 
+void				ft_putlst(t_list *lst);
+
 t_list				*ft_lstnew(const void *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstappend(t_list **alst, t_list *new);
+size_t				ft_lstsize(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_lstrev(t_list **alst);
+void				ft_lstfree(void *content, size_t content_size);
 
 int					ft_ctoi_base(char c, const char *base);
 
+size_t				ft_slen(const char *s);
 #endif
