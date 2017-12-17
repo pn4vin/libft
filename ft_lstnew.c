@@ -15,8 +15,8 @@
 /*
 ** @brief      Initialize a new element of a linked list
 **
-** @param      content       The content
-** @param      content_size  The content size
+** @param      str       The str
+** @param      content_size  The str size
 **
 ** @return     pointer to a new element. If memory allocation fails, return NULL
 */

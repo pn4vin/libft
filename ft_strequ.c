@@ -18,7 +18,7 @@
 ** @param      s1    String 1
 ** @param      s2    String 2
 **
-** @return     1 if two strings are identical in content, otherwise 0
+** @return     1 if two strings are identical in str, otherwise 0
 */
 
 int		ft_strequ(char const *s1, char const *s2)

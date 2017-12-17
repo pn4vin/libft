@@ -16,7 +16,7 @@
 ** @brief      Remove list by traversing through it and freeing every node
 **
 ** @param      alst  Address of the list
-** @param      del   Function to free node's content
+** @param      del   Function to free node's str
 */
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
