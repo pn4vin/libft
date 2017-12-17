@@ -15,7 +15,7 @@
 /*
 ** @brief      Put list to standard output
 **
-** @note       Node's str is expected to be of type (char *)
+** @note       Node's content is expected to be of type (char *)
 **
 ** @param      lst   List to be printed
 */

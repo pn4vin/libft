@@ -19,7 +19,7 @@
 ** @note       The memory of next is not freed under any circumstances
 **
 ** @param      alst  The address to list element
-** @param      del   The delete function that is used to free link's str
+** @param      del   The delete function that is used to free link's content
 */
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
