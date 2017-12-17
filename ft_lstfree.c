@@ -20,8 +20,8 @@
 ** @param      content_size  The content size
 */
 
-void	ft_lstfree(void *content, size_t content_size)
+void	ft_lstfree(void **acontent, size_t content_size)
 {
 	(void)content_size;
-	ft_memdel(&content);
+	ft_memdel(content);
 }

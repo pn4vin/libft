@@ -17,7 +17,7 @@
 **
 ** @param      alst  The address of list to be reversed
 **
-** @return     { description_of_the_return_value }
+** @return     Pointer to the head of the reversed list
 */
 
 t_list		*ft_lstrev(t_list **alst)

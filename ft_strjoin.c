@@ -13,7 +13,7 @@
 #include "libft.h"
 
 /*
-** @brief      Join two strings together
+** @brief      Create a new string my merging <s2> to the end of <s1>
 **
 ** @param      s1    String 1
 ** @param      s2    String 2
