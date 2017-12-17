@@ -107,7 +107,7 @@ size_t				ft_lstsize(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstrev(t_list **alst);
-void				ft_lstfree(void *content, size_t content_size);
+void				ft_lstfree(void **acontent, size_t content_size);
 
 int					ft_ctoi_base(char c, const char *base);
 

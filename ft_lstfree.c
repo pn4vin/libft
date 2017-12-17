@@ -23,5 +23,5 @@
 void	ft_lstfree(void **acontent, size_t content_size)
 {
 	(void)content_size;
-	ft_memdel(content);
+	ft_memdel(acontent);
 }
