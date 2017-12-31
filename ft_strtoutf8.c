@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtoutf8.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/31 18:51:01 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/12/31 18:51:40 by ptyshevs         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+/*
+** @brief      Convert narrow string to it's wide, multibyte form
+**
+** @param      str   The string
+**
+** @return     The wchar_t *string
+*/
+
+wchar_t	*ft_strtoutf8(char *str)
+{
+	wchar_t *res;
+	int		i;
+
+	if (!str)
+		return (wchar_t *) (str);
+	i = 0;
+	res = (wchar_t *)malloc(sizeof(wchar_t) * (ft_slen(str) + 1));
+	while (str && *str)
+		res[i++] = *str++;
+	res[i] = '\0';
+	return (res);
+}

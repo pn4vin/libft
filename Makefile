@@ -19,7 +19,8 @@ SRCS = ft_putnbr.c ft_putchar.c ft_putstr.c ft_isalpha.c ft_atoi.c ft_bzero.c \
 	   ft_lstdelone.c ft_lstdel.c  ft_lstadd.c ft_lstiter.c ft_lstmap.c\
 	   ft_abs.c ft_atol.c ft_strtol.c ft_ctoi_base.c ft_itoa_base.c\
 	   ft_torot13.c ft_isspace.c ft_lstappend.c ft_putlst.c ft_lstsize.c \
-	   ft_lstrev.c ft_lstfree.c ft_slen.c ft_strtok.c
+	   ft_lstrev.c ft_lstfree.c ft_slen.c ft_strtok.c ft_strtoutf8.c\
+	   get_next_line.c
 
 OBJDIR = objs
 

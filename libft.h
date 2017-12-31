@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/09 16:54:07 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2017/12/31 18:59:16 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# define GNL_BUFF_SIZE 100
+# define MALLCHECK(x) if (!(x)) return (-1);
+
+typedef struct	s_fds
+{
+	char			*str;
+	int				fd;
+	struct s_fds	*next;
+}				t_fds;
 
 typedef struct		s_list
 {
@@ -112,4 +121,7 @@ void				ft_lstfree(void **acontent, size_t content_size);
 int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
+int					get_next_line(int fd, char **line);
+wchar_t				*ft_strtoutf8(char *str);
+
 #endif
