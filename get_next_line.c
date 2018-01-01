@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 /*
 ** @brief      Add new File Descriptor to the list
@@ -77,7 +77,7 @@ static int		ft_read_fd(t_fds *fds, char **line)
 {
 	char	*rem;
 	char	*tmp;
-	char	buf[BUFF_SIZE + 1];
+	char	buf[GNL_BUFF_SIZE + 1];
 	ssize_t	r;
 
 	while (1)
@@ -91,7 +91,7 @@ static int		ft_read_fd(t_fds *fds, char **line)
 		}
 		else
 		{
-			if (!(r = read(fds->fd, buf, BUFF_SIZE)) || r == -1)
+			if (!(r = read(fds->fd, buf, GNL_BUFF_SIZE)) || r == -1)
 				return (ft_parse_eof(fds, line, r));
 			buf[r] = '\0';
 			tmp = fds->str ? ft_strjoin((fds)->str, buf) : ft_strjoin("", buf);
