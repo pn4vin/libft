@@ -16,14 +16,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 # define GNL_BUFF_SIZE 100
-# define MALLCHECK(x) if (!(x)) return (-1);
+# define GNL_MALLCHECK(x) if (!(x)) return (-1);
+# define MALLCHECK(x) if (!(x)) return (NULL);
 
-typedef struct	s_fds
+typedef struct		s_fds
 {
 	char			*str;
 	int				fd;
 	struct s_fds	*next;
-}				t_fds;
+}					t_fds;
 
 typedef struct		s_list
 {
@@ -89,6 +90,7 @@ int					ft_isspace(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+int					ft_isupper(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				ft_torot13(char *ac);

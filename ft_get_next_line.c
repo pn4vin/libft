@@ -25,7 +25,7 @@ static int		ft_fds_add(t_fds **afds, int fd)
 {
 	t_fds	*new;
 
-	MALLCHECK((new = (t_fds *)malloc(sizeof(t_fds))));
+	GNL_MALLCHECK((new = (t_fds *)malloc(sizeof(t_fds))));
 	new->str = NULL;
 	new->fd = fd;
 	new->next = *afds;
@@ -54,7 +54,7 @@ static int		ft_parse_eof(t_fds *fds, char **line, int r)
 {
 	if (r == 0 && fds->str && *fds->str)
 	{
-		MALLCHECK((*line = ft_strsub(fds->str, 0, ft_slen(fds->str) + 1)));
+		GNL_MALLCHECK((*line = ft_strsub(fds->str, 0, ft_slen(fds->str) + 1)));
 		ft_strdel(&fds->str);
 		return (1);
 	}
@@ -84,7 +84,7 @@ static int		ft_read_fd(t_fds *fds, char **line)
 	{
 		if (fds->str && (rem = ft_strchr((fds)->str, '\n')))
 		{
-			MALLCHECK((*line = ft_strsub(fds->str, 0, rem - fds->str)));
+			GNL_MALLCHECK((*line = ft_strsub(fds->str, 0, rem - fds->str)));
 			tmp = ft_strsub(fds->str, (rem - fds->str) + 1, ft_slen(rem) + 1);
 			ft_strdel(&fds->str);
 			return (tmp ? ((fds->str) = tmp) != NULL : -1);
@@ -95,7 +95,7 @@ static int		ft_read_fd(t_fds *fds, char **line)
 				return (ft_parse_eof(fds, line, r));
 			buf[r] = '\0';
 			tmp = fds->str ? ft_strjoin((fds)->str, buf) : ft_strjoin("", buf);
-			MALLCHECK(tmp);
+			GNL_MALLCHECK(tmp);
 			ft_strdel(&fds->str);
 			fds->str = tmp;
 		}

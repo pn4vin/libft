@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoutf8.c                                     :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/31 18:51:01 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/12/31 18:51:40 by ptyshevs         ###   ########.fr       */
+/*   Created: 2018/01/02 18:31:21 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/01/02 18:33:58 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-** @brief      Convert narrow string to a multibyte sequence
+** @brief      Check if the character provided is uppercase ASCII character
 **
-** @param      str   The string
+** @param      c     Character to check
 **
-** @return     The wchar_t *string
+** @return     1 if character in [A-Z], otherwise 0
 */
 
-wchar_t	*ft_strtoutf8(char *str)
+int		ft_isupper(int c)
 {
-	wchar_t *res;
-	int		i;
-
-	if (!str)
-		return ((wchar_t *)str);
-	i = 0;
-	MALLCHECK((res = (wchar_t *)malloc(sizeof(wchar_t) * (ft_slen(str) + 1))));
-	while (str && *str)
-		res[i++] = *str++;
-	res[i] = '\0';
-	return (res);
+	return (c >= 65 && c <= 90);
 }
