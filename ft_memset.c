@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "include/libft.h"
 
 /*
 ** @brief      Fill a byte string with a byte value

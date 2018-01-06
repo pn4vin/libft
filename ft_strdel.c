@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/libft.h"
 
 /*
 ** @brief      Free string and set pointer to it's memory location to NULL

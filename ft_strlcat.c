@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "include/libft.h"
 
 /*
 ** @brief      Size-bounded string concatenation

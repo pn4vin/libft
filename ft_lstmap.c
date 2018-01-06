@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "include/libft.h"
 
 /*
 ** @brief      Create a new list where each element is the result of function f

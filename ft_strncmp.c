@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "include/libft.h"
 
 /*
 ** @brief      Compare two null-terminated strings, not more than n characters.

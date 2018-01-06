@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/12/31 18:59:16 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/01/06 09:39:28 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,10 +120,15 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstrev(t_list **alst);
 void				ft_lstfree(void **acontent, size_t content_size);
 
+wchar_t				*ft_strtoutf8(char *str);
+char				*ft_wcrtomb(int c);
+char				*ft_wcstombs(wchar_t *utf8str, int size);
+size_t				ft_wcslen(const wchar_t *str);
+size_t				ft_wcharlen(int c);
+
 int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
 int					get_next_line(int fd, char **line);
-wchar_t				*ft_strtoutf8(char *str);
 
 #endif
