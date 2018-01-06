@@ -29,7 +29,3 @@ Compile your code with `libft.a` static library.
 | `ft_lstmap(t_list *lst, t_list (*f)(t_list *elem))` |Create a new list, modifying each node of `lst` using `f` on it         |
 | `ft_lstappend(t_list **alst, t_list *new)`       |Append a new element to the list                                           |
 
-## Caveats
-
-Makefile creates `*.o` files within root directory, which is inconvenient. The better way would be to collect them in separate
-temporary folder.
