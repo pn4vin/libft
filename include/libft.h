@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # define GNL_BUFF_SIZE 100
 # define GNL_MALLCHECK(x) if (!(x)) return (-1);
-# define MALLCHECK(x) if (!(x)) return (NULL);
+# define MALLCHECK(x) if (!(x)) return (0);
 
 typedef struct		s_fds
 {
@@ -129,6 +129,6 @@ size_t				ft_wcharlen(int c);
 int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
-int					get_next_line(int fd, char **line);
+int					ft_gnl(int fd, char **line);
 
 #endif

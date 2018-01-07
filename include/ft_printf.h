@@ -17,7 +17,7 @@
 
 # define LSTCAP 50
 # define CHECKSPECKLEN(x) if ((x) == 0) break;
-# define MALLCHECK(x) if (!(x)) return (NULL);
+# define MALLCHECK(x) if (!(x)) return (0);
 # define RADIX "0123456789abcdefghijklmnopqrstuvwxyz"
 
 /*
@@ -90,7 +90,7 @@ typedef union	u_nbr
 typedef void	(*t_specptr)(t_node **content, t_spec *spec);
 
 int				ft_printf(const char *format, ...);
-int				ft_fprintf(int fd, const char *format, ...);
+int				ft_dprintf(int fd, const char *format, ...);
 char			*ft_sprintf(const char *format, ...);
 
 char			*process_format(const char *format, t_node **content);
@@ -117,7 +117,6 @@ char			*get_prefix(t_spec *spec, char *expanded, t_nbr nbr);
 char			*get_nonprintables(t_spec *spec, char *s);
 size_t			nonprintable_size(char *s, t_bool cnt);
 void			add_pad(t_node **content, t_spec *spec, size_t explen);
-
 
 char			*itoa_deluxe(t_nbr nbr, t_spec *spec, int base, t_bool is_int);
 

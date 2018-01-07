@@ -19,7 +19,7 @@ OBJS = ft_putnbr.o ft_putchar.o ft_putstr.o ft_isalpha.o ft_atoi.o ft_bzero.o \
 		ft_lstappend.o ft_putlst.o ft_lstsize.o ft_lstrev.o ft_lstfree.o \
 		ft_slen.o ft_strtok.o ft_strtoutf8.o ft_get_next_line.o ft_isupper.o \
 		ft_wchrlen.o ft_wcstombs.o ft_wctomb.o ft_wcslen.o ft_printf.o \
-		ft_fprintf.o ft_sprintf.o ft_printf_convertors.o ft_printf_lst.o \
+		ft_dprintf.o ft_sprintf.o ft_printf_convertors.o ft_printf_lst.o \
 		ft_printf_tools.o ft_printf_parsers.o ft_printf_posargs.o \
 		ft_printf_put_misc.o ft_printf_put_numbers.o ft_printf_put_strings.o
 OBJDIR = objs

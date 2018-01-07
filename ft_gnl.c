@@ -114,7 +114,7 @@ static int		ft_read_fd(t_fds *fds, char **line)
 **            -1 - error has happened
 */
 
-int				get_next_line(const int fd, char **line)
+int				ft_gnl(const int fd, char **line)
 {
 	static t_fds	*fds = NULL;
 	t_fds			*tmp;
