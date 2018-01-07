@@ -17,7 +17,7 @@ OBJS = ft_putnbr.o ft_putchar.o ft_putstr.o ft_isalpha.o ft_atoi.o ft_bzero.o \
 		ft_lstdel.o  ft_lstadd.o ft_lstiter.o ft_lstmap.o ft_abs.o ft_atol.o \
 		ft_strtol.o ft_ctoi_base.o ft_itoa_base.o ft_torot13.o ft_isspace.o \
 		ft_lstappend.o ft_putlst.o ft_lstsize.o ft_lstrev.o ft_lstfree.o \
-		ft_slen.o ft_strtok.o ft_strtoutf8.o ft_get_next_line.o ft_isupper.o \
+		ft_slen.o ft_strtok.o ft_strtoutf8.o ft_gnl.o ft_isupper.o \
 		ft_wchrlen.o ft_wcstombs.o ft_wctomb.o ft_wcslen.o ft_printf.o \
 		ft_dprintf.o ft_sprintf.o ft_printf_convertors.o ft_printf_lst.o \
 		ft_printf_tools.o ft_printf_parsers.o ft_printf_posargs.o \
