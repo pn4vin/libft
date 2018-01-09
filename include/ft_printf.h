@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 20:46:42 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/01/06 09:37:59 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:35:04 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,6 @@ typedef struct	s_printf_node
 	size_t					len;
 	struct s_printf_node	*next;
 }				t_node;
-
-typedef enum	e_bool
-{
-	FALSE,
-	TRUE
-}				t_bool;
 
 typedef enum	e_flags
 {

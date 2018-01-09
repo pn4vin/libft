@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/01/06 09:39:28 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:35:15 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef enum	e_bool
+{
+	FALSE,
+	TRUE
+}				t_bool;
 
 int					ft_abs(int n);
 size_t				ft_strlen(const char *str);
@@ -130,5 +136,9 @@ int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
 int					ft_gnl(int fd, char **line);
+int					ft_printf(const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
+char				*ft_sprintf(const char *format, ...);
+t_bool				ft_startswith(char *str, char *prefix);
 
 #endif
