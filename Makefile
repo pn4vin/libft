@@ -21,7 +21,8 @@ OBJS = ft_putnbr.o ft_putchar.o ft_putstr.o ft_isalpha.o ft_atoi.o ft_bzero.o \
 		ft_wchrlen.o ft_wcstombs.o ft_wctomb.o ft_wcslen.o ft_printf.o \
 		ft_dprintf.o ft_sprintf.o ft_printf_convertors.o ft_printf_lst.o \
 		ft_printf_tools.o ft_printf_parsers.o ft_printf_posargs.o \
-		ft_printf_put_misc.o ft_printf_put_numbers.o ft_printf_put_strings.o
+		ft_printf_put_misc.o ft_printf_put_numbers.o ft_printf_put_strings.o\
+		ft_lstremove_if.o
 OBJDIR = objs
 OBJECTS = ${addprefix ${OBJDIR}/, $(OBJS)}
 

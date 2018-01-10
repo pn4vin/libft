@@ -140,5 +140,6 @@ int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
 char				*ft_sprintf(const char *format, ...);
 t_bool				ft_startswith(char *str, char *prefix);
+void				ft_lstremove_if(t_list **ahead, int (*f)(void *content));
 
 #endif
