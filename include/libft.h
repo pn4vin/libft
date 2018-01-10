@@ -141,6 +141,6 @@ int					ft_gnl(int fd, char **line);
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
 char				*ft_sprintf(const char *format, ...);
-t_bool				ft_startswith(char *str, char *prefix);
+t_bool				ft_startswith(const char *str, char *prefix);
 
 #endif

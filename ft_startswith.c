@@ -21,7 +21,7 @@
 ** @return     TRUE if string contains prefix, otherwise false
 */
 
-t_bool		ft_startswith(char *str, char *prefix)
+t_bool		ft_startswith(const char *str, char *prefix)
 {
 	if (!str || !prefix)
 		return (FALSE);
@@ -29,7 +29,6 @@ t_bool		ft_startswith(char *str, char *prefix)
 	{
 		if (*str++ != *prefix++)
 			return (FALSE);
-
 	}
 	return (TRUE);
 }
