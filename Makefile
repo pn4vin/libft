@@ -22,7 +22,7 @@ OBJS = ft_putnbr.o ft_putchar.o ft_putstr.o ft_isalpha.o ft_atoi.o ft_bzero.o \
 		ft_dprintf.o ft_sprintf.o ft_printf_convertors.o ft_printf_lst.o \
 		ft_printf_tools.o ft_printf_parsers.o ft_printf_posargs.o \
 		ft_printf_put_misc.o ft_printf_put_numbers.o ft_printf_put_strings.o\
-		ft_lstremove_if.o
+		ft_lstremove_if.o ft_lstpush.o ft_startswith.o
 OBJDIR = objs
 OBJECTS = ${addprefix ${OBJDIR}/, $(OBJS)}
 
@@ -38,7 +38,7 @@ $(NAME): $(OBJECTS)
 
 ${OBJDIR}/%.o: %.c $(HEADERS)
 	@ mkdir -p ${OBJDIR}
-	gcc -c $(FLAGS) -o $@ $<
+	gcc -c $(FLAGS) -o $@ $< -Iinclude/
 
 clean:
 	 @ /bin/rm -f $(OBJECTS)
