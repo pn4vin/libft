@@ -25,11 +25,13 @@ char	*ft_sprintf(const char *format, ...)
 {
 	va_list	args;
 	t_node	*content;
+	char	*res;
 
 	content = NULL;
 	va_start(args, format);
 	get_next_arg(NULL, args, format);
 	va_end(args);
+	res = process_format(format, &content);
 	clean_lst(&content);
-	return (process_format(format, &content));
+	return (res);
 }

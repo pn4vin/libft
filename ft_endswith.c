@@ -16,7 +16,7 @@ t_bool	ft_endswith(const char *s, char *suffix)
 {
 	size_t	suf_len;
 	size_t	s_len;
-	int	i;
+	int		i;
 
 	suf_len = ft_slen(suffix);
 	s_len = ft_slen(s);
