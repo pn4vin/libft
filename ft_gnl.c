@@ -59,7 +59,7 @@ static int		ft_parse_eof(t_fds *fds, char **line, int r)
 		return (1);
 	}
 	else if (r == 0)
-		return ((*line = ft_strdup("")) ? 0 : -1);
+		return ((int)(*line = NULL));
 	return (-1);
 }
 
@@ -94,8 +94,7 @@ static int		ft_read_fd(t_fds *fds, char **line)
 			if (!(r = read(fds->fd, buf, GNL_BUFF_SIZE)) || r == -1)
 				return (ft_parse_eof(fds, line, r));
 			buf[r] = '\0';
-			tmp = fds->str ? ft_strjoin((fds)->str, buf) : ft_strjoin("", buf);
-			GNL_MALLCHECK(tmp);
+			GNL_MALLCHECK(tmp = ft_strjoin(fds->str ? fds->str : "", buf));
 			ft_strdel(&fds->str);
 			fds->str = tmp;
 		}

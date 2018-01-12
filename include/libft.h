@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/01/10 11:21:25 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/01/11 19:10:23 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstrev(t_list **alst);
 void				ft_lstpush(t_list **head_ref, t_list *node);
-void				ft_lstremove_if(t_list **ahead, int (*f)(void *content));
 void				ft_lstfree(void **acontent, size_t content_size);
 
 wchar_t				*ft_strtoutf8(char *str);
@@ -142,5 +141,6 @@ int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
 char				*ft_sprintf(const char *format, ...);
 t_bool				ft_startswith(const char *str, char *prefix);
+t_bool				ft_endswith(const char *s, char *suffix);
 
 #endif
