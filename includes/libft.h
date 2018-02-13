@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/13 14:51:12 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/13 22:53:49 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,8 @@ int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
 int					ft_gnl(int fd, char **line);
+int					ft_gnl_enchanced(const int fd, char **line, t_bool lb);
+
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
 char				*ft_sprintf(const char *format, ...);
