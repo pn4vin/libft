@@ -48,7 +48,8 @@ LIBFT_FILENAMES =	ft_putnbr ft_putchar ft_putstr ft_isalpha ft_atoi ft_bzero \
 		ft_gnl ft_isupper ft_wchrlen ft_wcstombs ft_wctomb ft_wcslen ft_printf \
 		ft_dprintf ft_sprintf ft_printf_convertors ft_printf_lst ft_printf_tools \
 		ft_printf_parsers ft_printf_posargs ft_printf_put_misc ft_printf_put_numbers \
-		ft_printf_put_strings ft_lstpush ft_startswith ft_endswith ft_sjoin ft_concat
+		ft_printf_put_strings ft_lstpush ft_startswith ft_endswith ft_sjoin ft_concat \
+		ft_strtrunc
 
 LIBFT_CFILES = $(patsubst %, $(LIBFT_SRCDIR)/%.c, $(LIBFT_FILENAMES))
 LIBFT_OFILES = $(patsubst %, $(ODIR)/%.o, $(LIBFT_FILENAMES))
@@ -71,7 +72,7 @@ clean:
 	@echo ${RED}"[Removing *.o files]"${NC}
 	@/bin/rm -rf $(ODIR)
 
-fclean:
+fclean: clean
 	@echo ${RED}"[Removing $(LIBNAME)]"${NC}
 	@/bin/rm -f $(LIBNAME)
 

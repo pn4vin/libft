@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/12 08:40:25 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/13 14:51:12 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char				**ft_strsplit(const char *s, char c);
 char				*ft_strtok(char *str, char *sep);
 char				*ft_sjoin(int cnt, ...);
 char				*ft_concat(char *s1, char *s2, t_bool and_free);
-
+char 				*ft_strtrunc(char *str, size_t len, t_bool and_free);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
 								size_t len);
