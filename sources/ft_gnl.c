@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 13:17:04 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:20:37 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/17 11:51:35 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static int		ft_read_fd(t_fds *fds, char **line)
 
 	while (1)
 	{
-		if (fds->str && (rem = ft_strchr((fds)->str, '\n')))
+		if (fds->str && (rem = ft_strchr(fds->str, '\n')))
 		{
 			GNL_MALLCHECK((*line = ft_strsub(fds->str, 0, rem - fds->str)));
 			tmp = ft_strsub(fds->str, (rem - fds->str) + 1, ft_slen(rem) + 1);

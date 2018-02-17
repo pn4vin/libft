@@ -32,7 +32,7 @@ char	*ft_concat(char *s1, char *s2, t_bool and_free)
 	{
 		if (s1 == NULL && s2 != NULL)
 			res = ft_strdup(s2);
-		else if (s2 == NULL && s1 != NULL)
+		else if (s1 != NULL)
 			res = ft_strdup(s1);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:47:20 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/13 14:54:36 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/17 11:47:52 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @return     Truncated string
 */
 
-char *ft_strtrunc(char *str, size_t len, t_bool and_free)
+char	*ft_strtrunc(char *str, size_t len, t_bool and_free)
 {
 	char	*trunc;
 

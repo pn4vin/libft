@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gnl_enchanced.c                                 :+:      :+:    :+:   */
+/*   ft_gnl_v2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 13:17:04 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/13 22:57:31 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/17 11:53:01 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** @brief      Add new File Descriptor to the list
+** @brief      Initialize line
 **
-** @param      afds  Pointer to the head of list
-** @param      fd    File Descriptor
-**
-** @return     1, invariantly. -1 in case of malloc() failure
+** @return     New t_line structure with fields initialized
 */
 
-static int		ft_fds_add(t_fds **afds, int fd)
+t_line		*init_line(void)
 {
-	t_fds	*new;
+	t_line *line;
 
-	GNL_MALLCHECK((new = (t_fds *)malloc(sizeof(t_fds))));
-	new->str = NULL;
-	new->fd = fd;
-	new->next = *afds;
-	*afds = new;
-	return (1);
+	line = (t_line *)malloc(sizeof(t_line));
+	line->str = NULL;
+	line->len = 0;
+	return (line);
 }
 
 /*
@@ -50,16 +45,17 @@ static int		ft_fds_add(t_fds **afds, int fd)
 **             -1 in case of read() error
 */
 
-static int		ft_parse_eof(t_fds *fds, char **line, int r)
+static int	ft_parse_eof(t_line *buf, t_line *line, int r)
 {
-	if (r == 0 && fds->str && *fds->str)
+	if (r == 0 && buf->len)
 	{
-		GNL_MALLCHECK((*line = ft_strsub(fds->str, 0, ft_slen(fds->str) + 1)));
-		ft_strdel(&fds->str);
+		line->len = buf->len;
+		GNL_MALLCHECK((line->str = ft_memsub(buf->str, 0, buf->len, TRUE)));
+		buf->len = 0;
 		return (1);
 	}
 	else if (r == 0)
-		return ((int)(*line = NULL));
+		return ((int)(NULL));
 	return (-1);
 }
 
@@ -74,30 +70,29 @@ static int		ft_parse_eof(t_fds *fds, char **line, int r)
 ** @return     the return code of the attempt to read a line from a file
 */
 
-static int		ft_read_fd(t_fds *fds, char **line, t_bool lb)
+static int	read_line(int fd, t_line *buf, t_line *line, t_bool lb)
 {
-	char	*rem;
-	char	*tmp;
-	char	buf[GNL_BUFF_SIZE + 1];
-	ssize_t	r;
+	t_uc	*rem;
+	t_uc	*tmp;
+	t_uc	read_buf[GNL_BUFF_SIZE + 1];
+	int		r;
 
 	while (1)
 	{
-		if (fds->str && (rem = ft_strchr((fds)->str, '\n')))
+		if (buf->str && (rem = ft_memchr(buf->str, '\n', buf->len)))
 		{
-			*line = ft_strsub(fds->str, 0, rem - fds->str + lb);
-			tmp = ft_strsub(fds->str, (rem - fds->str) + 1, ft_slen(rem) + 1);
-			ft_strdel(&fds->str);
-			return (tmp ? ((fds->str) = tmp) != NULL : -1);
+			line->str = ft_memsub(buf->str, 0, rem - buf->str + lb, FALSE);
+			line->len = rem - buf->str + lb;
+			buf->len = (buf->str + buf->len) - rem - 1;
+			buf->str = ft_memsub(buf->str, rem - buf->str + 1, buf->len, TRUE);
+			return (line->str ? line->str != NULL : -1);
 		}
 		else
 		{
-			if (!(r = read(fds->fd, buf, GNL_BUFF_SIZE)) || r == -1)
-				return (ft_parse_eof(fds, line, r));
-			buf[r] = '\0';
-			GNL_MALLCHECK(tmp = ft_strjoin(fds->str ? fds->str : "", buf));
-			ft_strdel(&fds->str);
-			fds->str = tmp;
+			if (!(r = (int)read(fd, read_buf, GNL_BUFF_SIZE)) || r == -1)
+				return (ft_parse_eof(buf, line, r));
+			buf->len += r;
+			buf->str = ft_memjoin(buf->str, buf->len, read_buf, (size_t)r);
 		}
 	}
 }
@@ -106,7 +101,7 @@ static int		ft_read_fd(t_fds *fds, char **line, t_bool lb)
 ** @brief      Gets the next line from the specified File Descriptor
 **
 ** @param      fd    File Descriptor
-** @param      line  The line
+** @param      line  The line structure
 ** @param      lb    Whether to leave newline symbol in line or not
 **
 ** @return     1 - line has been read successfully
@@ -114,20 +109,15 @@ static int		ft_read_fd(t_fds *fds, char **line, t_bool lb)
 **            -1 - error has happened
 */
 
-int				ft_gnl_enchanced(const int fd, char **line, t_bool lb)
+int			ft_gnl_v2(const int fd, t_line *line, t_bool lb)
 {
-	static t_fds	*fds = NULL;
-	t_fds			*tmp;
+	static t_line	*buf;
 
-	if (fd <= -1 || !line)
+	if (fd <= -1)
 		return (-1);
-	tmp = fds;
-	while (tmp && tmp->fd != fd)
-		tmp = tmp->next;
-	if (!tmp)
-	{
-		if (ft_fds_add(&fds, fd) == -1)
-			return (-1);
-	}
-	return (ft_read_fd(tmp ? tmp : fds, line, lb));
+	if (line->str)
+		ft_memdel((void **)&line->str);
+	if (!buf)
+		buf = init_line();
+	return (read_line(fd, r, buf, line, lb));
 }
