@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 13:17:04 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/17 11:53:01 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/17 11:55:17 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ static int	ft_parse_eof(t_line *buf, t_line *line, int r)
 static int	read_line(int fd, t_line *buf, t_line *line, t_bool lb)
 {
 	t_uc	*rem;
-	t_uc	*tmp;
 	t_uc	read_buf[GNL_BUFF_SIZE + 1];
 	int		r;
 
@@ -91,8 +90,8 @@ static int	read_line(int fd, t_line *buf, t_line *line, t_bool lb)
 		{
 			if (!(r = (int)read(fd, read_buf, GNL_BUFF_SIZE)) || r == -1)
 				return (ft_parse_eof(buf, line, r));
-			buf->len += r;
 			buf->str = ft_memjoin(buf->str, buf->len, read_buf, (size_t)r);
+			buf->len += r;
 		}
 	}
 }
@@ -119,5 +118,5 @@ int			ft_gnl_v2(const int fd, t_line *line, t_bool lb)
 		ft_memdel((void **)&line->str);
 	if (!buf)
 		buf = init_line();
-	return (read_line(fd, r, buf, line, lb));
+	return (read_line(fd, buf, line, lb));
 }
