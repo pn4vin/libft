@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 13:17:04 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/17 11:55:17 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/18 14:49:23 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ t_line		*init_line(void)
 	line->str = NULL;
 	line->len = 0;
 	return (line);
+}
+
+void		clean_t_line(t_line **line)
+{
+	if (*line)
+		ft_memdel((void **) &(*line)->str);
+	free(*line);
+	*line = NULL;
 }
 
 /*
@@ -112,7 +120,7 @@ int			ft_gnl_v2(const int fd, t_line *line, t_bool lb)
 {
 	static t_line	*buf;
 
-	if (fd <= -1)
+	if (fd <= -1 || fd >= 65536)
 		return (-1);
 	if (line->str)
 		ft_memdel((void **)&line->str);

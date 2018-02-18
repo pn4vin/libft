@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/17 11:52:12 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/18 12:59:09 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memsub(void *s, size_t start, size_t len,
 								t_bool and_free);
 
-void				*ft_realloc(void *memloc, size_t memloc_size,
-								size_t newmemloc_size);
+void				*ft_realloc(void *memloc, size_t old_size, size_t new_size,
+					t_bool and_free);
 void				*ft_memjoin(void *m1, size_t m1_len, void *m2,
 								size_t m2_len);
 
@@ -159,7 +159,7 @@ size_t				ft_slen(const char *s);
 int					ft_gnl(int fd, char **line);
 int					ft_gnl_v2(const int fd, t_line *line, t_bool lb);
 t_line				*init_line(void);
-void				free_t_line(t_line *line);
+void				clean_t_line(t_line **line);
 
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);

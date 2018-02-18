@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 18:53:53 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/16 18:59:58 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/18 11:54:08 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@
 ** @return     New memory location of size <newmemloc_size>
 */
 
-void	*ft_realloc(void *memloc, size_t old_size, size_t new_size)
+void	*ft_realloc(void *memloc, size_t old_size, size_t new_size,
+					t_bool and_free)
 {
 	void	*newmemloc;
 
 	MALLCHECK((newmemloc = malloc(new_size)));
 	ft_memcpy(newmemloc, memloc, old_size < new_size ? old_size : new_size);
+	if (and_free)
+		free(memloc);
 	return (newmemloc);
 }
