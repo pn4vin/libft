@@ -160,6 +160,7 @@ int					ft_gnl(int fd, char **line);
 int					ft_gnl_v2(const int fd, t_line *line, t_bool lb);
 t_line				*init_line(void);
 void				clean_t_line(t_line **line);
+void				ft_t_line_replace(t_line *dst, t_line *src);
 
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
