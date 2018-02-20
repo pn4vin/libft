@@ -19,7 +19,7 @@
 ** @param      src   The source
 */
 
-void	ft_t_line_replace(t_line *dst, t_line *src)
+void	ft_tline_replace(t_line *dst, t_line *src)
 {
 	ft_memdel((void **) &dst->str);
 	dst->str = ft_memalloc(src->len);
