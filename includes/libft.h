@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 11:16:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/18 12:59:09 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/21 13:25:33 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,5 +168,8 @@ int					ft_dprintf(int fd, const char *format, ...);
 char				*ft_sprintf(const char *format, ...);
 t_bool				ft_startswith(const char *str, char *prefix);
 t_bool				ft_endswith(const char *s, char *suffix);
+
+void				ft_message_and_exit(char *message,
+										int where, int exit_value);
 
 #endif
