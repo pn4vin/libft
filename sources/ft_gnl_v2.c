@@ -31,7 +31,7 @@ t_line		*init_line(void)
 void		clean_t_line(t_line **line)
 {
 	if (*line)
-		ft_memdel((void **) &(*line)->str);
+		ft_memdel((void **)&(*line)->str);
 	free(*line);
 	*line = NULL;
 }

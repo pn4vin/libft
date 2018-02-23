@@ -21,7 +21,7 @@
 
 void	ft_tline_replace(t_line *dst, t_line *src)
 {
-	ft_memdel((void **) &dst->str);
+	ft_memdel((void **)&dst->str);
 	dst->str = ft_memalloc(src->len);
 	ft_memcpy(dst->str, src->str, src->len);
 	dst->len = src->len;

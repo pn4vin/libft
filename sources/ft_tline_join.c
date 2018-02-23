@@ -26,4 +26,3 @@ void	ft_tline_join(t_line *left, t_line *right)
 	ft_memcpy(left->str + left->len, right->str, right->len);
 	left->len = left->len + right->len;
 }
-
