@@ -6,24 +6,35 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 19:05:44 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/01/11 19:09:58 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/02/23 15:38:30 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_endswith(const char *s, char *suffix)
+/*
+** @brief      Check whether <str> ends with the <suffix> provided
+**
+** @param      str     String to look into
+** @param      suffix  The suffix
+**
+** @return     TRUE if <str> contains the given <suffix>, otherwise FALSE
+*/
+
+t_bool	ft_endswith(const char *str, char *suffix)
 {
 	size_t	suf_len;
 	size_t	s_len;
 	int		i;
 
 	suf_len = ft_slen(suffix);
-	s_len = ft_slen(s);
+	s_len = ft_slen(str);
 	i = 0;
+	if (suf_len > s_len)
+		return (FALSE);
 	while (suf_len > 0)
 	{
-		if (suffix[suf_len - 1] != s[s_len - (i + 1)])
+		if (suffix[suf_len - 1] != str[s_len - (i + 1)])
 			return (FALSE);
 		suf_len--;
 		i++;
