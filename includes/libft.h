@@ -117,6 +117,8 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isupper(int c);
+t_bool				ft_isnumeric(char *str, size_t base);
+
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				ft_torot13(char *ac);
