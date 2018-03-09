@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# define GNL_BUFF_SIZE 1000000
+# define GNL_BUFF_SIZE 800
 # define GNL_MALLCHECK(x) if (!(x)) return (-1);
 # define MALLCHECK(x) if (!(x)) return (0);
 
@@ -79,6 +79,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
+void				ft_arrdel(void **ap);
 void				*ft_free_and_ret(void **address);
 
 char				*ft_strnew(size_t size);
