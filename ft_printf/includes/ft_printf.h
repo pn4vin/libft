@@ -33,6 +33,10 @@
 # include <stddef.h>
 # include <time.h>
 
+/*
+** ===============================STRUCTURES====================================
+*/
+
 typedef struct	s_printf_node
 {
 	char					content[LSTCAP];
@@ -69,7 +73,6 @@ typedef struct	s_spec
 	int			width;
 	int			prec;
 	t_length	length;
-	char		*spec;
 	int			pos;
 	int			base;
 	char		type;
@@ -82,6 +85,21 @@ typedef union	u_nbr
 }				t_nbr;
 
 typedef void	(*t_specptr)(t_node **content, t_spec *spec);
+
+typedef struct	s_color
+{
+	char	*color;
+	char	*espace_seq;
+}				t_color;
+
+static const t_color		g_colors[8] = {{"{black}", "\x1B[30m"},
+	{"{red}", "\x1B[31m"}, {"{green}", "\x1B[32m"}, {"{yellow}", "\x1B[33m"},
+	{"{blue}", "\x1B[34m"}, {"{magenta}", "\x1B[35m"}, {"{cyan}", "\x1B[36m"},
+	{"{nc}", "\x1B[0m"}};
+
+/*
+** ===========================PROTOTYPES=======================================
+*/
 
 int				ft_printf(const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
@@ -99,8 +117,7 @@ size_t			parse_specifier(const char *format);
 ssize_t			get_int_length(ssize_t integer);
 int				parse_pos(const char *format, int speclen);
 t_bool			is_valid_type(int c);
-
-t_spec			*init_spec(const char *format, size_t speclen);
+size_t			colorize(t_node **content, const char *format);
 t_nbr			*fetch_nbr(t_length len, char type, va_list arg, t_bool is_int);
 t_flags			parse_flags(const char *spec, size_t len);
 int				parse_width(t_spec *spec, const char *str, size_t len);

@@ -161,7 +161,7 @@ void	put_date(t_node **content, t_spec *spec)
 	expand_n(content, expand, ft_slen(expand));
 	expand_n(content, "-", 1);
 	free(expand);
-	nbr.u = (tm / 86400UL * 30UL) % 12UL + 1UL;
+	nbr.u = (tm / 86400UL * 31UL) % 12UL + 1UL;
 	expand = itoa_deluxe(nbr, spec, 10, FALSE);
 	expand_n(content, expand, ft_slen(expand));
 	expand_n(content, "-", 1);

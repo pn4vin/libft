@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_put_misc.c                               :+:      :+:    :+:   */
+/*   put_misc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: ptyshevs <ptyshevs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 20:26:34 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:22:38 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/03/11 13:51:57 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,39 @@ void	put_written_chars(t_node **content, t_spec *spec)
 	int	*expand;
 
 	expand = get_next_arg(spec, NULL, NULL);
-	*expand = content_size(*content);
+	*expand = (int)content_size(*content);
+}
+
+/*
+** @brief         Insert ANSI escape codes for 8-bit colors. Available options:
+**
+**                {black}, {red}, {green}, {yellow},
+**                {blue}, {magenta}, {cyan}, {nc}
+**
+** @param content The content arraylist
+** @param format  The format string
+**
+** @return Length of format string to surpass
+*/
+
+size_t	colorize(t_node **content, const char *format)
+{
+	size_t	i;
+	t_color	col;
+
+	if (*format == '{')
+	{
+		i = 0;
+		while (i < 8)
+		{
+			col = g_colors[i++];
+			if (ft_startswith(format, col.color))
+			{
+				i = ft_slen(col.espace_seq);
+				expand_n(content, col.espace_seq, i);
+				return (ft_slen(col.color));
+			}
+		}
+	}
+	return (0);
 }

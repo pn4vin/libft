@@ -25,7 +25,7 @@ NC = '\033[0m'
 
 # LIBFT
 
-LIBFTDIR = libft
+LIBFTDIR = .
 LIBFT_SRCDIR = $(LIBFTDIR)/sources
 LIBFT_INCDIR = $(LIBFTDIR)/includes
 

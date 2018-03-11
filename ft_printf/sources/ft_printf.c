@@ -21,18 +21,14 @@
 ** @return     Initializes specifier
 */
 
-t_spec		*init_spec(const char *format, size_t speclen)
+t_spec		*init_spec(t_spec *spec, const char *format, size_t speclen)
 {
-	t_spec *spec;
-
-	MALLCHECK(spec = (t_spec *)malloc(sizeof(t_spec)));
-	spec->spec = ft_strdup(format);
 	spec->length = parse_length(format, speclen);
 	spec->flags = parse_flags(format, speclen);
 	spec->pos = parse_pos(format, speclen);
 	spec->width = parse_width(spec, format, speclen);
 	spec->prec = parse_prec(spec, format, speclen);
-	spec->type = spec->spec[speclen - 1];
+	spec->type = format[speclen - 1];
 	if (spec->type == 'x' || spec->type == 'X' || spec->type == 'p')
 		spec->base = 16;
 	else if (spec->type == 'o' || spec->type == 'O')
@@ -111,29 +107,26 @@ size_t		parse_specifier(const char *format)
 
 char		*process_format(const char *format, t_node **content)
 {
-	t_specptr	f;
 	size_t		speclen;
 	t_spec		*spec;
 	int			non_conv;
 
-	non_conv = 0;
-	while (*format)
+	MALLCHECK(spec = (t_spec *)malloc(sizeof(t_spec)));
+	while (!(non_conv = !*format))
 	{
 		if (*format == '%')
 		{
 			CHECKSPECKLEN((speclen = parse_specifier(format)));
-			f = map_function(format, speclen);
-			spec = init_spec(format, speclen);
-			f(content, spec);
+			init_spec(spec, format, speclen);
+			map_function(format, speclen)(content, spec);
 			format += speclen;
-			free(spec->spec);
-			free(spec);
 		}
-		while (format && *format && *format != '%' && ++non_conv)
+		format += colorize(content, format);
+		while (*format && !ft_strchr("%{", *format) && ++non_conv)
 			format++;
 		non_conv ? expand_n(content, format - non_conv, non_conv) : 0;
-		non_conv ? non_conv = 0 : 0;
 	}
+	free(spec);
 	return (collect_content(*content));
 }
 
