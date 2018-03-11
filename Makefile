@@ -25,12 +25,11 @@ NC = '\033[0m'
 
 # LIBFT
 
-LIBFTDIR = .
+LIBFTDIR = libft
 LIBFT_SRCDIR = $(LIBFTDIR)/sources
 LIBFT_INCDIR = $(LIBFTDIR)/includes
 
-LIBFT_HEADNAMES =	libft \
-					ft_printf
+LIBFT_HEADNAMES =	libft
 LIBFT_HEADERS = $(patsubst %, $(LIBFT_INCDIR)/%.h, $(LIBFT_HEADNAMES))
 
 LIBFT_FILENAMES =	ft_putnbr ft_putchar ft_putstr ft_isalpha ft_atoi ft_bzero \
@@ -45,10 +44,8 @@ LIBFT_FILENAMES =	ft_putnbr ft_putchar ft_putstr ft_isalpha ft_atoi ft_bzero \
 		ft_lstdelone ft_lstdel  ft_lstadd ft_lstiter ft_lstmap ft_abs ft_atol \
 		ft_strtol ft_ctoi_base ft_itoa_base ft_torot13 ft_isspace ft_lstappend \
 		ft_putlst ft_lstsize ft_lstrev ft_lstfree ft_slen ft_strtok ft_strtoutf8 \
-		ft_gnl ft_isupper ft_wchrlen ft_wcstombs ft_wctomb ft_wcslen ft_printf \
-		ft_dprintf ft_sprintf ft_printf_convertors ft_printf_lst ft_printf_tools \
-		ft_printf_parsers ft_printf_posargs ft_printf_put_misc ft_printf_put_numbers \
-		ft_printf_put_strings ft_lstpush ft_startswith ft_endswith ft_sjoin ft_concat \
+		ft_gnl ft_isupper ft_wchrlen ft_wcstombs ft_wctomb ft_wcslen \
+		ft_lstpush ft_startswith ft_endswith ft_sjoin ft_concat \
 		ft_strtrunc ft_gnl_v2 ft_memsub ft_realloc ft_memjoin ft_free_and_ret \
 		ft_tline_replace ft_tline_join ft_message_and_exit ft_isnumeric \
 		ft_arrdel
@@ -56,19 +53,37 @@ LIBFT_FILENAMES =	ft_putnbr ft_putchar ft_putstr ft_isalpha ft_atoi ft_bzero \
 LIBFT_CFILES = $(patsubst %, $(LIBFT_SRCDIR)/%.c, $(LIBFT_FILENAMES))
 LIBFT_OFILES = $(patsubst %, $(ODIR)/%.o, $(LIBFT_FILENAMES))
 
+# FT_PRINTF
+
+FT_PRINTFDIR = ft_printf
+FT_PRINTF_SRCDIR = $(FT_PRINTFDIR)/sources
+FT_PRINTF_INCDIR = $(FT_PRINTFDIR)/includes
+
+FT_PRINTF_HEADNAMES = ft_printf
+FT_PRINTF_HEADERS = $(patsubst %, $(FT_PRINTF_INCDIR)/%.h, $(FT_PRINTF_HEADNAMES))
+
+FT_PRINTF_FILENAMES = ft_printf ft_dprintf ft_sprintf convertors lst tools \
+		parsers posargs put_misc put_numbers put_strings
+FT_PRINTF_CFILES = $(patsubst %, $(FT_PRINTF_SRCDIR).c, $(FT_PRINTF_FILENAMES))
+FT_PRINTF_OFILES = $(patsubst %, $(ODIR)/$(FT_PRINTFDIR)/%.o, $(FT_PRINTF_FILENAMES))
+
 all: $(LIBNAME)
 
-$(LIBNAME): $(ODIR) $(LIBFT_OFILES) $(LIBFT_HEADERS)
+$(LIBNAME): $(ODIR) $(LIBFT_OFILES) $(LIBFT_HEADERS) $(FT_PRINTF_OFILES) $(FT_PRINTF_HEADERS)
 	@echo ${CYAN}"Compiling $(LIBNAME)"${NC}
-	@ar rc $(LIBNAME) $(LIBFT_OFILES)
+	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(FT_PRINTF_OFILES)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
 
+$(ODIR)/$(FT_PRINTFDIR)/%.o: $(FT_PRINTF_SRCDIR)/%.c $(LIBFT_HEADERS) $(FT_PRINTF_HEADERS)
+	@gcc $(FLAGS) -o $@ -c $< -I$(LIBFT_INCDIR) -I$(FT_PRINTF_INCDIR)
+
 $(ODIR)/%.o: $(LIBFT_SRCDIR)/%.c $(LIBFT_HEADERS)
-	@gcc $(FLAGS) -o $@ -c $< -I$(LIBFT_INCDIR)
+	@gcc $(FLAGS) -o $@ -c $< -I$(LIBFT_INCDIR) -I$(FT_PRINTF_INCDIR)
 
 $(ODIR):
 	@mkdir -p $(ODIR)
+	@mkdir -p $(ODIR)/$(FT_PRINTFDIR)
 
 clean:
 	@echo ${RED}"[Removing *.o files]"${NC}
