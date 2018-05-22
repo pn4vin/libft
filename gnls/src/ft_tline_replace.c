@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tline_join.c                                    :+:      :+:    :+:   */
+/*   ft_t_line_replace.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/20 12:13:21 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/20 12:16:32 by ptyshevs         ###   ########.fr       */
+/*   Created: 2018/02/19 15:44:27 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/19 16:00:57 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "gnls.h"
 
 /*
-** @brief      Join two lines, appending right to the left and freeing resources
-**             of the <right> argument
+** @brief      Replace dst t_line with src t_line, freeing <dst> resources
 **
-** @param      left   The left t_line
-** @param      right  The right t_line
+** @param      dst   The destination
+** @param      src   The source
 */
 
-void	ft_tline_join(t_line *left, t_line *right)
+void	ft_tline_replace(t_line *dst, t_line *src)
 {
-	left->str = ft_realloc(left->str, left->len, left->len + right->len, TRUE);
-	ft_memcpy(left->str + left->len, right->str, right->len);
-	left->len = left->len + right->len;
+	ft_memdel((void **)&dst->str);
+	dst->str = ft_memalloc(src->len);
+	ft_memcpy(dst->str, src->str, src->len);
+	dst->len = src->len;
 }

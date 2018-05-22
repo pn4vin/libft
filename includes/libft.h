@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# define GNL_MALLCHECK(x) if (!(x)) return (-1);
 # define MALLCHECK(x) if (!(x)) return (0);
 
 typedef unsigned long long	t_ull;
@@ -40,12 +39,6 @@ typedef enum	e_bool
 	FALSE,
 	TRUE
 }				t_bool;
-
-typedef struct		s_line
-{
-	t_uc			*str;
-	size_t			len;
-}					t_line;
 
 int					ft_abs(int n);
 size_t				ft_strlen(const char *str);
@@ -157,12 +150,6 @@ size_t				ft_wcharlen(int c);
 int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
-int					ft_gnl(int fd, char **line);
-int					ft_gnl_v2(int fd, t_line *line, t_bool lb);
-t_line				*init_line(void);
-void				clean_t_line(t_line **line);
-void				ft_tline_replace(t_line *dst, t_line *src);
-void				ft_tline_join(t_line *left, t_line *right);
 
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
