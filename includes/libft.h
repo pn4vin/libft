@@ -160,6 +160,7 @@ int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
 int					ft_gnl(int fd, char **line);
+int					ft_usgnl(const int fd, char **line);
 int					ft_gnl_v2(const int fd, t_line *line, t_bool lb);
 t_line				*init_line(void);
 void				clean_t_line(t_line **line);
