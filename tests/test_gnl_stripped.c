@@ -13,6 +13,7 @@ int main(int ac, char **av)
 		write(1, line, ft_slen(line));
 		write(1, "\n", 1);
 	}
+	ft_dprintf(2, "It works!\n");
 	system("leaks test_gnl_stripped");
 	close(fd_from);
 	close(fd_to);
