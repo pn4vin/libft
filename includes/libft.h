@@ -20,12 +20,7 @@
 typedef unsigned long long	t_ull;
 typedef unsigned char		t_uc;
 
-typedef struct		s_fds
-{
-	char			*str;
-	int				fd;
-	struct s_fds	*next;
-}					t_fds;
+
 
 typedef struct		s_list
 {
@@ -54,9 +49,6 @@ char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 
-
-void				ft_arrdel(void **ap);
-void				*ft_free_and_ret(void **address);
 
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
@@ -136,9 +128,6 @@ int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
 
-int					ft_printf(const char *format, ...);
-int					ft_dprintf(int fd, const char *format, ...);
-char				*ft_sprintf(const char *format, ...);
 t_bool				ft_startswith(const char *str, char *prefix);
 t_bool				ft_endswith(const char *s, char *suffix);
 

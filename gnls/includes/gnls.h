@@ -29,6 +29,12 @@ typedef struct		s_line
 	size_t			len;
 }					t_line;
 
+typedef struct		s_fds
+{
+	char			*str;
+	int				fd;
+	struct s_fds	*next;
+}					t_fds;
 
 int					ft_usgnl(int fd, char **line);
 int					ft_gnl(int fd, char **line);

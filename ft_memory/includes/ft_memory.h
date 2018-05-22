@@ -19,6 +19,8 @@
 # define MALLCHECK(x) if (!(x)) return (0);
 
 void				*ft_memalloc(size_t size);
+void				ft_arrdel(void **ap);
+void				*ft_memrelease(void **address);
 void				ft_memdel(void **ap);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *b, int c, size_t len);

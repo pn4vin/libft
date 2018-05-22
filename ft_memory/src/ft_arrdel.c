@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_and_ret.c                                  :+:      :+:    :+:   */
+/*   ft_arrdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: ptyshevs <ptyshevs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/17 11:07:52 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/17 11:10:11 by ptyshevs         ###   ########.fr       */
+/*   Created: 2018/02/27 19:58:45 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/03/09 16:43:59 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_memory.h"
 
 /*
-** @brief      Free the memory location pointed to by <address>.
-**
-** @param      address  The address
-**
-** @return     address of the location freed.
+** Free all elements of an array.
+** @param ap Address of an array
 */
 
-void	*ft_free_and_ret(void **address)
+void	ft_arrdel(void **ap)
 {
-	ft_memdel(address);
-	return (*address);
+	void	**tmp;
+
+	while (*ap)
+	{
+		tmp = ap + 1;
+		ft_memdel(ap);
+		ap = tmp;
+	}
+	ft_memdel(ap);
 }

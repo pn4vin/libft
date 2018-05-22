@@ -3,8 +3,6 @@ LIBNAME = libft.a
 
 ######################### LIBFT #########################
 
-
-
 LIBFT_HEADNAMES =	libft
 LIBFT_HEADERS = $(patsubst %, $(LIBFT_INCDIR)/%.h, $(LIBFT_HEADNAMES))
 
@@ -21,8 +19,7 @@ LIBFT_FILENAMES =	ft_putnbr ft_putchar ft_putstr ft_isalpha ft_atoi ft_bzero \
 		ft_strtol ft_ctoi_base ft_itoa_base ft_torot13 ft_isspace ft_lstappend \
 		ft_putlst ft_lstsize ft_lstrev ft_lstfree ft_slen ft_strtok ft_strtoutf8 \
 		ft_isupper ft_wchrlen ft_wcstombs ft_wctomb ft_wcslen ft_lstpush ft_startswith \
-		ft_endswith ft_sjoin ft_concat ft_strtrunc ft_free_and_ret ft_message_and_exit \
-		ft_isnumeric ft_arrdel
+		ft_endswith ft_sjoin ft_concat ft_strtrunc ft_message_and_exit ft_isnumeric
 
 LIBFT_CFILES = $(patsubst %, $(LIBFT_SRCDIR)/%.c, $(LIBFT_FILENAMES))
 LIBFT_OFILES = $(patsubst %, $(ODIR)/%.o, $(LIBFT_FILENAMES))
