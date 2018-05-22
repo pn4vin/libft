@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstappend.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 18:31:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:20:56 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 18:24:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:21:14 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
 /*
-** @brief      Append new element to the end of the list
+** @brief      Create a new list where each element is the result of function f
+**             call
 **
-** @param      alst       Address of the list
-** @param      new        New element to be added
+** @param      lst   The list
+** @param      f     Function to generate new element
+**
+** @return     Brand new list
 */
 
-void	ft_lstappend(t_list **alst, t_list *new)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list *lst;
+	t_list	*new_lst;
 
-	lst = *alst;
-	if (!lst)
-		*alst = new;
-	else
+	new_lst = NULL;
+	if (lst != NULL && f != NULL)
 	{
-		while (lst->next)
+		while (lst)
+		{
+			ft_lstappend(&new_lst, f(lst));
 			lst = lst->next;
-		lst->next = new;
+		}
 	}
+	return (new_lst);
 }

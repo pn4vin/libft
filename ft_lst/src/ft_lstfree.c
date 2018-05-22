@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 17:35:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:21:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/08 22:47:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/08 22:53:21 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 /*
-** @brief      Remove list by traversing through it and freeing every node
+** @brief      free space of content
 **
-** @param      alst  Address of the list
-** @param      del   Function to free node's content
+** @note       Default del( ) function for ft_lstdel and ft_lstdelone
+** @param      content       The content
+** @param      content_size  The content size
 */
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstfree(void **acontent, size_t content_size)
 {
-	if (alst != NULL && *alst != NULL && del != NULL)
-	{
-		ft_lstdel(&((*alst)->next), del);
-		ft_lstdelone(alst, del);
-	}
+	(void)content_size;
+	ft_memdel(acontent);
 }

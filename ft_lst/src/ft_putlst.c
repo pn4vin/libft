@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_putlst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 18:25:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:21:23 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/08 07:57:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:23:41 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_lst.h"
 #include "libft.h"
 
 /*
-** @brief      Reverse list by switching pointers to opposite side
+** @brief      Put list to standard output
 **
-** @param      alst  The address of list to be reversed
+** @note       Node's content is expected to be of type (char *)
 **
-** @return     Pointer to the head of the reversed list
+** @param      lst   List to be printed
 */
 
-t_list		*ft_lstrev(t_list **alst)
+void	ft_putlst(t_list *lst)
 {
-	t_list	*prev;
-	t_list	*next;
-
-	if (!alst || !*alst)
-		return (NULL);
-	prev = NULL;
-	while (*alst)
+	while (lst != NULL)
 	{
-		next = (*alst)->next;
-		(*alst)->next = prev;
-		prev = *alst;
-		*alst = next;
+		ft_putstr((char *)lst->content);
+		ft_putstr(" -> ");
+		lst = lst->next;
 	}
-	return (prev);
+	ft_putstr("NULL\n");
 }

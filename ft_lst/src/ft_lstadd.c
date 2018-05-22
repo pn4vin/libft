@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 18:23:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:21:11 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 17:43:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:20:53 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
 /*
-** @brief      Iterate through list, applying function f to each element
+** @brief      Add the element new to the beginning of the list
 **
-** @param      lst   The list
-** @param      f     Function to be applied
+** @param      alst       Address of a pointer to the beginning of the list
+** @param      new        New element
 */
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *))
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (lst != NULL && f != NULL)
+	t_list *head;
+
+	if (alst != NULL && new != NULL)
 	{
-		while (lst != NULL)
-		{
-			f(lst);
-			lst = lst->next;
-		}
+		head = *alst;
+		*alst = new;
+		new->next = head;
 	}
 }

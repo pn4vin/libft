@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpush.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 11:17:30 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/01/10 11:22:37 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 17:35:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:21:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
 /*
-** @brief      Push front to the list. Initialize list if head_ref point to NULL
+** @brief      Remove list by traversing through it and freeing every node
 **
-** @param      head_ref  The head reference
-** @param      node      The node
+** @param      alst  Address of the list
+** @param      del   Function to free node's content
 */
 
-void	ft_lstpush(t_list **head_ref, t_list *node)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list	*tmp;
-
-	if (!*head_ref)
-		*head_ref = node;
-	else
+	if (alst != NULL && *alst != NULL && del != NULL)
 	{
-		tmp = *head_ref;
-		*head_ref = node;
-		(*head_ref)->next = tmp;
+		ft_lstdel(&((*alst)->next), del);
+		ft_lstdelone(alst, del);
 	}
 }

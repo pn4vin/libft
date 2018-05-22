@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 18:24:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:21:14 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 18:23:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:21:11 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
 /*
-** @brief      Create a new list where each element is the result of function f
-**             call
+** @brief      Iterate through list, applying function f to each element
 **
 ** @param      lst   The list
-** @param      f     Function to generate new element
-**
-** @return     Brand new list
+** @param      f     Function to be applied
 */
 
-t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *))
 {
-	t_list	*new_lst;
-
-	new_lst = NULL;
 	if (lst != NULL && f != NULL)
 	{
-		while (lst)
+		while (lst != NULL)
 		{
-			ft_lstappend(&new_lst, f(lst));
+			f(lst);
 			lst = lst->next;
 		}
 	}
-	return (new_lst);
 }

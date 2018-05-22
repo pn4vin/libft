@@ -13,4 +13,12 @@ MEM_SRCS = ft_memalloc.c ft_realloc.c ft_memdel.c ft_memset.c ft_bzero.c \
 		ft_memchr.c ft_memcmp.c ft_memjoin.c ft_arrdel.c ft_memrelease.c
 MEM_INCDS = ft_memory.h
 
-ALL_INCDIRS = includes $(GNLS_DIR)/includes $(MEM_DIR)/includes $(FT_PRINTFDIR)/includes
+LST_DIR = ./ft_lst
+LST_SRCS = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
+		ft_lstmap.c ft_lstappend.c ft_putlst.c ft_lstsize.c ft_lstrev.c ft_lstfree.c \
+		ft_lstpush.c
+LST_INCDS = ft_lst.h
+
+ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR)
+
+ALL_INCDIRS = $(addsuffix /includes, $(ALL_DIRS))

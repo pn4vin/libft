@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 08:29:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/08 08:31:13 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/08 18:31:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:20:56 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
 /*
-** @brief      Calculate size/depth/# of elements of the linked list
+** @brief      Append new element to the end of the list
 **
-** @param      lst   The list
-**
-** @return     Size of the list
+** @param      alst       Address of the list
+** @param      new        New element to be added
 */
 
-size_t		ft_lstsize(t_list *lst)
+void	ft_lstappend(t_list **alst, t_list *new)
 {
-	size_t	size;
+	t_list *lst;
 
-	size = 0;
-	while (lst != NULL)
+	lst = *alst;
+	if (!lst)
+		*alst = new;
+	else
 	{
-		size++;
-		lst = lst->next;
+		while (lst->next)
+			lst = lst->next;
+		lst->next = new;
 	}
-	return (size);
 }

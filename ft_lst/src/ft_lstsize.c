@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 17:43:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:20:53 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/08 08:29:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/08 08:31:13 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
 /*
-** @brief      Add the element new to the beginning of the list
+** @brief      Calculate size/depth/# of elements of the linked list
 **
-** @param      alst       Address of a pointer to the beginning of the list
-** @param      new        New element
+** @param      lst   The list
+**
+** @return     Size of the list
 */
 
-void	ft_lstadd(t_list **alst, t_list *new)
+size_t		ft_lstsize(t_list *lst)
 {
-	t_list *head;
+	size_t	size;
 
-	if (alst != NULL && new != NULL)
+	size = 0;
+	while (lst != NULL)
 	{
-		head = *alst;
-		*alst = new;
-		new->next = head;
+		size++;
+		lst = lst->next;
 	}
+	return (size);
 }

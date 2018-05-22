@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfree.c                                       :+:      :+:    :+:   */
+/*   ft_lstpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 22:47:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/08 22:53:21 by ptyshevs         ###   ########.fr       */
+/*   Created: 2018/01/10 11:17:30 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/01/10 11:22:37 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_memory.h"
+#include "ft_lst.h"
 
 /*
-** @brief      free space of content
+** @brief      Push front to the list. Initialize list if head_ref point to NULL
 **
-** @note       Default del( ) function for ft_lstdel and ft_lstdelone
-** @param      content       The content
-** @param      content_size  The content size
+** @param      head_ref  The head reference
+** @param      node      The node
 */
 
-void	ft_lstfree(void **acontent, size_t content_size)
+void	ft_lstpush(t_list **head_ref, t_list *node)
 {
-	(void)content_size;
-	ft_memdel(acontent);
+	t_list	*tmp;
+
+	if (!*head_ref)
+		*head_ref = node;
+	else
+	{
+		tmp = *head_ref;
+		*head_ref = node;
+		(*head_ref)->next = tmp;
+	}
 }
