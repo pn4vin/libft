@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# define GNL_BUFF_SIZE 800
 # define GNL_MALLCHECK(x) if (!(x)) return (-1);
 # define MALLCHECK(x) if (!(x)) return (0);
 
@@ -56,8 +55,7 @@ void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memccpy_test(void *dst, const void *src,
-									int c, size_t n);
+void				*ft_memcpy_fwd(void *dst, const void *src, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memsub(void *s, size_t start, size_t len,
@@ -160,8 +158,7 @@ int					ft_ctoi_base(char c, const char *base);
 
 size_t				ft_slen(const char *s);
 int					ft_gnl(int fd, char **line);
-int					ft_usgnl(const int fd, char **line);
-int					ft_gnl_v2(const int fd, t_line *line, t_bool lb);
+int					ft_gnl_v2(int fd, t_line *line, t_bool lb);
 t_line				*init_line(void);
 void				clean_t_line(t_line **line);
 void				ft_tline_replace(t_line *dst, t_line *src);

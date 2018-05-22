@@ -8,3 +8,5 @@ set(INCLUDES ft_printf/includes gnls/includes includes)
 
 add_library(ft STATIC ${GNLS} ${LIBFT} ${FT_PRINTF} ${INCLUDES})
 include_directories(${INCLUDES})
+
+add_subdirectory(tests)

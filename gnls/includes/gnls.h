@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include "libft.h"
-
+# define GNL_BUFF_SIZE 1000
 # define GNL_MALLCHECK(x) if (!(x)) return (-1);
 
 typedef unsigned char		t_uc;
@@ -26,6 +26,7 @@ typedef unsigned char		t_uc;
 //	t_uc			*str;
 //	size_t			len;
 //}					t_line;
+
 
 int				ft_usgnl(int fd, char **line);
 int				ft_gnl(int fd, char **line);

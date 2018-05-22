@@ -13,6 +13,18 @@
 #include "gnls.h"
 
 /*
+** Substitute old string with the new one, without a memory leak
+*/
+static void		ft_substitute(char **old, char *new)
+{
+	char	*tmp;
+
+	tmp = *old;
+	*old = new;
+	ft_strdel(&tmp);
+}
+
+/*
 ** @brief      Handle end-of-file properly
 **
 **             if file doesn't end with a newline, read the remaining characters
@@ -43,45 +55,6 @@ static int		ft_parse_eof(char **str, char **line, ssize_t r)
 }
 
 /*
-** @brief      Read line from the specified file descriptor
-**
-** @param      fds   Structure that contains buffer string associated with the
-**                   file descriptor
-** @param      line  pointer to the line location
-**
-** @return     the return code of the attempt to read a line from a file
-*/
-
-static int		ft_read_fd(int fd, char **line)
-{
-	char	*rem;
-	char	*tmp;
-	char	buf[GNL_BUFF_SIZE + 1];
-	static	char *str = NULL;
-	ssize_t	r;
-
-	while (1)
-	{
-		if (str && (rem = ft_strchr(str, '\n')))
-		{
-			GNL_MALLCHECK((*line = ft_strsub(str, 0, rem - str)));
-			tmp = ft_strsub(str, (rem - str) + 1, ft_slen(rem) + 1);
-			ft_strdel(&str);
-			return (tmp ? ((str) = tmp) != NULL : -1);
-		}
-		else
-		{
-			if (!(r = read(fd, buf, GNL_BUFF_SIZE)) || r == -1)
-				return (ft_parse_eof(&str, line, r));
-			buf[r] = '\0';
-			GNL_MALLCHECK(tmp = ft_strjoin(str ? str : "", buf));
-			ft_strdel(&str);
-			str = tmp;
-		}
-	}
-}
-
-/*
 ** @brief      Stripped version of get_next_line designed to improve overall
  *             speed and efficiency.
  *
@@ -98,9 +71,29 @@ static int		ft_read_fd(int fd, char **line)
 
 int				ft_usgnl(const int fd, char **line)
 {
+	char			*rem;
+	char			buf[GNL_BUFF_SIZE + 1];
+	static	char	*str = NULL;
+	ssize_t			r;
+
 	if (fd <= -1 || !line)
 		return (-1);
-	if (*line)
-		ft_strdel(line);
-	return (ft_read_fd(fd, line));
+	*line ? ft_strdel(line) : line;
+	while (1)
+	{
+		if (str && (rem = ft_strchr(str, '\n')))
+		{
+			GNL_MALLCHECK((*line = ft_strsub(str, 0, rem - str)));
+			r = ft_slen(rem) - 1;
+			((char *)ft_memcpy_fwd(str, rem + 1, (size_t) r))[r] = '\0';
+			return (str ? str != NULL : -1);
+		}
+		else
+		{
+			if (!(r = read(fd, buf, GNL_BUFF_SIZE)) || r == -1)
+				return (ft_parse_eof(&str, line, r));
+			buf[r] = '\0';
+			ft_substitute(&str, ft_concat(str, buf, FALSE));
+		}
+	}
 }
