@@ -21,16 +21,26 @@
 ** @param      ac    Address of the character
 */
 
-void	ft_torot13(char *ac)
+char	*ft_strtorot13(char *ac)
 {
-	char	c;
+	char	*res;
+	int		i;
 
+	res = ac ? ft_strnew(ft_slen(ac)) : NULL;
 	if (ac != NULL)
 	{
-		c = *ac;
-		if (c >= 65 && c <= 90)
-			*ac = (char)((c - 65 + 13) % 26 + 65);
-		else if (c >= 97 && c <= 122)
-			*ac = (char)((c - 97 + 13) % 26 + 97);
+		i = 0;
+		while (*ac)
+		{
+			if (*ac >= 65 && *ac <= 90)
+				res[i] = (char)((*ac - 65 + 13) % 26 + 65);
+			else if (*ac >= 97 && *ac <= 122)
+				res[i] = (char)((*ac - 97 + 13) % 26 + 97);
+			else
+				res[i] = *ac;
+			i++;
+			ac++;
+		}
 	}
+	return (res);
 }

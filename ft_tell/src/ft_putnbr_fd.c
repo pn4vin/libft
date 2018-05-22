@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 10:52:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:19:53 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 13:31:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/07 13:33:47 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_tell.h"
 #include "libft.h"
 
 /*
-** @brief      Put char to standard output
+** @brief      Output the integer n to the provided file descriptor
 **
-** @param      c     Char
+** @param      n     Number
+** @param      fd    File Descriptor
 */
 
-void	ft_putchar(char c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putchar_fd(c, 1);
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	if (n >= 10 || n <= -10)
+	{
+		ft_putnbr_fd(ft_abs(n / 10), fd);
+	}
+	ft_putchar_fd((char)(ft_abs(n % 10) + 48), fd);
 }

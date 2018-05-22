@@ -85,17 +85,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				ft_torot13(char *ac);
 
-void				ft_putchar(char c);
-void				ft_putchar_fd(char c, int fd);
 
-void				ft_putstr(const char *s);
-void				ft_putstr_fd(const char *s, int fd);
-
-void				ft_putendl(const char *s);
-void				ft_putendl_fd(const char *s, int fd);
-
-void				ft_putnbr(int n);
-void				ft_putnbr_fd(int n, int fd);
 
 
 wchar_t				*ft_strtoutf8(char *str);
@@ -111,7 +101,6 @@ size_t				ft_slen(const char *s);
 t_bool				ft_startswith(const char *str, char *prefix);
 t_bool				ft_endswith(const char *s, char *suffix);
 
-void				ft_message_and_exit(char *message,
-										int where, int exit_value);
+
 
 #endif

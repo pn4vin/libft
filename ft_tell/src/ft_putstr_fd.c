@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_tell.h"
 
 /*
 ** @brief      Output string to a file descriptor

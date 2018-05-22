@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 13:09:46 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/07 13:30:18 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 10:52:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:19:53 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_tell.h"
 
 /*
-** @brief      Output string s to fd followed by a '\n' character
+** @brief      Put char to standard output
 **
-** @param      s     String
-** @param      fd    File Descriptor
+** @param      c     Char
 */
 
-void	ft_putendl_fd(const char *s, int fd)
+void	ft_putchar(char c)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	ft_putchar_fd(c, 1);
 }

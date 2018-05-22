@@ -10,15 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_tell.h"
 
 /*
-** @brief      Output <message> to <where> and stop program execution
+** @brief      Output <message> to <where> and stop program execution with
+ *             <exit_value> return value.
 **
 ** @param      message  The message
 */
 
-void	ft_message_and_exit(char *message, int where, int exit_value)
+void	ft_panic(char *message, int where, int exit_value)
 {
 	ft_putendl_fd(message, where);
 	exit(exit_value);

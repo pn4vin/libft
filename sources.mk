@@ -19,6 +19,11 @@ LST_SRCS = ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 		ft_lstpush.c
 LST_INCDS = ft_lst.h
 
-ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR)
+TELL_DIR = ./ft_tell
+TELL_SRCS = ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c \
+			ft_putnbr.c ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c ft_panic.c
+TELL_INCDS = ft_tell.h
+
+ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR) $(TELL_DIR)
 
 ALL_INCDIRS = $(addsuffix /includes, $(ALL_DIRS))

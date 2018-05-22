@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 13:31:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/07 13:33:47 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/07 15:44:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:19:41 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_tell.h"
 
 /*
-** @brief      Output the integer n to the provided file descriptor
+** @brief      Output number to stdout
 **
-** @param      n     Number
-** @param      fd    File Descriptor
+** @param      n     Integer to be printed using stdout
 */
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr(int n)
 {
-	if (n < 0)
-		ft_putchar_fd('-', fd);
-	if (n >= 10 || n <= -10)
-	{
-		ft_putnbr_fd(ft_abs(n / 10), fd);
-	}
-	ft_putchar_fd((char)(ft_abs(n % 10) + 48), fd);
+	ft_putnbr_fd(n, 1);
 }
