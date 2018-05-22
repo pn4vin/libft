@@ -13,9 +13,9 @@
 #include "libft.h"
 
 /*
-** @brief      Copy memory area from src to dst, up to n bytes
+** @brief      Copy ft_memory area from src to dst, up to n bytes
 **
-** @note       Overlapping memory regions = UB
+** @note       Overlapping ft_memory regions = UB
 **
 ** @param      dst   The destination
 ** @param      src   The source
@@ -24,19 +24,14 @@
 ** @return     the original value of dst (pointer to the start)
 */
 
-void		*ft_memcpy_fwd(void *dst, const void *src, size_t n)
+void		*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*dp;
 	unsigned const char	*sp;
-	size_t				i;
 
 	dp = (unsigned char *)dst;
 	sp = (const unsigned char*)src;
-	i = 0;
-	while (i < n)
-	{
-		dp[i] = sp[i];
-		i++;
-	}
+	while (n--)
+		dp[n] = sp[n];
 	return (dst);
 }

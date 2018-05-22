@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_memory.h"
 
 /*
 ** Free all elements of an array.

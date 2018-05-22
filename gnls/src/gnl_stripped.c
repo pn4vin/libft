@@ -13,8 +13,9 @@
 #include "gnls.h"
 
 /*
-** Substitute old string with the new one, without a memory leak
+** Substitute old string with the new one, without a ft_memory leak
 */
+
 static void		ft_substitute(char **old, char *new)
 {
 	char	*tmp;

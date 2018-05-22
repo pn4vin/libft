@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/01 18:48:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:20:20 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/01 17:32:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/01 18:48:33 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 /*
-** @brief      Write n zeroes to a byte string
+** @brief      Fill a byte string with a byte value
 **
-** @param      s     String s
-** @param      n     # of bytes to be written to s
+** @param      b     String b
+** @param      c     Converted to an unsigned char
+** @param      len   # of bytes to be written
+**
+** @return     Modified string
 */
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	ft_memset(s, '\0', n);
+	int i;
+
+	i = 0;
+	while (len--)
+		((unsigned char *)b)[i++] = (unsigned char)c;
+	return (b);
 }

@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
+# include "ft_memory.h"
 
 # define LSTCAP 50
 # define CHECKSPECKLEN(x) if ((x) == 0) break;

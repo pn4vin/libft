@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include "libft.h"
+# include "ft_memory.h"
+
 # define GNL_BUFF_SIZE 1000
 # define GNL_MALLCHECK(x) if (!(x)) return (-1);
 

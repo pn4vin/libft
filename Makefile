@@ -10,8 +10,7 @@ LIBFT_HEADERS = $(patsubst %, $(LIBFT_INCDIR)/%.h, $(LIBFT_HEADNAMES))
 
 
 LIBFT_FILENAMES =	ft_putnbr ft_putchar ft_putstr ft_isalpha ft_atoi ft_bzero \
-		ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint ft_memccpy \
-		ft_memchr ft_memcmp ft_memcpy ft_memmove ft_memset ft_strchr ft_strcmp \
+		ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint ft_strchr ft_strcmp \
 		ft_strlen ft_strncmp ft_strnstr ft_strstr ft_tolower ft_toupper \
 		ft_strrchr ft_strdup ft_strcpy ft_strncpy  ft_strcat ft_strncat \
 		ft_strlcat ft_memalloc ft_memdel ft_strnew ft_strdel ft_strclr \
@@ -30,7 +29,6 @@ LIBFT_OFILES = $(patsubst %, $(ODIR)/%.o, $(LIBFT_FILENAMES))
 
 # FT_PRINTF
 
-FT_PRINTFDIR = ft_printf
 FT_PRINTF_SRCDIR = $(FT_PRINTFDIR)/sources
 FT_PRINTF_INCDIR = $(FT_PRINTFDIR)/includes
 
@@ -44,8 +42,13 @@ FT_PRINTF_OFILES = $(patsubst %, $(ODIR)/$(FT_PRINTFDIR)/%.o, $(FT_PRINTF_FILENA
 
 ######################### GNLS ##########################
 
-GNLS_DIR = ./gnls
 GNLS_OBJECTS = $(addprefix $(ODIR)/, $(GNLS_SRCS:.c=.o))
+
+
+######################### MEMORY ########################
+
+MEM_OBJECTS = $(addprefix $(ODIR)/, $(MEM_SRCS:.c=.o))
+
 
 ######################### MAKE_BEGIN ##########################
 
@@ -54,23 +57,30 @@ GNLS_OBJECTS = $(addprefix $(ODIR)/, $(GNLS_SRCS:.c=.o))
 
 all: $(LIBNAME)
 
-$(LIBNAME): $(ODIR) $(GNLS_OBJECTS) $(LIBFT_OFILES) $(LIBFT_HEADERS) $(FT_PRINTF_OFILES) $(FT_PRINTF_HEADERS)
+$(LIBNAME): $(ODIR) $(GNLS_OBJECTS) $(LIBFT_OFILES) \
+	$(MEM_OBJECTS) $(LIBFT_HEADERS) $(FT_PRINTF_OFILES) $(FT_PRINTF_HEADERS)
 	@echo ${CYAN}"Compiling $(LIBNAME)"${NC}
-	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(FT_PRINTF_OFILES) $(GNLS_OBJECTS)
+	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(FT_PRINTF_OFILES) $(GNLS_OBJECTS) $(MEM_OBJECTS)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
+
 
 $(GNLS_OBJECTS):
 	@echo ${CYAN}"Compiling gnls"${NC}
 	@make -C $(GNLS_DIR)
 	@/bin/echo ""
 
+$(MEM_OBJECTS):
+	@echo ${CYAN}"Compiling ft_memory"${NC}
+	@make -C $(MEM_DIR)
+	@/bin/echo ""
+
 
 $(ODIR)/$(FT_PRINTFDIR)/%.o: $(FT_PRINTF_SRCDIR)/%.c $(LIBFT_HEADERS) $(FT_PRINTF_HEADERS)
-	@gcc $(FLAGS) -o $@ -c $< -I$(LIBFT_INCDIR) -I$(FT_PRINTF_INCDIR)
+	@gcc $(FLAGS) -o $@ -c $< $(addprefix -I,$(ALL_INCDIRS))
 
 $(ODIR)/%.o: $(LIBFT_SRCDIR)/%.c $(LIBFT_HEADERS)
-	@gcc $(FLAGS) -o $@ -c $< -I$(LIBFT_INCDIR) -I$(FT_PRINTF_INCDIR)
+	@gcc $(FLAGS) -o $@ -c $< $(addprefix -I,$(ALL_INCDIRS))
 
 $(ODIR):
 	@mkdir -p $(ODIR)

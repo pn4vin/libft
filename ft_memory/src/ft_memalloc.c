@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 /*
-** @brief      Allocate memory and initialize it to 0
+** @brief      Allocate ft_memory and initialize it to 0
 **
 ** @param[in]  size  The size
 **
-** @return     pointer to allocated memory area or NULL if malloc failed.
+** @return     pointer to allocated ft_memory area or NULL if malloc failed.
 */
 
 void	*ft_memalloc(size_t size)

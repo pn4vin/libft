@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 /*
-** @brief      Realloc new memory location and copy <memloc> there
+** @brief      Realloc new ft_memory location and copy <memloc> there
 **
 **
 ** @note       if <new_size> is smaller than <old_size>, only <new_size> bytes
@@ -22,7 +22,7 @@
 ** @param      memloc_size     The memloc size
 ** @param      newmemloc_size  The newmemloc size
 **
-** @return     New memory location of size <newmemloc_size>
+** @return     New ft_memory location of size <newmemloc_size>
 */
 
 void	*ft_realloc(void *memloc, size_t old_size, size_t new_size,

@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 /*
-** @brief      Join two memory locations together
+** @brief      Join two ft_memory locations together
 **
 ** @param      m1      The m1
 ** @param      m1_len  The m1 length
 ** @param      m2      The m2
 ** @param      m2_len  The m2 length
 **
-** @return     Pointer to the new memory location with arguments concatenated.
+** @return     Pointer to the new ft_memory location with arguments concatenated.
 */
 
 void	*ft_memjoin(void *m1, size_t m1_len, void *m2, size_t m2_len)

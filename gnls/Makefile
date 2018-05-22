@@ -11,5 +11,5 @@ OBJECTS = $(addprefix ../$(ODIR)/, $(GNLS_SRCS:.c=.o))
 gnls: $(OBJECTS)
 
 ../$(ODIR)/%.o: $(SRCDIR)/%.c
-	@$(CC) $(FLAGS) -c $^ -o $@ -I $(INCDIR) -I ../$(LIBFT_INCDIR)
+	@$(CC) $(FLAGS) -c $^ -o $@ -I $(INCDIR) $(addprefix -I../, $(ALL_INCDIRS))
 	@/bin/echo -n "."

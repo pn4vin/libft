@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/01 17:32:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/01 18:48:33 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/06 11:49:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:21:44 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
 /*
-** @brief      Fill a byte string with a byte value
+** @brief      Free ft_memory pointed by ap and set pointer to NULL
 **
-** @param      b     String b
-** @param      c     Converted to an unsigned char
-** @param      len   # of bytes to be written
-**
-** @return     Modified string
+** @param      ap    pointer to a ft_memory needed to be freed
 */
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_memdel(void **ap)
 {
-	int i;
-
-	i = 0;
-	while (len--)
-		((unsigned char *)b)[i++] = (unsigned char)c;
-	return (b);
+	if (ap != NULL)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_memory.h"
 
 /*
 ** @brief      free space of content

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_memory.h"
 
 /*
 ** @brief      Copy first len character from src to dst
