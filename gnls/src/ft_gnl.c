@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "gnls.h"
-#include "libft.h"
+#include "ft_str.h"
 
 /*
 ** @brief      Add new File Descriptor to the list

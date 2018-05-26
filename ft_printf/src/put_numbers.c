@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_str.h"
 
 /*
 ** @brief      Fetches a number, properly.

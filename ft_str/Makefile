@@ -4,11 +4,11 @@ INCDIR = includes
 SRCDIR = src
 
 
-INCLUDES = $(addprefix $(INCDIR)/, $(MEM_INCDS))
-SOURCES = $(addprefix $(SRCDIR)/, $(MEM_SRCS))
-OBJECTS = $(addprefix ../$(ODIR)/, $(MEM_SRCS:.c=.o))
+INCLUDES = $(addprefix $(INCDIR)/, $(STR_INCDS))
+SOURCES = $(addprefix $(SRCDIR)/, $(STR_SRCS))
+OBJECTS = $(addprefix ../$(ODIR)/, $(STR_SRCS:.c=.o))
 
-ft_memory: $(OBJECTS)
+ft_str: $(OBJECTS)
 
 ../$(ODIR)/%.o: $(SRCDIR)/%.c
 	@$(CC) $(FLAGS) -c $^ -o $@ -I $(INCDIR) $(addprefix -I./../, $(ALL_INCDIRS))

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_str.h"
 
 /*
 ** Check if the given string is a valid number in the given base
@@ -21,7 +21,7 @@
 **              otherwise FALSE
 */
 
-t_bool	ft_isnumeric(char *str, size_t base)
+t_bool	ft_strisnum(char *str, size_t base)
 {
 	static char	*radix = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int			i;

@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_str.h"
 
 /*
-** @brief      Connvert letter to it's ROT13 representation by adress.
+** @brief      Connvert string to it's ROT13 representation.
 **
 ** @note       ROT13 is a reciprocal substitution cipher that gained a large
 **             popularity on the Web.
 **
-** @param      ac    Address of the character
+** @param      ac    New substituted string.
 */
 
 char	*ft_strtorot13(char *ac)

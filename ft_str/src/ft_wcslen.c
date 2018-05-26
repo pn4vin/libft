@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_wcslen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 14:50:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/04 14:50:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2018/01/06 09:32:10 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:27:05 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_memory.h"
+#include "ft_str.h"
 
 /*
-** @brief      Copy strings
+** @brief      Calculate length of UTF-8 encoded string
 **
-** @param      dst   The destination
-** @param      src   The source
+** @param      str   The string
 **
-** @return     pointer to dst
+** @return     Number of bytes required to store the UTF-8 string in memory
 */
 
-char	*ft_strcpy(char *dst, const char *src)
+size_t	ft_wcslen(const wchar_t *str)
 {
-	ft_memcpy(dst, src, ft_strlen(src) + 1);
-	return (dst);
+	int		i;
+	size_t	size;
+
+	size = 0;
+	i = 0;
+	while (str && str[i])
+		size += ft_wcharlen(str[i++]);
+	return (size);
 }

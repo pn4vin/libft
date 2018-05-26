@@ -24,6 +24,23 @@ TELL_SRCS = ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c \
 			ft_putnbr.c ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c ft_panic.c
 TELL_INCDS = ft_tell.h
 
-ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR) $(TELL_DIR)
+STR_DIR = ./ft_str
+STR_SRCS = ft_strnew.c ft_strdel.c ft_strclr.c ft_strdup.c \
+			ft_strcpy.c ft_strncpy.c \
+			ft_strcat.c ft_strlcat.c ft_strncat.c \
+			ft_strlen.c ft_slen.c \
+			ft_sjoin.c ft_strjoin.c ft_strsplit.c ft_strtok.c ft_concat.c \
+			ft_strmap.c ft_strmapi.c ft_striter.c ft_striteri.c \
+			ft_strcmp.c ft_strncmp.c ft_strequ.c ft_strnequ.c \
+			ft_strchr.c ft_strrchr.c ft_strstr.c ft_strnstr.c \
+			ft_tolower.c ft_toupper.c ft_torot13.c \
+			ft_strsub.c ft_strtrim.c ft_strtrunc.c \
+			ft_strtoutf8.c ft_wchrlen.c ft_wcslen.c ft_wctomb.c ft_wcstombs.c \
+			ft_startswith.c ft_endswith.c \
+			ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+			ft_isspace.c ft_isupper.c
+STR_INCDS = ft_str.h
+
+ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR) $(TELL_DIR) $(STR_DIR)
 
 ALL_INCDIRS = $(addsuffix /includes, $(ALL_DIRS))

@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 20:26:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2017/11/04 20:26:00 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/11/04 14:50:00 by ptyshevs          #+#    #+#             */
+/*   Updated: 2017/11/04 14:50:00 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_str.h"
+#include "ft_memory.h"
 
 /*
-** @brief      Concatenate two strings
+** @brief      Copy strings
 **
-** @param      s1    String 1
-** @param      s2    String 2
+** @param      dst   The destination
+** @param      src   The source
 **
-** @return     Concatenated first string
+** @return     pointer to dst
 */
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	size_t		s1_len;
-	size_t		s2_len;
-
-	s1_len = ft_slen(s1);
-	s2_len = ft_slen(s2);
-	s1[s1_len + s2_len] = '\0';
-	while (s2_len--)
-		s1[s1_len + s2_len] = s2[s2_len];
-	return (s1);
+	ft_memcpy(dst, src, ft_strlen(src) + 1);
+	return (dst);
 }

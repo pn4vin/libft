@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_str.h"
 
 /*
 ** @brief      Map the type provided to the proper va_arg

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "gnls.h"
+#include "ft_str.h"
 
 /*
 ** Substitute old string with the new one, without a ft_memory leak

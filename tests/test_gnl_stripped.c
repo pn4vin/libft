@@ -1,6 +1,7 @@
 #include "printf.h"
 #include <fcntl.h>
 #include "ft_printf.h"
+#include "ft_str.h"
 #include "gnls.h"
 
 int main(int ac, char **av)

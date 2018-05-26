@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_str.h"
 
 /*
 ** @brief      Get the length of the decimal integer (number of digits)

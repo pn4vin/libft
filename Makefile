@@ -7,16 +7,8 @@ LIBFT_HEADNAMES =	libft
 LIBFT_HEADERS = $(patsubst %, $(LIBFT_INCDIR)/%.h, $(LIBFT_HEADNAMES))
 
 
-LIBFT_FILENAMES =	ft_putnbr ft_putchar ft_putstr ft_isalpha ft_atoi ft_bzero \
-		ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint ft_strchr ft_strcmp \
-		ft_strlen ft_strncmp ft_strnstr ft_strstr ft_tolower ft_toupper \
-		ft_strrchr ft_strdup ft_strcpy ft_strncpy  ft_strcat ft_strncat \
-		ft_strlcat ft_memalloc ft_memdel ft_strnew ft_strdel ft_strclr \
-		ft_striter ft_striteri  ft_strmap ft_strmapi ft_strequ  ft_strnequ \
-		ft_strsub ft_strjoin ft_strtrim ft_strsplit ft_itoa ft_abs ft_atol \
-		ft_strtol ft_ctoi_base ft_itoa_base ft_torot13 ft_isspace  ft_slen ft_strtok ft_strtoutf8 \
-		ft_isupper ft_wchrlen ft_wcstombs ft_wctomb ft_wcslen ft_startswith \
-		ft_endswith ft_sjoin ft_concat ft_strtrunc ft_isnumeric
+LIBFT_FILENAMES =	ft_atoi ft_itoa ft_abs ft_atol ft_strtol ft_ctoi_base \
+					ft_itoa_base ft_strisnum
 
 LIBFT_CFILES = $(patsubst %, $(LIBFT_SRCDIR)/%.c, $(LIBFT_FILENAMES))
 LIBFT_OFILES = $(patsubst %, $(ODIR)/%.o, $(LIBFT_FILENAMES))
@@ -41,6 +33,10 @@ LST_O = $(addprefix $(ODIR)/, $(LST_SRCS:.c=.o))
 
 TELL_O = $(addprefix $(ODIR)/, $(TELL_SRCS:.c=.o))
 
+######################### STR ########################
+
+STR_O = $(addprefix $(ODIR)/, $(STR_SRCS:.c=.o))
+
 ######################### MAKE_BEGIN ##########################
 
 
@@ -48,10 +44,10 @@ TELL_O = $(addprefix $(ODIR)/, $(TELL_SRCS:.c=.o))
 
 all: $(LIBNAME)
 
-$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) \
+$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O)\
 		$(LIBFT_OFILES) $(LIBFT_HEADERS)
 	@echo ${CYAN}"Compiling $(LIBNAME)"${NC}
-	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O)
+	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
 
@@ -79,6 +75,11 @@ $(TELL_O):
 $(PRINTF_O):
 	@echo ${CYAN}"Compiling ft_printf"${NC}
 	@make -C $(PRINTF_DIR)
+	@/bin/echo ""
+
+$(STR_O):
+	@echo ${CYAN}"Compiling ft_str"${NC}
+	@make -C $(STR_DIR)
 	@/bin/echo ""
 
 $(ODIR)/%.o: $(LIBFT_SRCDIR)/%.c $(LIBFT_HEADERS)

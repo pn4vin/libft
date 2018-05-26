@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_memory.h"
-#include "libft.h"
+#include "ft_str.h"
 
 /*
 ** @brief      save a copy of a string

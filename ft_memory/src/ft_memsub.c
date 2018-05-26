@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_memory.h"
+#include "ft_str.h"
 
 /*
 ** @brief      Create a substring, operating directly on bytes
