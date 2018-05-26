@@ -11,5 +11,5 @@ OBJECTS = $(addprefix ../$(ODIR)/, $(STRNUM_SRCS:.c=.o))
 ft_strnum: $(OBJECTS)
 
 ../$(ODIR)/%.o: $(SRCDIR)/%.c
-	@$(CC) $(FLAGS) -c $^ -o $@ -I $(INCDIR) $(addprefix -I./../, $(ALL_INCDIRS))
+	@$(CC) $(FLAGS) -c $^ -o $@ -I $(SUBINCDIR)
 	@/bin/echo -n "."

@@ -9,8 +9,7 @@ aux_source_directory(ft_strnum/src STRNUM)
 aux_source_directory(ft_lst/src LST)
 aux_source_directory(sources LIBFT)
 
-set(INCLUDES ft_printf/includes gnls/includes ft_memory/includes ft_lst/includes
-        ft_tell/includes ft_str/includes ft_strnum/includes includes)
+set(INCLUDES includes)
 
 add_library(ft STATIC ${GNLS} ${LIBFT} ${PRINTF} ${MEMORY} ${LST} ${TELL} ${STR} ${STRNUM} ${INCLUDES})
 include_directories(${INCLUDES})

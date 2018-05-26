@@ -1,3 +1,6 @@
+INCDIR = includes
+SUBINCDIR = ../$(INCDIR)
+
 PRINTF_DIR = ./ft_printf
 PRINTF_SRCS = convertors.c ft_dprintf.c ft_printf.c ft_sprintf.c lst.c parsers.c \
               posargs.c put_misc.c put_numbers.c put_strings.c tools.c
@@ -5,7 +8,7 @@ PRINTF_INDS = ft_printf.h
 
 GNLS_DIR = ./gnls
 GNLS_SRCS = ft_gnl.c ft_gnl_v2.c gnl_stripped.c ft_tline_replace.c ft_tline_join.c
-GNLS_INDS = gnls.h
+GNLS_INCDS = gnls.h
 
 MEM_DIR = ./ft_memory
 MEM_SRCS = ft_memalloc.c ft_realloc.c ft_memdel.c ft_memset.c ft_bzero.c \
@@ -45,7 +48,3 @@ STRNUM_DIR = ./ft_strnum
 STRNUM_SRCS = ft_abs.c ft_atoi.c ft_atol.c ft_strtol.c ft_ctoi_base.c \
 				ft_itoa.c ft_itoa_base.c ft_strisnum.c
 STRNUM_INCDS = ft_strnum.h
-
-ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR) $(TELL_DIR) $(STR_DIR) $(STRNUM_DIR)
-
-ALL_INCDIRS = $(addsuffix /includes, $(ALL_DIRS))
