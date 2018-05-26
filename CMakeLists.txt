@@ -1,17 +1,15 @@
 cmake_minimum_required(VERSION 3.9)
 
-aux_source_directory(gnls/src GNLS)
-aux_source_directory(ft_memory/src MEMORY)
+aux_source_directory(gnls GNLS)
+aux_source_directory(ft_memory MEMORY)
 aux_source_directory(ft_printf/src PRINTF)
-aux_source_directory(ft_tell/src TELL)
-aux_source_directory(ft_str/src STR)
-aux_source_directory(ft_strnum/src STRNUM)
-aux_source_directory(ft_lst/src LST)
+aux_source_directory(ft_tell TELL)
+aux_source_directory(ft_str STR)
+aux_source_directory(ft_strnum STRNUM)
+aux_source_directory(ft_lst LST)
 aux_source_directory(sources LIBFT)
 
 set(INCLUDES includes)
 
 add_library(ft STATIC ${GNLS} ${LIBFT} ${PRINTF} ${MEMORY} ${LST} ${TELL} ${STR} ${STRNUM} ${INCLUDES})
 include_directories(${INCLUDES})
-
-add_subdirectory(tests)
