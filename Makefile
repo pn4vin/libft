@@ -3,15 +3,6 @@ LIBNAME = libft.a
 
 ######################### LIBFT #########################
 
-LIBFT_HEADNAMES =	libft
-LIBFT_HEADERS = $(patsubst %, $(LIBFT_INCDIR)/%.h, $(LIBFT_HEADNAMES))
-
-
-LIBFT_FILENAMES =
-
-LIBFT_CFILES = $(patsubst %, $(LIBFT_SRCDIR)/%.c, $(LIBFT_FILENAMES))
-LIBFT_OFILES = $(patsubst %, $(ODIR)/%.o, $(LIBFT_FILENAMES))
-
 # FT_PRINTF
 
 PRINTF_O = $(addprefix $(ODIR)/, $(PRINTF_SRCS:.c=.o))
@@ -47,10 +38,9 @@ STRNUM_O = $(addprefix $(ODIR)/, $(STRNUM_SRCS:.c=.o))
 
 all: $(LIBNAME)
 
-$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(STRNUM_O) \
-		$(LIBFT_OFILES) $(LIBFT_HEADERS)
+$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(STRNUM_O)
 	@echo ${CYAN}"Compiling $(LIBNAME)"${NC}
-	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O)
+	@ar rc $(LIBNAME) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
 
