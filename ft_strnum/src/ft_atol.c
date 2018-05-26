@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/28 20:54:00 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:20:12 by ptyshevs         ###   ########.fr       */
+/*   Created: 2017/10/29 12:35:45 by ptyshevs          #+#    #+#             */
+/*   Updated: 2018/02/11 11:20:16 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_strnum.h"
 
 /*
-** @brief      Convert the initial portion of the byte string to integer
-**             representation
+** @brief      convert ASCII string to long integer
 **
-**             Equivalent to (and implemented in libc as) strtol
+**             equivalent to (and implemented in libc as): strtol(str, (char
+**             **)NULL, 10)
 **
 ** @param      str   The string
 **
-** @return     integer
+** @return     long integer representation of the number written in the string
 */
 
-int		ft_atoi(const char *str)
+long int	ft_atol(const char *str)
 {
-	return ((int)ft_strtol(str, (char **)NULL, 10));
+	return (ft_strtol(str, (char **)NULL, 10));
 }

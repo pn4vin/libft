@@ -7,8 +7,7 @@ LIBFT_HEADNAMES =	libft
 LIBFT_HEADERS = $(patsubst %, $(LIBFT_INCDIR)/%.h, $(LIBFT_HEADNAMES))
 
 
-LIBFT_FILENAMES =	ft_atoi ft_itoa ft_abs ft_atol ft_strtol ft_ctoi_base \
-					ft_itoa_base ft_strisnum
+LIBFT_FILENAMES =
 
 LIBFT_CFILES = $(patsubst %, $(LIBFT_SRCDIR)/%.c, $(LIBFT_FILENAMES))
 LIBFT_OFILES = $(patsubst %, $(ODIR)/%.o, $(LIBFT_FILENAMES))
@@ -37,6 +36,10 @@ TELL_O = $(addprefix $(ODIR)/, $(TELL_SRCS:.c=.o))
 
 STR_O = $(addprefix $(ODIR)/, $(STR_SRCS:.c=.o))
 
+######################### STRNUM ########################
+
+STRNUM_O = $(addprefix $(ODIR)/, $(STRNUM_SRCS:.c=.o))
+
 ######################### MAKE_BEGIN ##########################
 
 
@@ -44,10 +47,10 @@ STR_O = $(addprefix $(ODIR)/, $(STR_SRCS:.c=.o))
 
 all: $(LIBNAME)
 
-$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O)\
+$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(STRNUM_O) \
 		$(LIBFT_OFILES) $(LIBFT_HEADERS)
 	@echo ${CYAN}"Compiling $(LIBNAME)"${NC}
-	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O)
+	@ar rc $(LIBNAME) $(LIBFT_OFILES) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
 
@@ -80,6 +83,11 @@ $(PRINTF_O):
 $(STR_O):
 	@echo ${CYAN}"Compiling ft_str"${NC}
 	@make -C $(STR_DIR)
+	@/bin/echo ""
+
+$(STRNUM_O):
+	@echo ${CYAN}"Compiling ft_strnum"${NC}
+	@make -C $(STRNUM_DIR)
 	@/bin/echo ""
 
 $(ODIR)/%.o: $(LIBFT_SRCDIR)/%.c $(LIBFT_HEADERS)

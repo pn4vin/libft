@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include "ft_str.h"
+#include "ft_strnum.h"
 
 /*
 ** @brief      Parse the Flags field

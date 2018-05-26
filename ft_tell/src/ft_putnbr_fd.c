@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_tell.h"
-#include "libft.h"
+#include "ft_strnum.h"
 
 /*
 ** @brief      Output the integer n to the provided file descriptor

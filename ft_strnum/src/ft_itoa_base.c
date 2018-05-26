@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_strnum.h"
 
 /*
 ** @brief      Calculate the length of the resulting string, which is equivalent

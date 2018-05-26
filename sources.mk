@@ -41,6 +41,11 @@ STR_SRCS = ft_strnew.c ft_strdel.c ft_strclr.c ft_strdup.c \
 			ft_isspace.c ft_isupper.c
 STR_INCDS = ft_str.h
 
-ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR) $(TELL_DIR) $(STR_DIR)
+STRNUM_DIR = ./ft_strnum
+STRNUM_SRCS = ft_abs.c ft_atoi.c ft_atol.c ft_strtol.c ft_ctoi_base.c \
+				ft_itoa.c ft_itoa_base.c ft_strisnum.c
+STRNUM_INCDS = ft_strnum.h
+
+ALL_DIRS = . $(GNLS_DIR) $(MEM_DIR) $(PRINTF_DIR) $(LST_DIR) $(TELL_DIR) $(STR_DIR) $(STRNUM_DIR)
 
 ALL_INCDIRS = $(addsuffix /includes, $(ALL_DIRS))

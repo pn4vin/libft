@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_strnum.h"
 
 /*
 ** @brief      Convert integet to it's byte string representation.
