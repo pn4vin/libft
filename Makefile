@@ -46,7 +46,7 @@ $(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(
 
 
 $(GNL_O):
-	@echo ${CYAN}"Compiling gnls"${NC}
+	@echo ${CYAN}"Compiling ft_gnls"${NC}
 	@make -C $(GNLS_DIR)
 	@/bin/echo ""
 

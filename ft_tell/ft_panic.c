@@ -14,7 +14,7 @@
 
 /*
 ** @brief      Output <message> to <where> and stop program execution with
- *             <exit_value> return value.
+**             <exit_value> return value.
 **
 ** @param      message  The message
 */

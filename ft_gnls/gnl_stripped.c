@@ -58,10 +58,10 @@ static int		ft_parse_eof(char **str, char **line, ssize_t r)
 
 /*
 ** @brief      Stripped version of get_next_line designed to improve overall
- *             speed and efficiency.
- *
- *             Side effects:
- *                  if *line is not NULL, it is freed before processing
+**             speed and efficiency.
+**
+**             Side effects:
+**                  if *line is not NULL, it is freed before processing
 **
 ** @param      fd    File Descriptor
 ** @param      line  The line
@@ -87,7 +87,7 @@ int				ft_usgnl(const int fd, char **line)
 		{
 			GNL_MALLCHECK((*line = ft_strsub(str, 0, rem - str)));
 			r = ft_slen(rem) - 1;
-			((char *)ft_memcpy_fwd(str, rem + 1, (size_t) r))[r] = '\0';
+			((char *)ft_memcpy_fwd(str, rem + 1, (size_t)r))[r] = '\0';
 			return (str ? str != NULL : -1);
 		}
 		else

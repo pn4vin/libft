@@ -6,7 +6,7 @@ PRINTF_SRCS = convertors.c ft_dprintf.c ft_printf.c ft_sprintf.c lst.c parsers.c
               posargs.c put_misc.c put_numbers.c put_strings.c tools.c
 PRINTF_INDS = ft_printf.h
 
-GNLS_DIR = ./gnls
+GNLS_DIR = ./ft_gnls
 GNLS_SRCS = ft_gnl.c ft_gnl_v2.c gnl_stripped.c ft_tline_replace.c ft_tline_join.c
 GNLS_INCDS = gnls.h
 

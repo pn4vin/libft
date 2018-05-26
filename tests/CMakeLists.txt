@@ -1,2 +1,0 @@
-add_executable(test_gnl_stripped test_gnl_stripped.c)
-target_link_libraries(test_gnl_stripped ft)
