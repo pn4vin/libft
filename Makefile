@@ -90,8 +90,6 @@ $(STRNUM_O):
 	@make -C $(STRNUM_DIR)
 	@/bin/echo ""
 
-$(ODIR)/%.o: $(LIBFT_SRCDIR)/%.c $(LIBFT_HEADERS)
-	@gcc $(FLAGS) -o $@ -c $< $(addprefix -I,$(ALL_INCDIRS))
 
 $(ODIR):
 	@mkdir -p $(ODIR)

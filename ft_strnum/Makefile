@@ -1,12 +1,12 @@
 include ../constants.mk ../colors.mk ../sources.mk
 
 INCDIR = includes
-SRCDIR = src
+SRCDIR = .
 
 
 INCLUDES = $(addprefix $(INCDIR)/, $(STRNUM_INCDS))
-SOURCES = $(addprefix $(SRCDIR)/, $(STRNUM_SRCS))
-OBJECTS = $(addprefix ../$(ODIR)/, $(STRNUM_SRCS:.c=.o))
+SOURCES  = $(addprefix $(SRCDIR)/, $(STRNUM_SRCS))
+OBJECTS  = $(addprefix ../$(ODIR)/, $(STRNUM_SRCS:.c=.o))
 
 ft_strnum: $(OBJECTS)
 

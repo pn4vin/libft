@@ -1,6 +1,6 @@
 include ../constants.mk ../colors.mk ../sources.mk
 
-SRCDIR = src
+SRCDIR = .
 
 
 INCLUDES = $(addprefix $(INCDIR)/, $(LST_INCDS))
