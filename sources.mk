@@ -41,7 +41,7 @@ STR_SRCS = ft_strnew.c ft_strdel.c ft_strclr.c ft_strdup.c \
 			ft_strtoutf8.c ft_wchrlen.c ft_wcslen.c ft_wctomb.c ft_wcstombs.c \
 			ft_startswith.c ft_endswith.c \
 			ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
-			ft_isspace.c ft_isupper.c
+			ft_isspace.c ft_isupper.c ft_strcnt.c
 STR_INCDS = ft_str.h
 
 STRNUM_DIR = ./ft_strnum
