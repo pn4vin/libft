@@ -40,7 +40,7 @@ all: $(LIBNAME)
 
 $(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(STRNUM_O)
 	@echo ${CYAN}"Compiling $(LIBNAME)"${NC}
-	@ar rc $(LIBNAME) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O)
+	@ar rc $(LIBNAME) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O) $(TELL_O)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
 
