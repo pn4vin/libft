@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef FT_MEMORY_H
-#define FT_MEMORY_H
+# define FT_MEMORY_H
 
 # include <stdlib.h>
 # include "libft.h"

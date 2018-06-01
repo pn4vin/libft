@@ -20,13 +20,10 @@
 typedef unsigned long long	t_ull;
 typedef unsigned char		t_uc;
 
-
-
 typedef enum	e_bool
 {
 	FALSE,
 	TRUE
 }				t_bool;
-
 
 #endif

@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #ifndef FT_STRNUM_H
-#define FT_STRNUM_H
+# define FT_STRNUM_H
 
-#include "libft.h"
+# include "libft.h"
 
 int					ft_abs(int n);
 

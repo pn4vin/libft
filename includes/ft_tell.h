@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef FT_TELL_H
-#define FT_TELL_H
+# define FT_TELL_H
 
 # include <stdlib.h>
 # include <unistd.h>

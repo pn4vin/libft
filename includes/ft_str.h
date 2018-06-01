@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #ifndef FT_STR_H
-#define FT_STR_H
+# define FT_STR_H
 
-#include <stdlib.h>
-#include "libft.h"
+# include <stdlib.h>
+# include "libft.h"
 
 size_t				ft_slen(const char *s);
 size_t				ft_strlen(const char *str);
@@ -28,7 +28,6 @@ char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 int					ft_strcnt(char *str, char c);
-
 
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);

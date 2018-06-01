@@ -23,7 +23,6 @@
 
 typedef unsigned char		t_uc;
 
-
 typedef struct		s_line
 {
 	t_uc			*str;

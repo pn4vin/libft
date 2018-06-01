@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #ifndef FT_LST_H
-#define FT_LST_H
+# define FT_LST_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 typedef struct		s_list
 {
