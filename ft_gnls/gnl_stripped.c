@@ -51,7 +51,7 @@ static int		ft_parse_eof(char **str, char **line, ssize_t r)
 		ft_strdel(str);
 		return (1);
 	}
-	else if (r == 0)
+	else if (r == 0 || !*str)
 		return ((int)(*line = NULL));
 	return (-1);
 }
@@ -74,7 +74,7 @@ static int		ft_parse_eof(char **str, char **line, ssize_t r)
 int				ft_usgnl(const int fd, char **line)
 {
 	char			*rem;
-	char			buf[GNL_BUFF_SIZE + 1];
+	char			buf[BUF_SIZE + 1];
 	static	char	*str = NULL;
 	ssize_t			r;
 
@@ -92,7 +92,7 @@ int				ft_usgnl(const int fd, char **line)
 		}
 		else
 		{
-			if (!(r = read(fd, buf, GNL_BUFF_SIZE)) || r == -1)
+			if (!(r = read(fd, buf, BUF_SIZE)) || r == -1 || buf[0] == '\0')
 				return (ft_parse_eof(&str, line, r));
 			buf[r] = '\0';
 			ft_substitute(&str, ft_concat(str, buf, FALSE));

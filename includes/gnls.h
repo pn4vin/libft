@@ -18,6 +18,7 @@
 # include "ft_memory.h"
 
 # define GNL_BUFF_SIZE 1000
+# define BUF_SIZE 1000
 # define GNL_MALLCHECK(x) if (!(x)) return (-1);
 
 typedef unsigned char		t_uc;
