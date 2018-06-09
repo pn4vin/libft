@@ -47,6 +47,7 @@ char				*ft_sjoin(int cnt, ...);
 char				*ft_concat(char *s1, char *s2, t_bool and_free);
 char				*ft_strtrunc(char *str, size_t len, t_bool and_free);
 char				*ft_strstr(const char *haystack, const char *needle);
+char				*ft_strrstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
 								size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
