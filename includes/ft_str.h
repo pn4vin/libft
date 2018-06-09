@@ -74,4 +74,6 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isupper(int c);
 
+t_bool				ft_strispaces(char *str);
+
 #endif
