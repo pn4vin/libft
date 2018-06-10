@@ -1,2 +1,4 @@
 *.a
+obj
+*.o
 cmake-build-debug
