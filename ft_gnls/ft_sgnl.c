@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "gnls.h"
+#include "ft_gnls.h"
 #include "ft_str.h"
 
 /*
-** Substitute old string with the new one, without a ft_memory leak
+** Substitute old string with the new one, without a memory leak
 */
 
 static void		ft_substitute(char **old, char *new)
@@ -71,7 +71,7 @@ static int		ft_parse_eof(char **str, char **line, ssize_t r)
 **            -1 - error has happened
 */
 
-int				ft_usgnl(const int fd, char **line)
+int				ft_sgnl(const int fd, char **line)
 {
 	char			*rem;
 	char			buf[BUF_SIZE + 1];

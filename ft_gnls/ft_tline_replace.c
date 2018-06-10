@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "gnls.h"
+#include "ft_gnls.h"
 
 /*
 ** @brief      Replace dst t_line with src t_line, freeing <dst> resources

@@ -36,7 +36,7 @@ typedef struct		s_fds
 	struct s_fds	*next;
 }					t_fds;
 
-int					ft_usgnl(int fd, char **line);
+int					ft_sgnl(const int fd, char **line);
 int					ft_gnl(int fd, char **line);
 int					ft_gnl_v2(int fd, t_line *line, t_bool lb);
 t_line				*init_line(void);

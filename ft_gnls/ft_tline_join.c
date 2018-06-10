@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "gnls.h"
+#include "ft_gnls.h"
 
 /*
 ** @brief      Join two lines, appending right to the left and freeing resources
