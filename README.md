@@ -32,16 +32,16 @@ Compile your code with `libft.a`: `gcc kittens_are_cute.c -L . -l ft`.
 #### ft_printf
 |        function                                  |                  description                                              |
 |--------------------------------------------------|---------------------------------------------------------------------------|
-| `ft_dprintf(int fd, char \*format, ...)`         | Same as `ft_printf()`, but instead of STDOUT, writes the result into fd. Simple enough |
-| `ft_sprintf(char \*format, ...)`                 | Returns a string, instead of the number of bytes written to stdout |
+| `ft_dprintf(int fd, char *format, ...)`         | Same as `ft_printf()`, but instead of STDOUT, writes the result into fd. Simple enough |
+| `ft_sprintf(char *format, ...)`                 | Returns a string, instead of the number of bytes written to stdout |
 
 #### ft_str
 |        function                                  |                  description                                              |
 |--------------------------------------------------|---------------------------------------------------------------------------|
 | `ft_slen()`    | safe analogue to `ft_strlen()`             |
 | `ft_concat()`                                    | Concatenate two strings, optionally freeing both of them                   |
-| `ft_startswith(char \*str, char \*prefix)`         | Check if `str` starts with `prefix`                                          |
-| `ft_endswith(char \*str, char \*suffix)`         | Check if `str` ends with `suffix`                                          |
+| `ft_startswith(char *str, char *prefix)`         | Check if `str` starts with `prefix`                                          |
+| `ft_endswith(char *str, char *suffix)`         | Check if `str` ends with `suffix`                                          |
 | `ft_sjoin()`   | concatenate nul-terminated strings together |
 | `ft_strispaces()` | check if string consists of space characters |
 | `ft_strtok(char *str, char *sep)`                | Cut `str` in tokens separating by `sep`. If called with `NULL` in `str`, returns the next token of the not-`NULL` call |
