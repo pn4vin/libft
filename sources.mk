@@ -36,7 +36,7 @@ STR_SRCS = ft_strnew.c ft_strdel.c ft_strclr.c ft_strdup.c \
 			ft_strmap.c ft_strmapi.c ft_striter.c ft_striteri.c \
 			ft_strcmp.c ft_strncmp.c ft_strequ.c ft_strnequ.c \
 			ft_strchr.c ft_strrchr.c ft_strstr.c ft_strrstr.c ft_strnstr.c \
-			ft_tolower.c ft_toupper.c ft_torot13.c \
+			ft_tolower.c ft_toupper.c ft_strtorot13.c \
 			ft_strsub.c ft_strtrim.c ft_strtrunc.c \
 			ft_strtoutf8.c ft_wchrlen.c ft_wcslen.c ft_wctomb.c ft_wcstombs.c \
 			ft_startswith.c ft_endswith.c \

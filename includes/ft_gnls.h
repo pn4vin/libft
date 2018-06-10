@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNLS_H
-# define GNLS_H
+#ifndef FT_GNLS_H
+# define FT_GNLS_H
 
 # include <stdlib.h>
 # include "libft.h"

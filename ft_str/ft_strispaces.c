@@ -26,7 +26,7 @@
 **             11     |  vertical tab
 **             12     |  form feed
 **             13     |  carriage return
-** 
+**
 ** @param str String to be tested
 ** @return TRUE if string contains only space characters, otherwise FALSE
 */

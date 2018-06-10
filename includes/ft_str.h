@@ -64,7 +64,7 @@ size_t				ft_wcharlen(int c);
 
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-void				ft_torot13(char *ac);
+char				*ft_strtorot13(char *ac);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);

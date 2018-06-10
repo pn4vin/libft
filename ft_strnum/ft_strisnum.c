@@ -27,23 +27,20 @@ t_bool	ft_strisnum(char *str, size_t base)
 	int			i;
 	int			found;
 
-	if (str)
-	{
-		if (*str == '-' && ft_slen(str) > 1)
-			str++;
-		while (*str)
-		{
-			found = -1;
-			i = 0;
-			while (i < 36)
-				if (radix[i++] == *str)
-					found = i - 1;
-			if (found == -1 || (size_t)found >= base)
-				return (FALSE);
-			str++;
-		}
-		return (TRUE);
-	}
-	else
+	if (!str)
 		return (FALSE);
+	if (*str == '-' && ft_slen(str) > 1)
+		str++;
+	while (*str)
+	{
+		found = -1;
+		i = 0;
+		while (i < 36)
+			if (radix[i++] == *str)
+				found = i - 1;
+		if (found == -1 || (size_t)found >= base)
+			return (FALSE);
+		str++;
+	}
+	return (TRUE);
 }
