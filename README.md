@@ -44,8 +44,7 @@ Compile your code with `libft.a`: `gcc kittens_are_cute.c -L . -l ft`.
 | `ft_endswith(char \*str, char \*suffix)`         | Check if `str` ends with `suffix`                                          |
 | `ft_sjoin()`   | concatenate nul-terminated strings together |
 | `ft_strispaces()` | check if string consists of space characters |
-| `ft_strtok(char *str, char *sep)`                | Cut `str` in tokens separating by `sep`. If called with `NULL` in `str`, returns the next token <br />
-of the not-`NULL` call |
+| `ft_strtok(char *str, char *sep)`                | Cut `str` in tokens separating by `sep`. If called with `NULL` in `str`, returns the next token of the not-`NULL` call |
 | `ft_strtoutf8()`  | Convert `char` string to `wchar_t` string |
 | `ft_strtrim()`    | Create a string by trimming spaces from both ends |
 | `ft_strtrunc()`   | Truncate string if its length exceeds the `len` argument. Freeing optionally |
