@@ -3,7 +3,8 @@ SUBINCDIR = ../$(INCDIR)
 
 PRINTF_DIR = ./ft_printf
 PRINTF_SRCS = convertors.c ft_dprintf.c ft_printf.c ft_sprintf.c lst.c parsers.c \
-              posargs.c put_misc.c put_numbers.c put_strings.c tools.c
+              posargs.c put_misc.c put_numbers.c put_strings.c tools.c \
+              ft_vprintf.c ft_vdprintf.c ft_vsprintf.c
 PRINTF_INDS = ft_printf.h
 
 GNLS_DIR = ./ft_gnls

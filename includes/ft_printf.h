@@ -105,6 +105,9 @@ static const t_color		g_colors[8] = {{"{black}", "\x1B[30m"},
 int				ft_printf(const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
 char			*ft_sprintf(const char *format, ...);
+int				ft_vprintf(const char *format, va_list va_start);
+int				ft_vdprintf(int fd, const char *format, va_list va_start);
+char			*ft_vsprintf(const char *format, va_list va_start);
 
 char			*process_format(const char *format, t_node **content);
 
