@@ -29,26 +29,26 @@ t_nbr	*fetch_nbr(t_length length, char type, va_list arg, t_bool is_int)
 	static t_nbr nbr;
 
 	if ((nbr.u = 0) || length == l || ft_strchr("DOUp", type))
-		is_int ? (nbr.i = va_arg(arg, long int))
+		is_int ? (unsigned long long int)(nbr.i = va_arg(arg, long int))
 			: (nbr.u = va_arg(arg, unsigned long int));
 	else if (length == ll)
-		is_int ? (nbr.i = va_arg(arg, long long))
+		is_int ? (unsigned long long int)(nbr.i = va_arg(arg, long long))
 			: (nbr.u = va_arg(arg, unsigned long long));
 	else if (length == z)
 		nbr.u = va_arg(arg, size_t);
 	else if (length == j)
 		nbr.i = va_arg(arg, intmax_t);
 	else if (length == t)
-		is_int ? (nbr.i = va_arg(arg, ptrdiff_t))
+		is_int ? (unsigned long long int)(nbr.i = va_arg(arg, ptrdiff_t))
 			: (nbr.u = va_arg(arg, ptrdiff_t));
 	else if (length == hh)
-		is_int ? (nbr.i = (char)va_arg(arg, int))
+		is_int ? (unsigned long long int)(nbr.i = (char)va_arg(arg, int))
 			: (nbr.u = (unsigned char)va_arg(arg, int));
 	else if (length == h)
-		is_int ? (nbr.i = (short int)va_arg(arg, int))
+		is_int ? (unsigned long long int)(nbr.i = (short int)va_arg(arg, int))
 			: (nbr.u = (unsigned short int)va_arg(arg, int));
 	else
-		is_int ? (nbr.i = va_arg(arg, int))
+		is_int ? (unsigned long long int)(nbr.i = va_arg(arg, int))
 			: (nbr.u = va_arg(arg, unsigned int));
 	return (&nbr);
 }
