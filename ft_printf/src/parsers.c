@@ -107,8 +107,8 @@ int			parse_pos(const char *format, int speclen)
 
 int			parse_width(t_spec *spec, const char *str, size_t len)
 {
-	size_t	i;
-	int		width;
+	size_t		i;
+	intptr_t	width;
 
 	i = 1;
 	width = 0;
@@ -128,7 +128,7 @@ int			parse_width(t_spec *spec, const char *str, size_t len)
 		i++;
 	}
 	width < 0 ? spec->flags |= minus : 0;
-	return (width < 0 ? -width : width);
+	return (int) (width < 0 ? -width : width);
 }
 
 /*
@@ -149,7 +149,7 @@ t_length	parse_length(const char *spec, ssize_t len)
 	length = l_none;
 	if (ft_memchr(spec, 'l', len) && l > length)
 		length = l;
-	if ((ndl = ft_strnstr(spec, "ll", len)) && !ndl && ll > length)
+	if ((ft_strnstr(spec, "ll", len)) && ll > length)
 		length = ll;
 	if (ft_memchr(spec, 'z', len) && z > length)
 		length = z;
