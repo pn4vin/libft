@@ -74,7 +74,8 @@ char			*ft_itoa_base(int value, int base)
 		return (NULL);
 	len -= (str[len - 1] = '\0') == '\0' ? 1 : 0;
 	i = 0;
-	str[i++] = (char)(value < 0 ? '-' : i--);
+	if (value < 0)
+		str[i++] = '-';
 	while (ft_abs(value / base) > 0)
 	{
 		str[len-- - 1] = get_digit(value, base);
