@@ -64,7 +64,7 @@ static int	ft_parse_eof(t_line *buf, t_line *line, int r)
 		return (1);
 	}
 	else if (r == 0)
-		return ((int)(NULL));
+		return (0);
 	return (-1);
 }
 

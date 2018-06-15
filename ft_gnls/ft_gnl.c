@@ -60,7 +60,10 @@ static int		ft_parse_eof(t_fds *fds, char **line, int r)
 		return (1);
 	}
 	else if (r == 0)
-		return ((int)(*line = NULL));
+	{
+		ft_strdel(line);
+		return (0);
+	}
 	return (-1);
 }
 

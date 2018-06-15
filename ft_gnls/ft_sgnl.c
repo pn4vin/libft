@@ -52,7 +52,10 @@ static int		ft_parse_eof(char **str, char **line, ssize_t r)
 		return (1);
 	}
 	else if (r == 0 || !*str)
-		return ((int)(*line = NULL));
+	{
+		ft_strdel(line);
+		return (0);
+	}
 	return (-1);
 }
 
