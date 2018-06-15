@@ -108,7 +108,7 @@ int			parse_pos(const char *format, int speclen)
 int			parse_width(t_spec *spec, const char *str, size_t len)
 {
 	size_t		i;
-	intptr_t	width;
+	long		width;
 
 	i = 1;
 	width = 0;
@@ -124,11 +124,11 @@ int			parse_width(t_spec *spec, const char *str, size_t len)
 			i += get_int_length(width);
 		}
 		else if (str[i - 1] != '.' && str[i] == '*')
-			width = (int)get_next_arg(spec, NULL, "*");
+			width = (long)get_next_arg(spec, NULL, "*");
 		i++;
 	}
 	width < 0 ? spec->flags |= minus : 0;
-	return (int) (width < 0 ? -width : width);
+	return ((int)(width < 0 ? -width : width));
 }
 
 /*
@@ -176,7 +176,7 @@ t_length	parse_length(const char *spec, ssize_t len)
 int			parse_prec(t_spec *spec, const char *format, ssize_t len)
 {
 	int		i;
-	int		prec;
+	long	prec;
 
 	i = 1;
 	prec = -1;
@@ -188,8 +188,8 @@ int			parse_prec(t_spec *spec, const char *format, ssize_t len)
 			i += get_int_length(prec);
 		}
 		if (format[i] == '.' && format[i + 1] == '*')
-			prec = (int)get_next_arg(spec, NULL, "*");
+			prec = (long)get_next_arg(spec, NULL, "*");
 		i++;
 	}
-	return (prec < 0 ? -1 : prec);
+	return ((int)(prec < 0 ? -1 : prec));
 }
