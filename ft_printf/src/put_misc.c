@@ -58,7 +58,7 @@ void	put_address(t_node **content, t_spec *spec)
 	expanded = itoa_deluxe(nbr, spec, 16, FALSE);
 	prefix = get_prefix(spec, expanded, nbr);
 	explen = spec->prec >= 0 && nbr.u == 0 ?
-			(size_t) spec->prec : ft_slen(expanded);
+			(size_t)spec->prec : ft_slen(expanded);
 	if (spec->flags & minus)
 	{
 		expand_n(content, prefix, ft_slen(prefix));
