@@ -4,9 +4,9 @@ INCDIR = includes
 SRCDIR = .
 
 
-INCLUDES = $(addprefix $(INCDIR)/, $(MEM_INCDS))
-SOURCES = $(addprefix $(SRCDIR)/, $(MEM_SRCS))
-OBJECTS = $(addprefix ../$(ODIR)/, $(MEM_SRCS:.c=.o))
+INCLUDES = $(addprefix $(INCDIR)/, $(MATH_INCDS))
+SOURCES = $(addprefix $(SRCDIR)/, $(MATH_SRCS))
+OBJECTS = $(addprefix ../$(ODIR)/, $(MATH_SRCS:.c=.o))
 
 ft_math: $(OBJECTS)
 

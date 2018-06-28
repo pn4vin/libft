@@ -11,6 +11,10 @@ PRINTF_O = $(addprefix $(ODIR)/, $(PRINTF_SRCS:.c=.o))
 
 GNL_O = $(addprefix $(ODIR)/, $(GNLS_SRCS:.c=.o))
 
+######################### MATH ##########################
+
+MATH_O = $(addprefix $(ODIR)/, $(MATH_SRCS:.c=.o))
+
 ######################### MEMORY ########################
 
 MEM_O = $(addprefix $(ODIR)/, $(MEM_SRCS:.c=.o))
@@ -38,9 +42,9 @@ STRNUM_O = $(addprefix $(ODIR)/, $(STRNUM_SRCS:.c=.o))
 
 all: $(LIBNAME)
 
-$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(STRNUM_O)
+$(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(MATH_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(STRNUM_O)
 	@echo ${CYAN}"Compiling $(LIBNAME)"${NC}
-	@ar rc $(LIBNAME) $(PRINTF_O) $(GNL_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O) $(TELL_O)
+	@ar rc $(LIBNAME) $(PRINTF_O) $(GNL_O) $(MATH_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O) $(TELL_O)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
 
@@ -48,6 +52,11 @@ $(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(
 $(GNL_O):
 	@echo ${CYAN}"Compiling ft_gnls"${NC}
 	@make -C $(GNLS_DIR)
+	@/bin/echo ""
+
+$(MATH_O):
+	@echo ${CYAN}"Compiling ft_math"${NC}
+	@make -C $(MATH_DIR)
 	@/bin/echo ""
 
 $(MEM_O):
