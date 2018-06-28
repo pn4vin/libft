@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "ft_tell.h"
 
 /*
@@ -19,8 +20,11 @@
 ** @param      message  The message
 */
 
-void	ft_panic(char *message, int where, int exit_value)
+void	ft_panic(int exit_value, char *format, ...)
 {
-	ft_putendl_fd(message, where);
+	va_list	va;
+
+	va_start(va, format);
+	ft_vdprintf(2, format, va);
 	exit(exit_value);
 }
