@@ -11,6 +11,10 @@ GNLS_DIR = ./ft_gnls
 GNLS_SRCS = ft_gnl.c ft_gnl_v2.c ft_sgnl.c ft_tline_replace.c ft_tline_join.c
 GNLS_INCDS = ft_gnls.h
 
+MATH_DIR = ./ft_math
+MATH_SRCS = ft_pow.c
+MATH_INCDS = ft_math.h
+
 MEM_DIR = ./ft_memory
 MEM_SRCS = ft_memalloc.c ft_realloc.c ft_memdel.c ft_memset.c ft_bzero.c \
 		ft_memcpy.c ft_memcpy_fwd.c ft_memccpy.c ft_memmove.c ft_memsub.c \
