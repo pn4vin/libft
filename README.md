@@ -57,7 +57,7 @@ Compile your code with `libft.a`: `gcc kittens_are_cute.c -L . -l ft`.
 #### ft_strnum
 |        function                                  |                  description                                              |
 |--------------------------------------------------|---------------------------------------------------------------------------|
-| `ft_strisnum(char *str, size_t base)`            | Check if the given string consists only of digits in the given base. Digits are uppercase (e.g. `ft_strisnum("FFF", 16)` returns `TRUE` |
+| `ft_strisnum(char *str, size_t base)`            | Check if the given string consists only of digits in the given base. Digits are uppercase (e.g. `ft_strisnum("FFF", 16)` returns `True` |
 
 #### ft_tell
 |        function                                  |                  description                                              |

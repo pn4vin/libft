@@ -18,17 +18,17 @@
 ** @param      str     The string
 ** @param      prefix  The prefix
 **
-** @return     TRUE if string contains prefix, otherwise false
+** @return     True if string contains prefix, otherwise false
 */
 
 t_bool		ft_startswith(const char *str, char *prefix)
 {
 	if (!str || !prefix)
-		return (FALSE);
+		return (False);
 	while (*prefix)
 	{
 		if (*str++ != *prefix++)
-			return (FALSE);
+			return (False);
 	}
-	return (TRUE);
+	return (True);
 }

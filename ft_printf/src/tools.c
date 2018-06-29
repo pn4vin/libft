@@ -77,7 +77,7 @@ char	*get_nonprintables(t_spec *spec, char *s)
 	int		i;
 
 	(void)spec;
-	res = ft_strnew(nonprintable_size(s, FALSE));
+	res = ft_strnew(nonprintable_size(s, False));
 	i = 0;
 	while (*s)
 	{

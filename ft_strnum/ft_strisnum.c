@@ -17,8 +17,8 @@
 **
 ** @param str   String containing number
 ** @param base  integer value of the radix
-** @return      TRUE if string is a valid number in the given base,
-**              otherwise FALSE
+** @return      True if string is a valid number in the given base,
+**              otherwise False
 */
 
 t_bool	ft_strisnum(char *str, size_t base)
@@ -28,7 +28,7 @@ t_bool	ft_strisnum(char *str, size_t base)
 	int			found;
 
 	if (!str)
-		return (FALSE);
+		return (False);
 	if (*str == '-' && ft_slen(str) > 1)
 		str++;
 	while (*str)
@@ -39,8 +39,8 @@ t_bool	ft_strisnum(char *str, size_t base)
 			if (radix[i++] == *str)
 				found = i - 1;
 		if (found == -1 || (size_t)found >= base)
-			return (FALSE);
+			return (False);
 		str++;
 	}
-	return (TRUE);
+	return (True);
 }

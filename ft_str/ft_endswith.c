@@ -18,7 +18,7 @@
 ** @param      str     String to look into
 ** @param      suffix  The suffix
 **
-** @return     TRUE if <str> contains the given <suffix>, otherwise FALSE
+** @return     True if <str> contains the given <suffix>, otherwise False
 */
 
 t_bool	ft_endswith(const char *str, char *suffix)
@@ -31,13 +31,13 @@ t_bool	ft_endswith(const char *str, char *suffix)
 	s_len = ft_slen(str);
 	i = 0;
 	if (suf_len > s_len)
-		return (FALSE);
+		return (False);
 	while (suf_len > 0)
 	{
 		if (suffix[suf_len - 1] != str[s_len - (i + 1)])
-			return (FALSE);
+			return (False);
 		suf_len--;
 		i++;
 	}
-	return (TRUE);
+	return (True);
 }

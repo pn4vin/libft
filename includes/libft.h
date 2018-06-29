@@ -22,8 +22,8 @@ typedef unsigned char		t_uc;
 
 typedef enum	e_bool
 {
-	FALSE,
-	TRUE
+	False,
+	True
 }				t_bool;
 
 #endif

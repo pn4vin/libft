@@ -59,7 +59,7 @@ static int	ft_parse_eof(t_line *buf, t_line *line, int r)
 	if (r == 0 && buf->len)
 	{
 		line->len = buf->len;
-		GNL_MALLCHECK((line->str = ft_memsub(buf->str, 0, buf->len, TRUE)));
+		GNL_MALLCHECK((line->str = ft_memsub(buf->str, 0, buf->len, True)));
 		buf->len = 0;
 		return (1);
 	}
@@ -89,10 +89,10 @@ static int	read_line(int fd, t_line *buf, t_line *line, t_bool lb)
 	{
 		if (buf->str && (rem = ft_memchr(buf->str, '\n', buf->len)))
 		{
-			line->str = ft_memsub(buf->str, 0, rem - buf->str + lb, FALSE);
+			line->str = ft_memsub(buf->str, 0, rem - buf->str + lb, False);
 			line->len = rem - buf->str + lb;
 			buf->len = (buf->str + buf->len) - rem - 1;
-			buf->str = ft_memsub(buf->str, rem - buf->str + 1, buf->len, TRUE);
+			buf->str = ft_memsub(buf->str, rem - buf->str + 1, buf->len, True);
 			return (line->str ? line->str != NULL : -1);
 		}
 		else

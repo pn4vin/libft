@@ -88,7 +88,7 @@ void	put_integer(t_node **content, t_spec *spec)
 	t_nbr	nbr;
 
 	nbr = *(t_nbr *)get_next_arg(spec, NULL, NULL);
-	expanded = itoa_deluxe(nbr, spec, 10, TRUE);
+	expanded = itoa_deluxe(nbr, spec, 10, True);
 	spec->flags &= spec->prec >= 0 ? ~zero : ~none;
 	sign = add_sign(nbr, spec);
 	if (spec->flags & minus)
@@ -123,7 +123,7 @@ void	put_uxob(t_node **content, t_spec *spec)
 	char			*prefix;
 
 	nbr = *(t_nbr *)get_next_arg(spec, NULL, NULL);
-	expanded = itoa_deluxe(nbr, spec, spec->base, FALSE);
+	expanded = itoa_deluxe(nbr, spec, spec->base, False);
 	spec->flags &= spec->prec >= 0 ? ~zero : ~none;
 	prefix = get_prefix(spec, expanded, nbr);
 	if (spec->flags & minus)

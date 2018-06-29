@@ -28,15 +28,15 @@
 **             13     |  carriage return
 **
 ** @param str String to be tested
-** @return TRUE if string contains only space characters, otherwise FALSE
+** @return True if string contains only space characters, otherwise False
 */
 
 t_bool	ft_strispaces(char *str)
 {
 	if (!str)
-		return (FALSE);
+		return (False);
 	while (*str)
 		if (!ft_isspace(*str++))
-			return (FALSE);
-	return (TRUE);
+			return (False);
+	return (True);
 }

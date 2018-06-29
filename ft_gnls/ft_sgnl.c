@@ -98,7 +98,7 @@ int				ft_sgnl(const int fd, char **line)
 			if (!(r = read(fd, buf, BUF_SIZE)) || r == -1 || buf[0] == '\0')
 				return (ft_parse_eof(&str, line, r));
 			buf[r] = '\0';
-			ft_substitute(&str, ft_concat(str, buf, FALSE));
+			ft_substitute(&str, ft_concat(str, buf, False));
 		}
 	}
 }

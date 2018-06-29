@@ -26,9 +26,9 @@
 static void	*map_type(t_spec *spec, va_list arg)
 {
 	if (ft_strchr("XxOoBbUup", spec->type))
-		return (fetch_nbr(spec->length, spec->type, arg, FALSE));
+		return (fetch_nbr(spec->length, spec->type, arg, False));
 	else if (ft_strchr("idD", spec->type))
-		return (fetch_nbr(spec->length, spec->type, arg, TRUE));
+		return (fetch_nbr(spec->length, spec->type, arg, True));
 	else if (ft_strchr("rsS", spec->type))
 		return (spec->type == 'S' || spec->length == l ? va_arg(arg, wchar_t *)
 										: va_arg(arg, int *));

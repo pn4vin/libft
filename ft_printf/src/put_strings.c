@@ -158,17 +158,17 @@ void	put_date(t_node **content, t_spec *spec)
 	spec->prec = 2;
 	tm = time(NULL);
 	nbr.u = 1970UL + tm / 86400UL / 365UL;
-	expand = itoa_deluxe(nbr, spec, 10, FALSE);
+	expand = itoa_deluxe(nbr, spec, 10, False);
 	expand_n(content, expand, ft_slen(expand));
 	expand_n(content, "-", 1);
 	free(expand);
 	nbr.u = (tm / 86400UL * 31UL) % 12UL + 1UL;
-	expand = itoa_deluxe(nbr, spec, 10, FALSE);
+	expand = itoa_deluxe(nbr, spec, 10, False);
 	expand_n(content, expand, ft_slen(expand));
 	expand_n(content, "-", 1);
 	free(expand);
 	nbr.u = (tm / 86400UL) % 30 - 12 + 1;
-	expand = itoa_deluxe(nbr, spec, 10, FALSE);
+	expand = itoa_deluxe(nbr, spec, 10, False);
 	expand_n(content, expand, ft_slen(expand));
 	free(expand);
 }

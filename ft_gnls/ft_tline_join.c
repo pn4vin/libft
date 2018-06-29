@@ -23,7 +23,7 @@
 
 void	ft_tline_join(t_line *left, t_line *right)
 {
-	left->str = ft_realloc(left->str, left->len, left->len + right->len, TRUE);
+	left->str = ft_realloc(left->str, left->len, left->len + right->len, True);
 	ft_memcpy(left->str + left->len, right->str, right->len);
 	left->len = left->len + right->len;
 }
