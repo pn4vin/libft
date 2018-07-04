@@ -58,7 +58,7 @@ void		add_pad(t_node **content, t_spec *spec, size_t explen)
 			}
 			i++;
 		}
-		expand_n(content, pad, n);
+		expand_n(content, pad, n);y
 		free(pad);
 	}
 }
