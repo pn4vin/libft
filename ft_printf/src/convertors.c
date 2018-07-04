@@ -51,7 +51,7 @@ void		add_pad(t_node **content, t_spec *spec, size_t explen)
 				pad[i] = (char)(spec->flags & zero ? '0' : ' ');
 			else
 			{
-				if (spec->flags * zero && !(spec->flags & minus))
+				if (spec->flags & zero && !(spec->flags & minus))
 					pad[i] = '0';
 				else
 					pad[i] = ' ';
