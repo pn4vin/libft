@@ -3,8 +3,6 @@ LIBNAME = libft.a
 
 ######################### LIBFT #########################
 
-# FT_PRINTF
-
 PRINTF_O = $(addprefix $(ODIR)/, $(PRINTF_SRCS:.c=.o))
 
 ######################### GNLS ##########################
@@ -44,7 +42,6 @@ $(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(MATH_O) $(TELL_O) $(PRINTF_O) $
 	@ar rc $(LIBNAME) $(PRINTF_O) $(GNL_O) $(MATH_O) $(MEM_O) $(LST_O) $(STR_O) $(STRNUM_O) $(TELL_O)
 	@ranlib $(LIBNAME)
 	@echo ${GREEN}"[$(LIBNAME) is up to date.]"${NC}
-
 
 $(GNL_O):
 	@echo ${CYAN}"Compiling ft_gnls"${NC}
