@@ -37,9 +37,6 @@ STRNUM_O = $(addprefix $(ODIR)/, $(STRNUM_SRCS:.c=.o))
 
 ######################### MAKE_BEGIN ##########################
 
-
-.PHONY: $(GNLS)
-
 all: $(LIBNAME)
 
 $(LIBNAME): $(ODIR) $(GNL_O) $(LST_O) $(MEM_O) $(MATH_O) $(TELL_O) $(PRINTF_O) $(STR_O) $(STRNUM_O)
@@ -89,10 +86,10 @@ $(STRNUM_O):
 	@make -C $(STRNUM_DIR)
 	@/bin/echo ""
 
-
 $(ODIR):
 	@mkdir -p $(ODIR)
-	@mkdir -p $(ODIR)/$(FT_PRINTFDIR)
+
+######################### MAKE_END ##########################
 
 clean:
 	@echo ${RED}"[Removing *.o files]"${NC}
