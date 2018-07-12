@@ -18,6 +18,7 @@
 # define MALLCHECK(x) if (!(x)) return (0);
 
 typedef unsigned long long	t_ull;
+typedef unsigned int		t_uint;
 typedef unsigned char		t_uc;
 
 typedef enum	e_bool
