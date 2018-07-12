@@ -106,7 +106,7 @@ size_t		parse_specifier(const char *format)
 ** @return     String with all conversions applied (neat-o)
 */
 
-char		*process_format(const char *format, t_node **content)
+char		*process_format(const char *format, t_printf_node **content)
 {
 	size_t		speclen;
 	t_spec		*spec;
@@ -142,10 +142,10 @@ char		*process_format(const char *format, t_node **content)
 
 int			ft_printf(const char *format, ...)
 {
-	va_list	args;
-	t_node	*content;
-	char	*combined;
-	int		len;
+	va_list			args;
+	t_printf_node	*content;
+	char			*combined;
+	int				len;
 
 	content = NULL;
 	va_start(args, format);

@@ -24,8 +24,8 @@
 
 char	*ft_vsprintf(const char *format, va_list va_start)
 {
-	t_node	*content;
-	char	*res;
+	t_printf_node	*content;
+	char			*res;
 
 	content = NULL;
 	get_next_arg(NULL, va_start, format);

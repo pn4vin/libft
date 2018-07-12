@@ -44,7 +44,7 @@ typedef struct	s_printf_node
 	char					content[LSTCAP];
 	size_t					len;
 	struct s_printf_node	*next;
-}				t_node;
+}				t_printf_node;
 
 typedef enum	e_flags
 {
@@ -86,7 +86,7 @@ typedef union	u_nbr
 	long long			i;
 }				t_nbr;
 
-typedef void	(*t_specptr)(t_node **content, t_spec *spec);
+typedef void	(*t_specptr)(t_printf_node **content, t_spec *spec);
 
 typedef struct	s_color
 {
@@ -110,19 +110,19 @@ int				ft_vprintf(const char *format, va_list va_start);
 int				ft_vdprintf(int fd, const char *format, va_list va_start);
 char			*ft_vsprintf(const char *format, va_list va_start);
 
-char			*process_format(const char *format, t_node **content);
+char			*process_format(const char *format, t_printf_node **content);
 
 long long		ft_labs(long long value);
-t_node			*init_node(void);
-size_t			content_size(t_node *head);
-void			expand_n(t_node **head, const char *append, size_t n);
-char			*collect_content(t_node *head);
-void			clean_lst(t_node **alst);
+t_printf_node	*init_node(void);
+size_t			content_size(t_printf_node *head);
+void			expand_n(t_printf_node **head, const char *append, size_t n);
+char			*collect_content(t_printf_node *head);
+void			clean_lst(t_printf_node **alst);
 size_t			parse_specifier(const char *format);
 ssize_t			get_int_length(ssize_t integer);
 int				parse_pos(const char *format, int speclen);
 t_bool			is_valid_type(int c);
-size_t			colorize(t_node **content, const char *format);
+size_t			colorize(t_printf_node **content, const char *format);
 t_nbr			*fetch_nbr(t_length len, char type, va_list arg, t_bool is_int);
 t_flags			parse_flags(const char *spec, size_t len);
 int				parse_width(t_spec *spec, const char *str, size_t len);
@@ -132,18 +132,18 @@ void			*get_next_arg(t_spec *spec, va_list init, const char *format);
 char			*get_prefix(t_spec *spec, char *expanded, t_nbr nbr);
 char			*get_nonprintables(t_spec *spec, char *s);
 size_t			nonprintable_size(char *s, t_bool cnt);
-void			add_pad(t_node **content, t_spec *spec, size_t explen);
+void			add_pad(t_printf_node **content, t_spec *spec, size_t explen);
 
 char			*itoa_deluxe(t_nbr nbr, t_spec *spec, int base, t_bool is_int);
 
-void			put_integer(t_node **content, t_spec *spec);
-void			put_uxob(t_node **content, t_spec *spec);
-void			put_string(t_node **content, t_spec *spec);
-void			put_percent(t_node **content, t_spec *spec);
-void			put_char(t_node **content, t_spec *spec);
-void			put_written_chars(t_node **content, t_spec *spec);
-void			put_nonprintable(t_node **content, t_spec *spec);
-void			put_address(t_node **content, t_spec *spec);
-void			put_date(t_node **content, t_spec *spec);
-void			put_generic(t_node **content, t_spec *spec);
+void			put_integer(t_printf_node **content, t_spec *spec);
+void			put_uxob(t_printf_node **content, t_spec *spec);
+void			put_string(t_printf_node **content, t_spec *spec);
+void			put_percent(t_printf_node **content, t_spec *spec);
+void			put_char(t_printf_node **content, t_spec *spec);
+void			put_written_chars(t_printf_node **content, t_spec *spec);
+void			put_nonprintable(t_printf_node **content, t_spec *spec);
+void			put_address(t_printf_node **content, t_spec *spec);
+void			put_date(t_printf_node **content, t_spec *spec);
+void			put_generic(t_printf_node **content, t_spec *spec);
 #endif

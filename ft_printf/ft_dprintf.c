@@ -24,10 +24,10 @@
 
 int		ft_dprintf(int fd, const char *format, ...)
 {
-	va_list	args;
-	t_node	*content;
-	char	*combined;
-	int		len;
+	va_list			args;
+	t_printf_node	*content;
+	char			*combined;
+	int				len;
 
 	content = NULL;
 	va_start(args, format);

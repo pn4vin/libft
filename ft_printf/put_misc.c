@@ -20,7 +20,7 @@
 ** @param      spec     The specifier
 */
 
-void	put_percent(t_node **content, t_spec *spec)
+void	put_percent(t_printf_node **content, t_spec *spec)
 {
 	size_t	explen;
 	char	*expanded;
@@ -47,7 +47,7 @@ void	put_percent(t_node **content, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_address(t_node **content, t_spec *spec)
+void	put_address(t_printf_node **content, t_spec *spec)
 {
 	char			*expanded;
 	char			*prefix;
@@ -76,7 +76,7 @@ void	put_address(t_node **content, t_spec *spec)
 	free(expanded);
 }
 
-void	put_written_chars(t_node **content, t_spec *spec)
+void	put_written_chars(t_printf_node **content, t_spec *spec)
 {
 	int	*expand;
 
@@ -96,7 +96,7 @@ void	put_written_chars(t_node **content, t_spec *spec)
 ** @return Length of format string to surpass
 */
 
-size_t	colorize(t_node **content, const char *format)
+size_t	colorize(t_printf_node **content, const char *format)
 {
 	size_t	i;
 	t_color	col;

@@ -81,7 +81,7 @@ char	*add_sign(t_nbr nbr, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_integer(t_node **content, t_spec *spec)
+void	put_integer(t_printf_node **content, t_spec *spec)
 {
 	char	*expanded;
 	char	*sign;
@@ -116,7 +116,7 @@ void	put_integer(t_node **content, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_uxob(t_node **content, t_spec *spec)
+void	put_uxob(t_printf_node **content, t_spec *spec)
 {
 	t_nbr			nbr;
 	char			*expanded;

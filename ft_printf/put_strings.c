@@ -20,7 +20,7 @@
 ** @param      spec     The specifier
 */
 
-void	put_string(t_node **content, t_spec *spec)
+void	put_string(t_printf_node **content, t_spec *spec)
 {
 	size_t	len;
 	char	*s;
@@ -56,7 +56,7 @@ void	put_string(t_node **content, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_char(t_node **content, t_spec *spec)
+void	put_char(t_printf_node **content, t_spec *spec)
 {
 	char	*expanded;
 	long	c;
@@ -89,7 +89,7 @@ void	put_char(t_node **content, t_spec *spec)
 ** @return     1 (as a number of successfully written symbols)
 */
 
-void	put_generic(t_node **content, t_spec *spec)
+void	put_generic(t_printf_node **content, t_spec *spec)
 {
 	char	*expanded;
 
@@ -115,7 +115,7 @@ void	put_generic(t_node **content, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_nonprintable(t_node **content, t_spec *spec)
+void	put_nonprintable(t_printf_node **content, t_spec *spec)
 {
 	char	*expand;
 	size_t	len;
@@ -149,7 +149,7 @@ void	put_nonprintable(t_node **content, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_date(t_node **content, t_spec *spec)
+void	put_date(t_printf_node **content, t_spec *spec)
 {
 	time_t	tm;
 	t_nbr	nbr;

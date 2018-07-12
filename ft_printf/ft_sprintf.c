@@ -23,9 +23,9 @@
 
 char	*ft_sprintf(const char *format, ...)
 {
-	va_list	args;
-	t_node	*content;
-	char	*res;
+	va_list			args;
+	t_printf_node	*content;
+	char			*res;
 
 	content = NULL;
 	va_start(args, format);
