@@ -14,7 +14,7 @@
 #include "ft_tell.h"
 
 /*
-** @brief      Output <message> to <where> and stop program execution with
+** @brief      Output <message> to STDERR and stop program execution with
 **             <exit_value> return value.
 **
 ** @param      message  The message
