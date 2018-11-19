@@ -1,5 +1,8 @@
 include colors.mk constants.mk sources.mk
 LIBNAME = libft.a
+LIBFTDIR = .
+LIBFT_SRCDIR = $(LIBFTDIR)/sources
+LIBFT_INCDIR = $(LIBFTDIR)/includes
 
 ######################### LIBFT #########################
 
