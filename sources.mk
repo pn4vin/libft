@@ -8,7 +8,7 @@ PRINTF_SRCS = convertors.c ft_dprintf.c ft_printf.c ft_sprintf.c lst.c parsers.c
 PRINTF_INDS = ft_printf.h
 
 GNLS_DIR = ./ft_gnls
-GNLS_SRCS = ft_gnl.c ft_gnl_v2.c ft_sgnl.c ft_tline_replace.c ft_tline_join.c
+GNLS_SRCS = ft_gnl.c ft_gnl_v2.c ft_sgnl.c ft_gnw.c ft_tline_replace.c ft_tline_join.c
 GNLS_INCDS = ft_gnls.h
 
 MATH_DIR = ./ft_math
@@ -46,7 +46,7 @@ STR_SRCS = ft_strnew.c ft_strdel.c ft_strclr.c ft_strdup.c \
 			ft_strtoutf8.c ft_wchrlen.c ft_wcslen.c ft_wctomb.c ft_wcstombs.c \
 			ft_startswith.c ft_endswith.c \
 			ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
-			ft_isspace.c ft_isupper.c ft_strcnt.c ft_strispaces.c
+			ft_isspace.c ft_isupper.c ft_strcnt.c ft_strispaces.c ft_splitspace.c
 STR_INCDS = ft_str.h
 
 STRNUM_DIR = ./ft_strnum

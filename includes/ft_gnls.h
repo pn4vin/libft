@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnls.h                                             :+:      :+:    :+:   */
+/*   ft_gnls.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 19:02:30 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/05/22 19:04:07 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/12/19 13:07:39 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ t_line				*init_line(void);
 void				clean_t_line(t_line **line);
 void				ft_tline_replace(t_line *dst, t_line *src);
 void				ft_tline_join(t_line *left, t_line *right);
+int					ft_gnw(int fd, char **word);
 
 #endif

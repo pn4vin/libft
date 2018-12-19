@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/26 16:11:58 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/05/26 16:13:20 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/12/19 13:06:43 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int					ft_strnequ(const char *s1, const char *s2, size_t n);
 char				*ft_strsub(const char *s, unsigned int start, size_t len);
 char				*ft_strtrim(const char *s);
 char				**ft_strsplit(const char *s, char c);
+char				**ft_splitspace(const char *s);
 char				*ft_strtok(char *str, char *sep);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_sjoin(int cnt, ...);
