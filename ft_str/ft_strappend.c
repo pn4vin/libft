@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_strappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/28 18:18:06 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/06/28 18:18:22 by ptyshevs         ###   ########.fr       */
+/*   Created: 2019/01/15 23:08:20 by ptyshevs          #+#    #+#             */
+/*   Updated: 2019/01/15 23:08:52 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
+#include "ft_str.h"
+#include "ft_memory.h"
 
-long long	ft_pow(int base, int exponent)
+char	*ft_strappend(char *s, char c)
 {
-	long long	res;
-	int			i;
+	char	*r;
+	size_t	len;
 
-	res = 1;
-	i = 0;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
-}
-
-double		ft_dpow(double base, int exponent)
-{
-	double	res;
-	int		i;
-
-	res = 1;
-	i = 0;
-	if (exponent < 0)
-		exponent *= -1;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+	len = ft_slen(s);
+	r = ft_strnew(len + 1);
+	ft_memcpy(r, s, len);
+	r[len] = c;
+	free(s);
+	return (r);
 }

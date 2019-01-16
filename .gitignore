@@ -1,4 +1,5 @@
 *.a
+.vscode
 obj
 *.o
 cmake-build-debug

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_posargs.c                                :+:      :+:    :+:   */
+/*   pos_args.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 13:44:37 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/02/11 11:22:34 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2018/01/04 20:40:52 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ static void	*map_type(t_spec *spec, va_list arg)
 {
 	if (ft_strchr("XxOoBbUup", spec->type))
 		return (fetch_nbr(spec->length, spec->type, arg, False));
-	else if (ft_strchr("idD", spec->type))
+	else if (ft_strchr("idDq", spec->type))
 		return (fetch_nbr(spec->length, spec->type, arg, True));
+	else if (ft_strchr("Ff", spec->type))
+		return (fetch_float(spec->length, arg));
 	else if (ft_strchr("rsS", spec->type))
 		return (spec->type == 'S' || spec->length == l ? va_arg(arg, wchar_t *)
 										: va_arg(arg, int *));

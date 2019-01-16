@@ -70,6 +70,10 @@ t_specptr	map_function(const char *specifier, ssize_t len)
 		return (put_nonprintable);
 	else if (specifier[len - 1] == 'k')
 		return (put_date);
+	else if (specifier[len - 1] == 'q')
+		return (put_fd);
+	else if (specifier[len - 1] == 'f' || specifier[len - 1] == 'F')
+		return (put_float);
 	else
 		return (put_generic);
 }
@@ -90,7 +94,7 @@ size_t		parse_specifier(const char *format)
 	while (*format)
 	{
 		if ((is_valid_type(*format)) ||
-				!ft_strchr("0123456789#+-. *$lLthzj,:;_", *format))
+				!ft_strchr("0123456789#+-. *$lLthzj,:;_'", *format))
 			return (format - start + 1);
 		format++;
 	}
@@ -106,7 +110,7 @@ size_t		parse_specifier(const char *format)
 ** @return     String with all conversions applied (neat-o)
 */
 
-char		*process_format(const char *format, t_printf_node **content)
+char		*process_format(const char *format, t_node **content)
 {
 	size_t		speclen;
 	t_spec		*spec;
@@ -143,7 +147,7 @@ char		*process_format(const char *format, t_printf_node **content)
 int			ft_printf(const char *format, ...)
 {
 	va_list			args;
-	t_printf_node	*content;
+	t_node			*content;
 	char			*combined;
 	int				len;
 

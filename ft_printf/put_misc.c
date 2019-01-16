@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_gnls.h"
 #include "ft_printf.h"
 #include "ft_str.h"
 
@@ -20,7 +21,7 @@
 ** @param      spec     The specifier
 */
 
-void	put_percent(t_printf_node **content, t_spec *spec)
+void	put_percent(t_node **content, t_spec *spec)
 {
 	size_t	explen;
 	char	*expanded;
@@ -47,7 +48,7 @@ void	put_percent(t_printf_node **content, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_address(t_printf_node **content, t_spec *spec)
+void	put_address(t_node **content, t_spec *spec)
 {
 	char			*expanded;
 	char			*prefix;
@@ -76,7 +77,12 @@ void	put_address(t_printf_node **content, t_spec *spec)
 	free(expanded);
 }
 
-void	put_written_chars(t_printf_node **content, t_spec *spec)
+/*
+** @brief           %n - write number of chars formatted so far into pointer to
+**                  integer
+*/
+
+void	put_written_chars(t_node **content, t_spec *spec)
 {
 	int	*expand;
 
@@ -96,7 +102,7 @@ void	put_written_chars(t_printf_node **content, t_spec *spec)
 ** @return Length of format string to surpass
 */
 
-size_t	colorize(t_printf_node **content, const char *format)
+size_t	colorize(t_node **content, const char *format)
 {
 	size_t	i;
 	t_color	col;
@@ -114,6 +120,28 @@ size_t	colorize(t_printf_node **content, const char *format)
 				return (ft_slen(col.color));
 			}
 		}
+		expand_n(content, "{", 1);
+		return (1);
 	}
 	return (0);
+}
+
+/*
+** @brief         %q - write a line from fd provided as an argument
+**
+** @notes         requires you to provide file descriptor every time. To avoid
+**                this, just use %<n>$q, where n is the position of fd in an
+**                argument list
+*/
+
+void	put_fd(t_node **content, t_spec *spec)
+{
+	t_nbr	nbr;
+	char	*tmp;
+
+	tmp = NULL;
+	nbr = *(t_nbr *)get_next_arg(spec, NULL, NULL);
+	if (ft_sgnl((int)nbr.i, &tmp) > 0)
+		expand_n(content, tmp, ft_slen(tmp));
+	ft_memdel((void **)&tmp);
 }

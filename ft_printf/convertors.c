@@ -34,7 +34,7 @@ long long	ft_labs(long long value)
 ** @param      explen   Length of the expanded placeholder
 */
 
-void		add_pad(t_printf_node **content, t_spec *spec, size_t explen)
+void		add_pad(t_node **content, t_spec *spec, size_t explen)
 {
 	char	*pad;
 	size_t	n;

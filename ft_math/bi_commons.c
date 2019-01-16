@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   bi_commons.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/28 18:18:06 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/06/28 18:18:22 by ptyshevs         ###   ########.fr       */
+/*   Created: 2019/01/13 19:25:05 by ptyshevs          #+#    #+#             */
+/*   Updated: 2019/01/13 20:58:45 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-long long	ft_pow(int base, int exponent)
-{
-	long long	res;
-	int			i;
+/*
+** @brief zero (0) in big integer format
+**
+** @return t_bigint*
+*/
 
-	res = 1;
-	i = 0;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+t_bigint	*bi_zero(void)
+{
+	t_bigint	*n;
+
+	n = bi_alloc(1);
+	return (n);
 }
 
-double		ft_dpow(double base, int exponent)
-{
-	double	res;
-	int		i;
+/*
+** @brief One (1) in big integer format
+**
+** @return t_bigint*
+*/
 
-	res = 1;
-	i = 0;
-	if (exponent < 0)
-		exponent *= -1;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+t_bigint	*bi_one(void)
+{
+	t_bigint	*n;
+
+	n = bi_zero();
+	n->arr[0] = 1;
+	return (n);
 }

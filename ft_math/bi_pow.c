@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   bi_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/28 18:18:06 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/06/28 18:18:22 by ptyshevs         ###   ########.fr       */
+/*   Created: 2019/01/15 19:24:13 by ptyshevs          #+#    #+#             */
+/*   Updated: 2019/01/15 19:24:16 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-long long	ft_pow(int base, int exponent)
+/*
+** @brief Exponentiation of big integer using repeating multiplication
+**
+** @param a base
+** @param n exponent
+** @return t_bigint*
+*/
+
+t_bigint	*bi_pow(t_bigint *a, int n)
 {
-	long long	res;
+	t_bigint	*r;
 	int			i;
 
-	res = 1;
+	if (n < 0)
+		return (bi_zero());
+	r = bi_one();
+	if (n == 0)
+		return (r);
 	i = 0;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
-}
-
-double		ft_dpow(double base, int exponent)
-{
-	double	res;
-	int		i;
-
-	res = 1;
-	i = 0;
-	if (exponent < 0)
-		exponent *= -1;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+	while (i < n)
+	{
+		bi_imul(r, a);
+		i++;
+	}
+	return (r);
 }

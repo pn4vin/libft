@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   bi_iadd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/28 18:18:06 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/06/28 18:18:22 by ptyshevs         ###   ########.fr       */
+/*   Created: 2019/01/15 19:39:08 by ptyshevs          #+#    #+#             */
+/*   Updated: 2019/01/15 19:39:22 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-long long	ft_pow(int base, int exponent)
+/*
+** @brief Inplace addition. Results are stored in the first operand.
+**
+** @param a
+** @param b
+** @return t_bigint*
+*/
+
+t_bigint	*bi_iadd(t_bigint *a, t_bigint *b)
 {
-	long long	res;
-	int			i;
+	t_bigint	*n;
 
-	res = 1;
-	i = 0;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
-}
-
-double		ft_dpow(double base, int exponent)
-{
-	double	res;
-	int		i;
-
-	res = 1;
-	i = 0;
-	if (exponent < 0)
-		exponent *= -1;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+	n = bi_add(a, b);
+	bi_replace(a, n);
+	free(n);
+	return (a);
 }

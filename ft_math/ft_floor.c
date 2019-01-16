@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_floor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/28 18:18:06 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/06/28 18:18:22 by ptyshevs         ###   ########.fr       */
+/*   Created: 2019/01/15 20:38:03 by ptyshevs          #+#    #+#             */
+/*   Updated: 2019/01/15 20:38:43 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-long long	ft_pow(int base, int exponent)
+/*
+** @brief Simple floor (please don't use with big numbers, pretty please)
+**
+** @param v
+** @return double
+*/
+
+double	ft_floor(double v)
 {
-	long long	res;
-	int			i;
+	t_ull	convert_to;
 
-	res = 1;
-	i = 0;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
-}
-
-double		ft_dpow(double base, int exponent)
-{
-	double	res;
-	int		i;
-
-	res = 1;
-	i = 0;
-	if (exponent < 0)
-		exponent *= -1;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+	convert_to = (t_ull)v;
+	return ((double)convert_to);
 }

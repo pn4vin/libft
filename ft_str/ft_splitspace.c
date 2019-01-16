@@ -6,7 +6,7 @@
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 12:26:16 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/12/19 13:08:49 by ptyshevs         ###   ########.fr       */
+/*   Updated: 2019/01/17 00:45:16 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static char		**unleak(char ***atab, int i)
 
 /*
 ** @brief      Create an array of strings obtained by splitting s by
-               ASCII whitespace characters
+**             ASCII whitespace characters
 **
 ** @param      s     String to be splitted
 ** @param      c     Delimiter

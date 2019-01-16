@@ -13,11 +13,11 @@
 #include "ft_printf.h"
 #include "ft_str.h"
 
-t_printf_node	*init_node(void)
+t_node			*init_node(void)
 {
-	t_printf_node	*node;
+	t_node	*node;
 
-	node = (t_printf_node *)malloc(sizeof(t_printf_node));
+	node = (t_node *)malloc(sizeof(t_node));
 	node->len = 0;
 	node->next = NULL;
 	return (node);
@@ -31,9 +31,9 @@ t_printf_node	*init_node(void)
 ** @param      n       Number of bytes to append
 */
 
-void			expand_n(t_printf_node **head, const char *append, size_t n)
+void			expand_n(t_node **head, const char *append, size_t n)
 {
-	t_printf_node	*tmp;
+	t_node	*tmp;
 
 	if (append == NULL)
 		return ;
@@ -63,9 +63,9 @@ void			expand_n(t_printf_node **head, const char *append, size_t n)
 ** @param      alst  The alst
 */
 
-void			clean_lst(t_printf_node **alst)
+void			clean_lst(t_node **alst)
 {
-	t_printf_node		*next;
+	t_node		*next;
 
 	if (alst)
 	{
@@ -86,7 +86,7 @@ void			clean_lst(t_printf_node **alst)
 ** @return     Total size
 */
 
-size_t			content_size(t_printf_node *head)
+size_t			content_size(t_node *head)
 {
 	size_t	size;
 
@@ -96,7 +96,7 @@ size_t			content_size(t_printf_node *head)
 	return (size);
 }
 
-char			*collect_content(t_printf_node *head)
+char			*collect_content(t_node *head)
 {
 	char	*collect;
 	size_t	i;

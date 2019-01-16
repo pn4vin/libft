@@ -25,7 +25,7 @@
 int		ft_dprintf(int fd, const char *format, ...)
 {
 	va_list			args;
-	t_printf_node	*content;
+	t_node			*content;
 	char			*combined;
 	int				len;
 

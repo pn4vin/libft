@@ -56,6 +56,8 @@ t_flags		parse_flags(const char *spec, size_t len)
 			flags |= space;
 		else if (spec[i] == '#' && !(flags & hash))
 			flags |= hash;
+		else if (spec[i] == '\'' && !(flags & apstr))
+			flags |= apstr;
 		i--;
 	}
 	return (flags);

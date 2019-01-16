@@ -28,7 +28,7 @@ t_nbr	*fetch_nbr(t_length length, char type, va_list arg, t_bool is_int)
 {
 	static t_nbr nbr;
 
-	if ((nbr.u = 0) || length == l || ft_strchr("DOUp", type))
+	if ((nbr.u = 0) || length == l || ft_strchr("DOUBp", type))
 		is_int ? (unsigned long long int)(nbr.i = va_arg(arg, long int))
 			: (nbr.u = va_arg(arg, unsigned long int));
 	else if (length == ll)
@@ -74,6 +74,35 @@ char	*add_sign(t_nbr nbr, t_spec *spec)
 		return (NULL);
 }
 
+char	*with_apostrophe(char *nbr, t_spec *spec)
+{
+	int		f;
+	char	*tmp;
+	int		i;
+	int		j;
+
+	if (!(spec->flags & apstr) || ft_slen(localeconv()->mon_thousands_sep) == 0)
+		return (nbr);
+	if (!(f = (int)(ft_slen(nbr) / 3 - (ft_slen(nbr) % 3 == 0))))
+		return (nbr);
+	tmp = ft_strnew(ft_slen(nbr) + f);
+	i = (int)(ft_slen(nbr) - 1);
+	while (f >= 0)
+	{
+		j = 0;
+		while (j++ < 3 && i >= 0)
+		{
+			tmp[i + f] = nbr[i];
+			i--;
+		}
+		if ((i + f) >= 0)
+			tmp[i + f] = localeconv()->mon_thousands_sep[0];
+		f--;
+	}
+	ft_strdel(&nbr);
+	return (tmp);
+}
+
 /*
 ** @brief      Process %[idD] placeholder
 **
@@ -81,14 +110,14 @@ char	*add_sign(t_nbr nbr, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_integer(t_printf_node **content, t_spec *spec)
+void	put_integer(t_node **content, t_spec *spec)
 {
 	char	*expanded;
 	char	*sign;
 	t_nbr	nbr;
 
 	nbr = *(t_nbr *)get_next_arg(spec, NULL, NULL);
-	expanded = itoa_deluxe(nbr, spec, 10, True);
+	expanded = with_apostrophe(itoa_deluxe(nbr, spec, 10, True), spec);
 	spec->flags &= spec->prec >= 0 ? ~zero : ~none;
 	sign = add_sign(nbr, spec);
 	if (spec->flags & minus)
@@ -116,7 +145,7 @@ void	put_integer(t_printf_node **content, t_spec *spec)
 ** @param      spec     The specifier
 */
 
-void	put_uxob(t_printf_node **content, t_spec *spec)
+void	put_uxob(t_node **content, t_spec *spec)
 {
 	t_nbr			nbr;
 	char			*expanded;

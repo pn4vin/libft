@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   bi_ceq.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/28 18:18:06 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/06/28 18:18:22 by ptyshevs         ###   ########.fr       */
+/*   Created: 2019/01/16 22:15:37 by ptyshevs          #+#    #+#             */
+/*   Updated: 2019/01/16 22:16:40 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-long long	ft_pow(int base, int exponent)
+/*
+** @brief Check if big integer is equal to regular one
+**
+** @param a big integer
+** @param b integer to compare to
+** @return t_bool True if equal, otherwise False
+*/
+
+t_bool	bi_ceq(t_bigint *a, int b)
 {
-	long long	res;
-	int			i;
-
-	res = 1;
-	i = 0;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
-}
-
-double		ft_dpow(double base, int exponent)
-{
-	double	res;
-	int		i;
-
-	res = 1;
-	i = 0;
-	if (exponent < 0)
-		exponent *= -1;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+	if (a->size != 1 || a->arr[0] != b)
+		return (False);
+	return (True);
 }

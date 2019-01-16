@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptyshevs <ptyshevs@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/28 18:18:06 by ptyshevs          #+#    #+#             */
-/*   Updated: 2018/06/28 18:18:22 by ptyshevs         ###   ########.fr       */
+/*   Created: 2019/01/15 19:30:01 by ptyshevs          #+#    #+#             */
+/*   Updated: 2019/01/15 19:31:21 by ptyshevs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
+#include "ft_str.h"
 
-long long	ft_pow(int base, int exponent)
+char	*ft_strrev(char *str)
 {
-	long long	res;
-	int			i;
+	size_t	i;
+	size_t	m;
+	char	tmp;
 
-	res = 1;
 	i = 0;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
-}
-
-double		ft_dpow(double base, int exponent)
-{
-	double	res;
-	int		i;
-
-	res = 1;
-	i = 0;
-	if (exponent < 0)
-		exponent *= -1;
-	while (i++ < exponent)
-		res *= base;
-	return (res);
+	m = ft_slen(str);
+	while (i < m / 2)
+	{
+		tmp = str[i];
+		str[i] = str[m - 1 - i];
+		str[m - 1 - i] = tmp;
+		i++;
+	}
+	return (str);
 }
