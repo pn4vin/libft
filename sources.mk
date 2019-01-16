@@ -14,7 +14,11 @@ GNLS_SRCS = ft_gnl.c ft_gnl_v2.c ft_sgnl.c ft_gnw.c ft_tline_replace.c ft_tline_
 GNLS_INCDS = ft_gnls.h
 
 MATH_DIR = ./ft_math
-MATH_SRCS = ft_pow.c
+MATH_SRCS = ft_pow.c ft_fabs.c bi_add.c bi_blocks.c bi_cmul.c bi_commons.c \
+        bi_convert.c bi_div.c bi_helpers.c bi_iadd.c bi_idiv.c bi_imul.c \
+        bi_is_divisible.c bi_isub.c bi_memory.c bi_mul.c bi_pow.c bi_ceq.c \
+        bi_shift.c bi_showtime.c bi_sub.c  bi_comparisons.c ft_floor.c \
+        bi_increment.c
 MATH_INCDS = ft_math.h
 
 MEM_DIR = ./ft_memory
