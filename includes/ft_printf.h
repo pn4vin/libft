@@ -99,9 +99,10 @@ typedef struct	s_spec
 typedef union	u_nbr
 {
 	unsigned long long	u;
+	__uint128_t			lu;
 	long long			i;
 	double				d;
-	float				f;
+	long double			ld;
 }				t_nbr;
 
 typedef void	(*t_specptr)(t_node **content, t_spec *spec);

@@ -163,6 +163,8 @@ t_length	parse_length(const char *spec, ssize_t len)
 		length = hh;
 	if (ft_memchr(spec, 'h', len) && !ndl && h > length)
 		length = h;
+	if (ft_memchr(spec, 'L', len))
+		length = L;
 	return (length);
 }
 
