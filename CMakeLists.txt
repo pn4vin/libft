@@ -14,6 +14,3 @@ set(INCLUDES includes)
 add_library(ft STATIC ${GNLS} ${LIBFT} ${PRINTF} ${MATH} ${MEMORY} ${LST}
         ${TELL} ${STR} ${STRNUM} ${INCLUDES})
 include_directories(${INCLUDES})
-
-add_executable(main main.c)
-target_link_libraries(main ft)
