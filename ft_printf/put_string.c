@@ -59,12 +59,12 @@ void	put_string(t_node **content, t_spec *spec)
 void	put_char(t_node **content, t_spec *spec)
 {
 	char	*expanded;
-	int		c;
+	size_t	c;
 	size_t	explen;
 	t_bool	is_utf8;
 
 	is_utf8 = (t_bool)(spec->type == 'C' || spec->length == l);
-	c = (int)get_next_arg(spec, NULL, NULL);
+	c = (size_t)get_next_arg(spec, NULL, NULL);
 	if (is_utf8 && MB_CUR_MAX == 4)
 		expanded = ft_wcrtomb(c);
 	else
@@ -72,7 +72,7 @@ void	put_char(t_node **content, t_spec *spec)
 		expanded = ft_strnew(1);
 		expanded[0] = (unsigned char)c;
 	}
-	explen = (size_t)(is_utf8 && MB_CUR_MAX == 4 ? ft_wcharlen(c) : 1);
+	explen = (size_t)(is_utf8 && MB_CUR_MAX == 4 ? ft_wcharlen((int)c) : 1);
 	spec->flags & minus ? expand_n(content, expanded, explen) :
 							add_pad(content, spec, explen);
 	spec->flags & minus ? add_pad(content, spec, explen) :
